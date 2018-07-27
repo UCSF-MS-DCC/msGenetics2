@@ -4,27 +4,54 @@ module HomeHelper
       output = {}
       # number of patients with samples of the various types
       output[:sample_types] = []
-      s_types = %w(plasma serum pax blood dna hla)
+      s_types = %w(plasma serum dna)
+      pop_types = ["cases", "unrelated controls", "related unaffected"]
       s_types.each do |sam_type|
         #how many models is the sample_type not nil
-        sam_count = models.where.not("#{sam_type}":nil).count
-        output[:sample_types].push({material:sam_type, count:sam_count})
+        #split each into affected and unaffected
+        sam_count_cases = models.where.not("#{sam_type}":nil).where("disease != 'Control' OR disease NOT LIKE ?", "Not MS%").count
+        sam_count_controls = models.where.not("#{sam_type}":nil).where(disease:"Control").count
+        sam_count_related = models.where.not("#{sam_type}":nil).where("disease == ? OR disease == ?", "Not MS - Unaffected - Related", "Not MS - unaffected - related" ).count
+        output[:sample_types].push({material:"#{sam_type}-Cases", count:sam_count_cases})
+        output[:sample_types].push({material:"#{sam_type}-Controls", count:sam_count_controls})
+        output[:sample_types].push({material:"#{sam_type}-Related", count:sam_count_related})
+      end
+      output[:samples] = []
+      s_types.each do |sam_type|
+        bundle = {sampleType: sam_type, values:[]}
+        pop_types.each do |pop|
+          val_bundle = {population:pop}
+          count = 0
+          if pop == "cases"
+            count = models.where.not("#{sam_type}":nil).where("disease != 'Control' OR disease NOT LIKE ?", "Not MS%").count
+          elsif pop == "unrelated controls"
+            count = models.where.not("#{sam_type}":nil).where("disease =='Control' OR disease == 'Not MS - Unaffected - Unrelated'").count
+          else
+            count = models.where.not("#{sam_type}":nil).where("disease == ? OR disease == ?", "Not MS - Unaffected - Related", "Not MS - unaffected - related" ).count
+          end
+          val_bundle[:count] = count
+          bundle[:values].push(val_bundle)
+        end
+        output[:samples].push(bundle)
       end
       # N of patients by sex
       output[:sex] = []
-      sexes = Subject.pluck(:sex).uniq.sort
+      sexes = Subject.pluck(:sex).uniq
+      unknown_sex_count = 0
       sexes.each do |sex|
         sex_count = models.where(sex:sex).count
         long_value = nil
         if sex == "M"
           long_value = "Male"
+          output[:sex].push({sex:long_value, count:sex_count})
         elsif sex == "F"
           long_value = "Female"
+          output[:sex].push({sex:long_value, count:sex_count})
         else
-          long_value = "Unknown"
+          unknown_sex_count += sex_count
         end
-        output[:sex].push({sex:long_value, count:sex_count})
       end
+      output[:sex].push({sex:"Unknown", count:unknown_sex_count})
       # N of subjects by race
       output[:race] = []
       races = Subject.pluck(:race).uniq.sort
@@ -54,19 +81,25 @@ module HomeHelper
       end
       # N of subjects by EDSS - converting scores of "<3.0" to 1.5 and "<6.0" to 4.5
       output[:edss_scores] = []
-      edsses = [0,2,4,6,8]
-      edsses.each_with_index {|edss, idx|
-        if edsses[idx + 1] == nil
-          scores = models.where("recent_edss >= ?", edss).count
-          if scores > 0
-            output[:edss_scores].push({score:"> #{edss}.0", count:scores})
-          end
-        else
-          high_score = edsses[idx+1]
-          scores = models.where("recent_edss >= ?", edss).where("recent_edss < ?", high_score).count
-          output[:edss_scores].push({score: "#{edss}.0 - #{high_score}.0", count: scores})
-        end
-      }
+      edsses = Subject.where.not(recent_edss:nil).pluck(:recent_edss).uniq
+      edsses = edsses.sort
+      edsses.each do |e|
+        count = Subject.where(recent_edss:e).count
+        output[:edss_scores].push({score: e, count:count})
+      end
+      # edsses = [0,2,4,6,8]
+      # edsses.each_with_index {|edss, idx|
+      #   if edsses[idx + 1] == nil
+      #     scores = models.where("recent_edss >= ?", edss).count
+      #     if scores > 0
+      #       output[:edss_scores].push({score:"> #{edss}.0", count:scores})
+      #     end
+      #   else
+      #     high_score = edsses[idx+1]
+      #     scores = models.where("recent_edss >= ?", edss).where("recent_edss < ?", high_score).count
+      #     output[:edss_scores].push({score: "#{edss}.0 - #{high_score}.0", count: scores})
+      #   end
+      # }
       # N of subjects by age_onset range
       output[:age_onset] = []
       ages = [10, 20, 30, 40, 50, 60, 70]

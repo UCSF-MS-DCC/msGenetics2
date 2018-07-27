@@ -5,9 +5,9 @@ $(document).on("turbolinks:load", function(){
         data.sample_types.forEach(function(d) {
             d.count = +d.count
         });
-        var g1Margin = {"left":80, "top":20, "right": 20, "bottom":90}
-        var g1_height = 600 - g1Margin.top - g1Margin.bottom;
-        var g1_width = 500 - g1Margin.left - g1Margin.right;
+        var g1Margin = {"left":80, "top":100, "right": 20, "bottom":75}
+        var g1_height = 700 - g1Margin.top - g1Margin.bottom;
+        var g1_width = 600 - g1Margin.left - g1Margin.right;
 
         var g1 = d3.select("#samples_count_chart")
             .append("svg")
@@ -17,58 +17,62 @@ $(document).on("turbolinks:load", function(){
             .append("g")
             .attr("transform", "translate("+g1Margin.left+","+g1Margin.top+")");
 
+        var sampleTypes = data.samples.map(function(obj) { return obj.sampleType });
 
+        var popTypes = data.samples[0].values.map(function(obj) { return obj.population; })
 
-        var sample_bars = g1.selectAll("rect").data(data.sample_types);
-
-        var sampleDomainCategories = data.sample_types.map(function(stype) {return stype.material});
-        var sampleBarXScale = d3.scaleBand()
-            .domain(sampleDomainCategories)
+        var x0 = d3.scaleBand()
+            .domain(sampleTypes)
             .range([0, g1_width])
-            .paddingInner(0.3)
-            .paddingOuter(0.3);
+            .paddingInner(0.2)
+            .paddingOuter(0.1);
 
-        var sampleBarYMax = d3.max(data.sample_types, function (d) {return +d.count});
-        var sampleBarYScale = d3.scaleLog()
-            .domain([1, sampleBarYMax])
-            .range([g1_height, 0])
-            .base(4);
+        var x1 = d3.scaleBand()
+            .domain(popTypes)
+            .rangeRound([0, x0.bandwidth()])
+            .padding(0.05);
 
-        var sampleBarsColor = d3.scaleOrdinal().domain(sampleDomainCategories).range(d3.schemeCategory10);
+        var yMax = d3.max(data.samples, function(sampleType) { return d3.max(sampleType.values, function(d) { console.log(d.count); return +d.count }) });
 
-        sample_bars.enter()
-            .append("rect")
-            .attr("x", function(d) { return sampleBarXScale(d.material) })
-            .attr("y", function(d) { return sampleBarYScale(d.count) })
-            .attr("width", sampleBarXScale.bandwidth)
-            .attr("height", function(d) { return g1_height - sampleBarYScale(d.count) })
-            .attr("fill", function(d) { return sampleBarsColor(d.material) });
+        var y = d3.scaleLinear()
+            .domain([0,yMax])
+            .range([g1_height, 0]);
 
-        var sampleBarsBottomAxis = d3.axisBottom(sampleBarXScale);
-        var sampleBarsLeftAxis = d3.axisLeft(sampleBarYScale)
-            .ticks(12);
+        console.log("y test", y(500))
+        var sampleBarsColor = d3.scaleOrdinal().domain(popTypes).range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
+        var slice = g1.selectAll(".slice")
+            .data(data.samples)
+            .enter().append("g")
+            .attr("class", "g")
+            .attr("transform", function(d) { return "translate("+(x0(d.sampleType)) + ",0)" });
+
+        slice.selectAll("rect")
+            .data(function(d) { return d.values; })
+            .enter().append("rect")
+            .attr("width", x1.bandwidth())
+            .attr("x", function(d) { console.log(d); return x1(d.population); })
+            .style("fill", function(d) { return sampleBarsColor(d.population); })
+            .attr("y", function(d) { return y(+d.count); })
+            .attr("height", function(d) { return g1_height - y(+d.count); })
+
+        var samplesBottomAxis = d3.axisBottom(x0);
+        var samplesLeftAxis = d3.axisLeft(y)
+            .ticks(12)
 
         g1.append("g")
-            .attr("class", "bottom axis")
+            .attr("class", "bottom-axis")
             .attr("transform", "translate(0,"+g1_height+")")
-            .call(sampleBarsBottomAxis)
+            .call(samplesBottomAxis)
             .selectAll("text")
-                .attr("y", 20)
-                .style("font-size","16px");
-
-        g1.append("text")
-            .attr("class", "x axis-label")
-            .attr("x", g1_width / 2)
-            .attr("y", g1_height + 75)
-            .attr("font-size", "20px")
-            .attr("text-anchor", "middle")
-            .text("Sample Material");
+            .attr("y", 15)
+            .attr("font-size", 16);
 
         g1.append("g")
-            .attr("class", "left axis")
-            .call(sampleBarsLeftAxis)
+            .attr("class", "left-axis")
+            .call(samplesLeftAxis)
             .selectAll("text")
-                .style("font-size", "12px");
+            .style("font-size", 12);
 
         g1.append("text")
             .attr("class", "y axis-label")
@@ -77,7 +81,26 @@ $(document).on("turbolinks:load", function(){
             .attr("font-size", "20px")
             .attr("text-anchor", "middle")
             .attr("transform", "rotate(-90)")
-            .text("Number of Subjects with Sample Type");
+            .text("Study Participants with Samples");
+
+        var g1Legend = g1.append("g")
+            .attr("transform", "translate(15,-90)");
+        popTypes.forEach(function(population, i) {
+            var g1LegendRow = g1Legend.append("g")
+                .attr("transform", "translate(0,"+i * 20+")");
+            g1LegendRow.append("rect")
+                .attr("width", 15)
+                .attr("height", 15)
+                .attr("fill", sampleBarsColor(population));
+
+            g1LegendRow.append("text")
+                .attr("x", 20)
+                .attr("y", 13)
+                .attr("text-anchor", "start")
+                .style("text-transform", "capitalize")
+                .text(population);
+        })
+
 
         // END SAMPLE TYPES BAR CHART
 
@@ -100,10 +123,10 @@ $(document).on("turbolinks:load", function(){
             .attr("transform", "translate("+ (g2Width - g2Radius - 10) + "," + (g2Height / 2 + 5)+ ")");
 
         var raceList = data.race.map(function(d) { return d.race; });
-        var raceColors = d3.scaleOrdinal().range(d3.schemeCategory20);
+        var raceColors = d3.scaleOrdinal().range(["#845EC2", "#4B4453", "#B0A8B9", "#C34A36", "#FF8066", "#4E8397", "#F3C5FF"]);
 
         var arc = d3.arc()
-            .innerRadius(0)
+            .innerRadius(g2Radius - 60)
             .outerRadius(g2Radius - 20);
 
         var pie = d3.pie()
@@ -117,7 +140,8 @@ $(document).on("turbolinks:load", function(){
 
         g2Group.append("path")
             .attr("d", arc)
-            .style("fill", function(d, i) { return raceColors(i); });
+            .style("fill", function(d, i) { return raceColors(i); })
+            .attr("class", "changeCursor");
 
         var g2Legend = g2.append("g")
             .attr("transform", "translate(" + (g2Width -450) + "," + (g2Height - 265)+")" );
@@ -134,6 +158,7 @@ $(document).on("turbolinks:load", function(){
                 .attr("y", 10)
                 .attr("text-anchor", "end")
                 .style("text-transform", "capitalize")
+                .attr("class", "changeCursor")
                 .text(race);
         });
         g2.append("text")
@@ -162,14 +187,14 @@ $(document).on("turbolinks:load", function(){
             .attr("height",g3Height)
             //.attr("style", "border:1px solid green")
             .append("g")
-            .attr("transform", "translate("+ (g3Radius + 25) + "," + (g3Height / 2 + 5) + ")");
+            .attr("transform", "translate("+ (g3Width - g3Radius - 10) + "," + (g3Height / 2 + 5) + ")");
 
-        var courseColors = d3.scaleOrdinal().range(d3.schemeCategory20);
+        var courseColors = d3.scaleOrdinal().range(["#845EC2", "#4B4453", "#B0A8B9", "#C34A36", "#FF8066", "#4E8397", "#F3C5FF"]);
         var courseList = data.disease_course.map(function(d) { return d.disease_course;});
         console.log(courseList);
 
         var arc = d3.arc()
-            .innerRadius(0)
+            .innerRadius(g3Radius - 60)
             .outerRadius(g3Radius - 20);
 
         var pie = d3.pie()
@@ -183,10 +208,11 @@ $(document).on("turbolinks:load", function(){
 
         g3Group.append("path")
             .attr("d", arc)
-            .style("fill", function(d, i) { return courseColors(i); });
+            .style("fill", function(d, i) { return courseColors(i); })
+            .attr("class", "changeCursor");
 
         var g3Legend = g3.append("g")
-            .attr("transform", "translate(" + (g2Width -250) + "," + (g2Height - 265)+")" );
+            .attr("transform", "translate(" + (g3Width -460) + "," + (g3Height - 280)+")" );
         courseList.forEach(function(course, i) {
             var g3LegendRow = g3Legend.append("g")
                 .attr("transform", "translate(0," + (i * 20) + ")");
@@ -196,10 +222,11 @@ $(document).on("turbolinks:load", function(){
                 .attr("fill", courseColors(i));
 
             g3LegendRow.append("text")
-                .attr("x", 20)
+                .attr("x",-10)
                 .attr("y", 10)
-                .attr("text-anchor", "start")
+                .attr("text-anchor", "end")
                 .style("text-transform", "capitalize")
+                .attr("class", "changeCursor")
                 .text(course);
         });
         g3.append("text")
@@ -232,7 +259,7 @@ $(document).on("turbolinks:load", function(){
         var sexList = data.sex.map(function(d) { return d.sex; });
 
         var arc = d3.arc()
-            .innerRadius(0)
+            .innerRadius(g4Radius - 60)
             .outerRadius(g4Radius - 20);
 
         var pie = d3.pie()
@@ -246,7 +273,8 @@ $(document).on("turbolinks:load", function(){
 
         g4Group.append("path")
             .attr("d", arc)
-            .style("fill", function(d, i) { return sexColors(i); });
+            .style("fill", function(d, i) { return sexColors(i); })
+            .attr("class", "changeCursor");
 
         var g4Legend = g4.append("g")
             .attr("transform", "translate(" + (g4Width -450) + "," + (g4Height - 260)+")" );
@@ -263,6 +291,7 @@ $(document).on("turbolinks:load", function(){
                 .attr("y", 10)
                 .attr("text-anchor", "end")
                 .style("text-transform", "capitalize")
+                .attr("class", "changeCursor")
                 .text(sex);
         });
         g4.append("text")
@@ -275,140 +304,97 @@ $(document).on("turbolinks:load", function(){
 
         // END SEX PIE CHART
 
+        // START EDSS HISTOGRAM
+        // var g5Margin = {"left":75, "top":15, "right":10, "bottom":60}
+        // var g5Height = 250 - g5Margin.top - g5Margin.bottom;
+        // var g5Width = 350 - g5Margin.left - g5Margin.right;
+        //
+        //
+        // data.disease_course.forEach(function(d) {
+        //     d.count = + d.count;
+        // });
+        //
+        // var g5 = d3.select("#edss_chart")
+        //     .append("svg")
+        //     .attr("width", g5Width + g5Margin.left + g5Margin.right)
+        //     .attr("height",g5Height + g5Margin.top + g5Margin.bottom)
+        //     //.attr("style", "border:1px solid green")
+        //     .append("g")
+        //     .attr("transform", "translate("+ g5Margin.left + "," + g5Margin.top + ")");
+        //
+        // var edss_bars = g5.selectAll("rect").data(data.edss_scores);
+        //
+        // var edssList = data.edss_scores.map(function(d) { return d.score;});
+        //
+        // var edssBarXScale = d3.scaleBand()
+        //     .domain(edssList)
+        //     .range([0, g5Width])
+        //     .paddingInner(0.1)
+        //     .paddingOuter(0);
+        //
+        // var edssBarYMax = d3.max(data.edss_scores, function (d) {return +d.count});
+        // var edssBarYScale = d3.scaleLog()
+        //     .domain([1, edssBarYMax])
+        //     .range([g5Height, 30])
+        //     .base(5);
+        //
+        // edss_bars.enter()
+        //     .append("rect")
+        //     .attr("x", function(d) { return edssBarXScale(d.score) })
+        //     .attr("y", function(d) { return edssBarYScale(d.count) })
+        //     .attr("width", edssBarXScale.bandwidth)
+        //     .attr("height", function(d) { return g5Height - edssBarYScale(d.count)  })
+        //     .attr("class", "changeCursor")
+        //     .attr("fill", "lightblue")
+        //     .attr("data-selected", "false")
+        //     .on('click', function(d) { alert($(this).data("selected")); $(this).data({"selected": true} )  });
+        //
+        // var edssBarsBottomAxis = d3.axisBottom(edssBarXScale);
+        // var edssBarsLeftAxis = d3.axisLeft(edssBarYScale)
+        //     .ticks(4);
+        //
+        // g5.append("g")
+        //     .attr("class", "bottom axis")
+        //     .attr("transform", "translate(0,"+g5Height+")")
+        //     .call(edssBarsBottomAxis)
+        //     .selectAll("text")
+        //     .attr("y", 5)
+        //     .attr("x", -8)
+        //     .attr("text-anchor", "end")
+        //     .attr("transform", "rotate(-60)")
+        //     .style("font-size","14px");
+        //
+        // g5.append("text")
+        //     .attr("class", "x axis-label")
+        //     .attr("x", g5Width / 2)
+        //     .attr("y", g5Margin.top)
+        //     .attr("font-size", "18px")
+        //     .attr("text-anchor", "middle")
+        //     .text("Recent EDSS");
+        //
+        // g5.append("g")
+        //     .attr("class", "left axis")
+        //     .call(edssBarsLeftAxis)
+        //     .selectAll("text")
+        //     .style("font-size", "12px");
+        //
+        // g5.append("text")
+        //     .attr("class", "y axis-label")
+        //     .attr("x", - (g5Height / 2))
+        //     .attr("y", -60)
+        //     .attr("font-size", "12px")
+        //     .attr("text-anchor", "middle")
+        //     .attr("transform", "rotate(-90)")
+        //     .text("N Subjects");
+        //
 
-        // START EDSS PIE CHART
-        var g5Height = 200;
-        var g5Width = 350;
-        var g5Radius = Math.min(g5Width, g5Height) / 2
+        // END EDSS HISTOGRAM
 
-        data.disease_course.forEach(function(d) {
-            d.count = + d.count;
-        });
+        // START AGE ONSET HISTOGRAM
+        var g7Margin = {"left":125, "top":15, "right":0, "bottom":60}
+        var g7Height = 250 - g7Margin.top - g7Margin.bottom;
+        var g7Width = 350 - g7Margin.left - g7Margin.right;
 
-        var g5 = d3.select("#edss_chart")
-            .append("svg")
-            .attr("width", g5Width)
-            .attr("height",g5Height)
-            //.attr("style", "border:1px solid green")
-            .append("g")
-            .attr("transform", "translate("+ (g5Radius + 25) + "," + (g5Height / 2 + 5) + ")");
-
-        var edssColors = d3.scaleOrdinal().range(d3.schemeCategory20);
-        var edssList = data.edss_scores.map(function(d) { return d.score;});
-        console.log(edssList);
-
-        var arc = d3.arc()
-            .innerRadius(0)
-            .outerRadius(g5Radius - 20);
-
-        var pie = d3.pie()
-            .sort(null)
-            .value(function(d) { return d.count; });
-
-        var g5Group = g5.selectAll(".arc")
-            .data(pie(data.edss_scores))
-            .enter().append("g")
-            .attr("class", "arc");
-
-        g5Group.append("path")
-            .attr("d", arc)
-            .style("fill", function(d, i) { return edssColors(i); });
-
-        var g5Legend = g5.append("g")
-            .attr("transform", "translate(" + (g5Width -250) + "," + (g5Height - 265)+")" );
-        edssList.forEach(function(edss, i) {
-            var g5LegendRow = g5Legend.append("g")
-                .attr("transform", "translate(0," + (i * 20) + ")");
-            g5LegendRow.append("rect")
-                .attr("width", 10)
-                .attr("height", 10)
-                .attr("fill", edssColors(i));
-
-            g5LegendRow.append("text")
-                .attr("x", 20)
-                .attr("y", 10)
-                .attr("text-anchor", "start")
-                .style("text-transform", "capitalize")
-                .text(edss);
-        });
-        g5.append("text")
-            .attr("class", "pie-chart label")
-            .attr("x", 0)
-            .attr("y", -90)
-            .attr("font-size", "20px")
-            .attr("text-anchor", "middle")
-            .text("EDSS Scores");
-
-
-        // END EDSS PIE CHART
-
-        // START HISPANIC PIE CHART
-        var g6Height = 200;
-        var g6Width = 350;
-        var g6Radius = Math.min(g6Width, g6Height) / 2
-
-        data.hispanic.forEach(function(d) {
-            d.count = + d.count;
-        });
-
-        var g6 = d3.select("#hispanic_chart")
-            .append("svg")
-            .attr("width", g6Width)
-            .attr("height",g6Height)
-            //.attr("style", "border:1px solid green")
-            .append("g")
-            .attr("transform", "translate("+ (g6Width - g6Radius - 10) + "," + (g6Height / 2 + 5) + ")");
-
-        var hispanicColors = d3.scaleOrdinal().range(d3.schemeCategory20);
-        var hispanicList = data.hispanic.map(function(d){ return d.is_hispanic; });
-
-        var arc = d3.arc()
-            .innerRadius(0)
-            .outerRadius(g6Radius - 20);
-
-        var pie = d3.pie()
-            .sort(null)
-            .value(function(d) { return d.count; });
-
-        var g6Group = g6.selectAll(".arc")
-            .data(pie(data.hispanic))
-            .enter().append("g")
-            .attr("class", "arc");
-
-        g6Group.append("path")
-            .attr("d", arc)
-            .style("fill", function(d, i) { return hispanicColors(i); });
-
-        var g6Legend = g6.append("g")
-            .attr("transform", "translate(" + (g6Width -450) + "," + (g6Height - 260)+")" );
-        hispanicList.forEach(function(h, i) {
-            var g6LegendRow = g6Legend.append("g")
-                .attr("transform", "translate(0," + (i * 20) + ")");
-            g6LegendRow.append("rect")
-                .attr("width", 10)
-                .attr("height", 10)
-                .attr("fill", hispanicColors(i));
-
-            g6LegendRow.append("text")
-                .attr("x", -10)
-                .attr("y", 10)
-                .attr("text-anchor", "end")
-                .style("text-transform", "capitalize")
-                .text(h);
-        });
-        g6.append("text")
-            .attr("class", "pie-chart label")
-            .attr("x", 5)
-            .attr("y", -90)
-            .attr("font-size", "20px")
-            .attr("text-anchor", "middle")
-            .text("Hispanic ethnicity");
-        // END HISPANIC PIE CHART
-
-        // START AGE ONSET PIE CHART
-        var g7Height = 200;
-        var g7Width = 350;
-        var g7Radius = Math.min(g7Width, g7Height) / 2
 
         data.age_onset.forEach(function(d) {
             d.count = + d.count;
@@ -416,61 +402,75 @@ $(document).on("turbolinks:load", function(){
 
         var g7 = d3.select("#age_onset_chart")
             .append("svg")
-            .attr("width", g7Width)
-            .attr("height",g7Height)
+            .attr("width", g7Width + g7Margin.left + g7Margin.right)
+            .attr("height",g7Height + g7Margin.top + g7Margin.bottom)
             //.attr("style", "border:1px solid green")
             .append("g")
-            .attr("transform", "translate("+ (g7Radius + 25) + "," + (g7Height / 2 + 5) + ")");
+            .attr("transform", "translate("+ g7Margin.left + "," + g7Margin.top + ")");
 
-        var onsetColors = d3.scaleOrdinal().range(d3.schemeCategory20);
+        var onset_bars = g7.selectAll("rect").data(data.age_onset);
+
         var onsetList = data.age_onset.map(function(d) { return d.age_range;});
-        console.log(onsetList);
 
-        var arc = d3.arc()
-            .innerRadius(0)
-            .outerRadius(g7Radius - 20);
+        var onsetBarXScale = d3.scaleBand()
+            .domain(onsetList)
+            .range([0, g7Width])
+            .paddingInner(0.05)
+            .paddingOuter(0);
 
-        var pie = d3.pie()
-            .sort(null)
-            .value(function(d) { return d.count; });
+        var onsetBarYMax = d3.max(data.age_onset, function (d) {return +d.count});
+        var onsetBarYScale = d3.scaleLog()
+            .domain([1, onsetBarYMax])
+            .range([g7Height, 30])
+            .base(5);
 
-        var g7Group = g7.selectAll(".arc")
-            .data(pie(data.age_onset))
-            .enter().append("g")
-            .attr("class", "arc");
+        onset_bars.enter()
+            .append("rect")
+            .attr("x", function(d) { return onsetBarXScale(d.age_range) })
+            .attr("y", function(d) { return onsetBarYScale(d.count) })
+            .attr("width", onsetBarXScale.bandwidth)
+            .attr("height", function(d) { return g7Height - onsetBarYScale(d.count)  })
+            .attr("fill", "#ff8c00")
+            .attr("class", "changeCursor");
 
-        g7Group.append("path")
-            .attr("d", arc)
-            .style("fill", function(d, i) { return onsetColors(i); });
+        var onsetBarsBottomAxis = d3.axisBottom(onsetBarXScale);
+        var onsetBarsLeftAxis = d3.axisLeft(onsetBarYScale)
+            .ticks(4);
 
-        var g7Legend = g7.append("g")
-            .attr("transform", "translate(" + (g7Width -250) + "," + (g7Height - 265)+")" );
-        onsetList.forEach(function(age, i) {
-            var g7LegendRow = g7Legend.append("g")
-                .attr("transform", "translate(0," + (i * 20) + ")");
-            g7LegendRow.append("rect")
-                .attr("width", 10)
-                .attr("height", 10)
-                .attr("fill", onsetColors(i));
+        g7.append("g")
+            .attr("class", "bottom axis")
+            .attr("transform", "translate(0,"+g7Height+")")
+            .call(onsetBarsBottomAxis)
+            .selectAll("text")
+            .attr("y", 5)
+            .attr("x", -8)
+            .attr("text-anchor", "end")
+            .attr("transform", "rotate(-40)")
+            .style("font-size","14px");
 
-            g7LegendRow.append("text")
-                .attr("x", 75)
-                .attr("y", 10)
-                .attr("text-anchor", "end")
-                .style("text-transform", "capitalize")
-                .text(age);
-        });
         g7.append("text")
-            .attr("class", "pie-chart label")
-            .attr("x", 0)
-            .attr("y", -90)
-            .attr("font-size", "20px")
+            .attr("class", "x axis-label")
+            .attr("x", g7Width / 2)
+            .attr("y", g7Margin.top)
+            .attr("font-size", "18px")
             .attr("text-anchor", "middle")
             .text("Onset Age");
 
+        g7.append("g")
+            .attr("class", "left axis")
+            .call(onsetBarsLeftAxis)
+            .selectAll("text")
+            .style("font-size", "12px");
 
-        // END AGE ONSET PIE CHART
-
+        g7.append("text")
+            .attr("class", "y axis-label")
+            .attr("x", - (g7Height / 2))
+            .attr("y", -50)
+            .attr("font-size", "12px")
+            .attr("text-anchor", "middle")
+            .attr("transform", "rotate(-90)")
+            .text("N Subjects");
+        // END AGE ONSET HISTOGRAM
 
 
 
