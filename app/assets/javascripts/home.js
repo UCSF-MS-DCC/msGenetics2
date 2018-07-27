@@ -1,10 +1,7 @@
 $(document).on("turbolinks:load", function(){
     $.get("/home/biorepo_data.json", function(data) {
-        console.log(data);
+        //console.log(data);
 
-        data.sample_types.forEach(function(d) {
-            d.count = +d.count
-        });
         var g1Margin = {"left":80, "top":100, "right": 20, "bottom":75}
         var g1_height = 700 - g1Margin.top - g1Margin.bottom;
         var g1_width = 600 - g1Margin.left - g1Margin.right;
@@ -51,7 +48,7 @@ $(document).on("turbolinks:load", function(){
             .data(function(d) { return d.values; })
             .enter().append("rect")
             .attr("width", x1.bandwidth())
-            .attr("x", function(d) { console.log(d); return x1(d.population); })
+            .attr("x", function(d) { return x1(d.population); })
             .style("fill", function(d) { return sampleBarsColor(d.population); })
             .attr("y", function(d) { return y(+d.count); })
             .attr("height", function(d) { return g1_height - y(+d.count); })
@@ -104,7 +101,7 @@ $(document).on("turbolinks:load", function(){
 
         // END SAMPLE TYPES BAR CHART
 
-        // BEGIN RACE PIE CHART
+        // BEGIN ANCESTRY PIE CHART
 
         data.race.forEach(function(d) {
             d.count = + d.count;
@@ -159,7 +156,8 @@ $(document).on("turbolinks:load", function(){
                 .attr("text-anchor", "end")
                 .style("text-transform", "capitalize")
                 .attr("class", "changeCursor")
-                .text(race);
+                .text(race)
+                .on('click', function() { if ($(this).hasClass("underlinedText") ) { $(this).removeClass("underlinedText"); } else { $(this).addClass("underlinedText"); } });
         });
         g2.append("text")
             .attr("class", "pie-chart label")
@@ -167,9 +165,9 @@ $(document).on("turbolinks:load", function(){
             .attr("y", -90)
             .attr("font-size", "20px")
             .attr("text-anchor", "middle")
-            .text("Race");
+            .text("Ancestry (self-declared)");
 
-        // END RACE PIE CHART
+        // END ANCESTRY PIE CHART
 
         // BEGIN DISEASE COURSE PIE CHART
 
@@ -191,7 +189,6 @@ $(document).on("turbolinks:load", function(){
 
         var courseColors = d3.scaleOrdinal().range(["#845EC2", "#4B4453", "#B0A8B9", "#C34A36", "#FF8066", "#4E8397", "#F3C5FF"]);
         var courseList = data.disease_course.map(function(d) { return d.disease_course;});
-        console.log(courseList);
 
         var arc = d3.arc()
             .innerRadius(g3Radius - 60)
@@ -227,7 +224,8 @@ $(document).on("turbolinks:load", function(){
                 .attr("text-anchor", "end")
                 .style("text-transform", "capitalize")
                 .attr("class", "changeCursor")
-                .text(course);
+                .text(course)
+                .on('click', function() { if ($(this).hasClass("underlinedText") ) { $(this).removeClass("underlinedText"); } else { $(this).addClass("underlinedText"); } });
         });
         g3.append("text")
             .attr("class", "pie-chart label")
@@ -292,7 +290,8 @@ $(document).on("turbolinks:load", function(){
                 .attr("text-anchor", "end")
                 .style("text-transform", "capitalize")
                 .attr("class", "changeCursor")
-                .text(sex);
+                .text(sex)
+                .on('click', function() { if ($(this).hasClass("underlinedText") ) { $(this).removeClass("underlinedText"); } else { $(this).addClass("underlinedText"); } });
         });
         g4.append("text")
             .attr("class", "pie-chart label")
@@ -431,7 +430,8 @@ $(document).on("turbolinks:load", function(){
             .attr("width", onsetBarXScale.bandwidth)
             .attr("height", function(d) { return g7Height - onsetBarYScale(d.count)  })
             .attr("fill", "#ff8c00")
-            .attr("class", "changeCursor");
+            .attr("class", "changeCursor")
+            .on('click', function() { if ( $(this).hasClass("selectedBar") ) { $(this).removeClass("selectedBar"); $(this).attr({"fill": "#ff8c00"}) } else { $(this).addClass("selectedBar"); $(this).attr({"fill": "lime"}); } });
 
         var onsetBarsBottomAxis = d3.axisBottom(onsetBarXScale);
         var onsetBarsLeftAxis = d3.axisLeft(onsetBarYScale)
@@ -454,7 +454,7 @@ $(document).on("turbolinks:load", function(){
             .attr("y", g7Margin.top)
             .attr("font-size", "18px")
             .attr("text-anchor", "middle")
-            .text("Onset Age");
+            .text("Age of Onset");
 
         g7.append("g")
             .attr("class", "left axis")
@@ -476,3 +476,4 @@ $(document).on("turbolinks:load", function(){
 
     }); // closes AJAX call to /home/biorepo_data.json
 });
+

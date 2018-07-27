@@ -3,19 +3,8 @@ module HomeHelper
     unless models.size < 1
       output = {}
       # number of patients with samples of the various types
-      output[:sample_types] = []
       s_types = %w(plasma serum dna)
       pop_types = ["cases", "unrelated controls", "related unaffected"]
-      s_types.each do |sam_type|
-        #how many models is the sample_type not nil
-        #split each into affected and unaffected
-        sam_count_cases = models.where.not("#{sam_type}":nil).where("disease != 'Control' OR disease NOT LIKE ?", "Not MS%").count
-        sam_count_controls = models.where.not("#{sam_type}":nil).where(disease:"Control").count
-        sam_count_related = models.where.not("#{sam_type}":nil).where("disease == ? OR disease == ?", "Not MS - Unaffected - Related", "Not MS - unaffected - related" ).count
-        output[:sample_types].push({material:"#{sam_type}-Cases", count:sam_count_cases})
-        output[:sample_types].push({material:"#{sam_type}-Controls", count:sam_count_controls})
-        output[:sample_types].push({material:"#{sam_type}-Related", count:sam_count_related})
-      end
       output[:samples] = []
       s_types.each do |sam_type|
         bundle = {sampleType: sam_type, values:[]}
