@@ -1,7 +1,7 @@
 $(document).on("turbolinks:load", function(){
     $.get("/home/biorepo_data.json", function(data) {
-        //console.log(data);
-
+        console.log(data);
+        var t = d3.transition().duration(2500);
         var g1Margin = {"left":80, "top":100, "right": 20, "bottom":75}
         var g1_height = 700 - g1Margin.top - g1Margin.bottom;
         var g1_width = 600 - g1Margin.left - g1Margin.right;
@@ -11,6 +11,7 @@ $(document).on("turbolinks:load", function(){
             .attr("width", g1_width + g1Margin.left + g1Margin.right)
             .attr("height", g1_height + g1Margin.top + g1Margin.bottom)
             //.attr("style", "border:1px solid green")
+            .attr("style", "border-right:1px solid grey;")
             .append("g")
             .attr("transform", "translate("+g1Margin.left+","+g1Margin.top+")");
 
@@ -29,13 +30,13 @@ $(document).on("turbolinks:load", function(){
             .rangeRound([0, x0.bandwidth()])
             .padding(0.05);
 
-        var yMax = d3.max(data.samples, function(sampleType) { return d3.max(sampleType.values, function(d) { console.log(d.count); return +d.count }) });
+        var yMax = d3.max(data.samples, function(sampleType) { return d3.max(sampleType.values, function(d) {  return +d.count }) });
 
         var y = d3.scaleLinear()
             .domain([0,yMax])
             .range([g1_height, 0]);
 
-        console.log("y test", y(500))
+        //console.log("y test", y(500))
         var sampleBarsColor = d3.scaleOrdinal().domain(popTypes).range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
         var slice = g1.selectAll(".slice")
@@ -44,32 +45,25 @@ $(document).on("turbolinks:load", function(){
             .attr("class", "g")
             .attr("transform", function(d) { return "translate("+(x0(d.sampleType)) + ",0)" });
 
-        slice.selectAll("rect")
-            .data(function(d) { return d.values; })
-            .enter().append("rect")
-            .attr("width", x1.bandwidth())
-            .attr("x", function(d) { return x1(d.population); })
-            .style("fill", function(d) { return sampleBarsColor(d.population); })
-            .attr("y", function(d) { return y(+d.count); })
-            .attr("height", function(d) { return g1_height - y(+d.count); })
+        // slice.selectAll("rect")
+        //     .data(function(d) { return d.values; })
+        //     .enter().append("rect")
+        //     .attr("width", x1.bandwidth())
+        //     .attr("x", function(d) { return x1(d.population); })
+        //     .style("fill", function(d) { return sampleBarsColor(d.population); })
+        //     .attr("y", function(d) { return y(+d.count); })
+        //     .attr("height", function(d) { return g1_height - y(+d.count); })
 
-        var samplesBottomAxis = d3.axisBottom(x0);
-        var samplesLeftAxis = d3.axisLeft(y)
-            .ticks(12)
+        // var samplesBottomAxis = d3.axisBottom(x0);
+        // var samplesLeftAxis = d3.axisLeft(y)
+        //     .ticks(12)
 
-        g1.append("g")
+        var xAxisGroup = g1.append("g")
             .attr("class", "bottom-axis")
-            .attr("transform", "translate(0,"+g1_height+")")
-            .call(samplesBottomAxis)
-            .selectAll("text")
-            .attr("y", 15)
-            .attr("font-size", 16);
+            .attr("transform", "translate(0,"+g1_height+")");
 
-        g1.append("g")
-            .attr("class", "left-axis")
-            .call(samplesLeftAxis)
-            .selectAll("text")
-            .style("font-size", 12);
+        var yAxisGroup = g1.append("g")
+            .attr("class", "left-axis");
 
         g1.append("text")
             .attr("class", "y axis-label")
@@ -157,7 +151,7 @@ $(document).on("turbolinks:load", function(){
                 .style("text-transform", "capitalize")
                 .attr("class", "changeCursor")
                 .text(race)
-                .on('click', function() { if ($(this).hasClass("underlinedText") ) { $(this).removeClass("underlinedText"); } else { $(this).addClass("underlinedText"); } });
+                .on('click', function() { sendQuery("race", race); if ($(this).hasClass("underlinedText") ) { $(this).removeClass("underlinedText"); $(this).attr({'fill':'black'}); } else { $(this).addClass("underlinedText"); $(this).attr({'fill':'lightgrey'}); } });
         });
         g2.append("text")
             .attr("class", "pie-chart label")
@@ -166,6 +160,8 @@ $(document).on("turbolinks:load", function(){
             .attr("font-size", "20px")
             .attr("text-anchor", "middle")
             .text("Ancestry (self-declared)");
+
+        sendQuery();
 
         // END ANCESTRY PIE CHART
 
@@ -225,7 +221,7 @@ $(document).on("turbolinks:load", function(){
                 .style("text-transform", "capitalize")
                 .attr("class", "changeCursor")
                 .text(course)
-                .on('click', function() { if ($(this).hasClass("underlinedText") ) { $(this).removeClass("underlinedText"); } else { $(this).addClass("underlinedText"); } });
+                .on('click', function() { sendQuery("course", course); if ($(this).hasClass("underlinedText") ) { $(this).removeClass("underlinedText");; $(this).attr({'fill':'black'}); } else { $(this).addClass("underlinedText"); $(this).attr({'fill':'lightgrey'}); } });
         });
         g3.append("text")
             .attr("class", "pie-chart label")
@@ -291,7 +287,7 @@ $(document).on("turbolinks:load", function(){
                 .style("text-transform", "capitalize")
                 .attr("class", "changeCursor")
                 .text(sex)
-                .on('click', function() { if ($(this).hasClass("underlinedText") ) { $(this).removeClass("underlinedText"); } else { $(this).addClass("underlinedText"); } });
+                .on('click', function() { sendQuery("sex", sex); if ($(this).hasClass("underlinedText") ) { $(this).removeClass("underlinedText"); $(this).attr({'fill':'black'}); } else { $(this).addClass("underlinedText"); $(this).attr({'fill':'lightgrey'}); } });
         });
         g4.append("text")
             .attr("class", "pie-chart label")
@@ -431,7 +427,7 @@ $(document).on("turbolinks:load", function(){
             .attr("height", function(d) { return g7Height - onsetBarYScale(d.count)  })
             .attr("fill", "#ff8c00")
             .attr("class", "changeCursor")
-            .on('click', function() { if ( $(this).hasClass("selectedBar") ) { $(this).removeClass("selectedBar"); $(this).attr({"fill": "#ff8c00"}) } else { $(this).addClass("selectedBar"); $(this).attr({"fill": "lime"}); } });
+            .on('click', function(d) { sendQuery("age_range", d.age_range); if ($(this).hasClass("selectedBar")) { $(this).removeClass("selectedBar"); $(this).attr("fill", "#ff8c00") } else { $(this).addClass("selectedBar"); $(this).attr("fill", "whitesmoke"); $(this).attr("stroke", "lightgrey"); } } );
 
         var onsetBarsBottomAxis = d3.axisBottom(onsetBarXScale);
         var onsetBarsLeftAxis = d3.axisLeft(onsetBarYScale)
@@ -472,8 +468,96 @@ $(document).on("turbolinks:load", function(){
             .text("N Subjects");
         // END AGE ONSET HISTOGRAM
 
+        // START GRAPH UPDATE CODE
+        var params = {}
+        function sendQuery(param, value) {
+            //console.log(param, value)
+            // each time a user clicks a graphic element, it is either added to the query string filter (click on) or removed from it (click off)
+            // the first part of the function handles managing the filtering parameters and building the query string to attach to the AJAX request
+            queryUrl = "/home/biorepo_data.json";
+            if (param) {
+                if (params[param]) {
+                    if (params[param].indexOf(value) === -1) {
+                        params[param].push(value);
+                    }
+                    else {
+                        idx = params[param].indexOf(value);
+                        params[param].splice(idx, 1);
+                        if (params[param].length < 1) {
+                            delete params[param];
+                        }
+                    }
+                }
+                else {
+                    params[param] = [value]
+                }
+                queryString = "?";
+                paramsArray = [];
+                Object.keys(params).forEach(function(key) {
+                    values = params[key]
+                    values.forEach(function(value){
+                        paramsArray.push(key+"[]="+value);
+                    })
+                });
+                //console.log(paramsArray)
+                queryString += paramsArray.join("&");
+                //console.log(queryString)
+                queryUrl = queryUrl + queryString;
+                console.log(queryUrl);
+            }
+            //console.log(params)
 
+            $.get(queryUrl).done(function(data) {
+                console.log("done", data);
 
+                sampleTypes = data.samples.map(function(obj) { return obj.sampleType });
+
+                popTypes = data.samples[0].values.map(function(obj) { return obj.population; });
+
+                x0.domain(sampleTypes);
+                x1.domain(popTypes);
+
+                var yMax = d3.max(data.samples, function(sampleType) { return d3.max(sampleType.values, function(d) {  return +d.count }) });
+                y.domain([0,yMax]);
+                // In order for the rects to properly resize it is necessary to join the new data to the slice elements from the samples graph.
+                slice.data(data.samples);
+                // JOIN data to existing elements
+                var rects = slice.selectAll("rect")
+                    .data(function(d) { return d.values; });
+
+                // EXIT existing elements not present in new data
+                rects.exit().remove();
+
+                // UPDATE existing elements present in new data
+                rects.attr("width", x1.bandwidth()).transition(t)
+                    .attr("x", function(d) { return x1(d.population); })
+                    .attr("y", function(d) { return y(+d.count); })
+                    .attr("height", function(d) { return g1_height - y(+d.count); });
+
+                // ENTER new elements present in new data
+                rects.enter().append("rect")
+                    .attr("width", x1.bandwidth())
+                    .attr("x", function(d) { return x1(d.population); })
+                    .style("fill", function(d) { return sampleBarsColor(d.population); })
+                    .attr("y", function(d) { return y(+d.count); })
+                    .attr("height", function(d) { return g1_height - y(+d.count); });
+
+                var samplesBottomAxis = d3.axisBottom(x0);
+                var samplesLeftAxis = d3.axisLeft(y)
+                    .ticks(12);
+
+                xAxisGroup.transition(t).call(samplesBottomAxis)
+                    .selectAll("text")
+                    .attr("y", 15)
+                    .attr("font-size", 16);
+
+                yAxisGroup.transition(t).call(samplesLeftAxis)
+                    .selectAll("text")
+                    .style("font-size", 12);
+
+            });
+        }
     }); // closes AJAX call to /home/biorepo_data.json
+
 });
 
