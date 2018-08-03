@@ -10,6 +10,12 @@
   <div class="row">
     <div class="col-lg-5" id="samples_count_chart"></div>
     <div class="col-lg-6">
+      <div class="row justify-content-lg-center">
+        <div class="col-lg-12">
+          <p>Click on phenotype values in the graph legends below to filter study subjects. Phenotype values in light grey are hidden, and subjects with that phenotype value are removed from the dashboard.</p>
+        </div>
+      </div>
+      <h6 class="text-center">Applies only to MS Cases</h6>
       <div class="row">
         <div class="col-lg-6"></div>
         <div class="col-lg-6"></div>
@@ -18,11 +24,20 @@
         <div class="col-lg-6" id="disease_course_chart"></div>
         <div class="col-lg-6" id="age_onset_chart"></div>
       </div>
+      <hr>
+      <h6 class="text-center">Applies to all study participants</h6>
+
       <div class="row">
         <div class="col-lg-6" id="sex_chart"></div>
         <div class="col-lg-6" id="race_chart"></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-2 offset-lg-5">
+          <button id="resetDashboard" class = "btn btn-md btn-action">Reset Dashboard</button>
+        </div>
       </div>
     </div>
   </div>
 
 </div>
+<script src="https://unpkg.com/jeezy/lib/jeezy.min.js"></script>

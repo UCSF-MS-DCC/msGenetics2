@@ -10,11 +10,11 @@ class HomeController < ApplicationController
 
   def biorepo_data
     @subjects = Subject.all
-
-    if biorepo_data_params[:age_range] || biorepo_data_params[:sex] || biorepo_data_params[:race] || biorepo_data_params[:course]
-      @subjects = filter_subjects(@subjects, biorepo_data_params)
+    # @new_output = process_subjects(@subjects, biorepo_data_params)
+    # puts "NEW OUTPUT: #{@new_output.to_json}"
+    if biorepo_data_params
+     @subjects = filter_subjects(@subjects, biorepo_data_params)
     end
-
     @output = test1(@subjects)
 
     render json: @output, status: :ok
@@ -23,6 +23,6 @@ class HomeController < ApplicationController
   private
 
     def biorepo_data_params
-      params.permit(:format, age_range: [], sex: [], race: [], course: [])
+      params.permit(age_range: [], sex: [], race: [], course: [])
     end
 end

@@ -1,7 +1,8 @@
 $(document).on("turbolinks:load", function(){
     $.get("/home/biorepo_data.json", function(data) {
         console.log(data);
-        var t = d3.transition().duration(2500);
+        console.log(window.screen.availWidth)
+        var t = d3.transition().duration(1500);
         var g1Margin = {"left":80, "top":100, "right": 20, "bottom":75}
         var g1_height = 700 - g1Margin.top - g1Margin.bottom;
         var g1_width = 600 - g1Margin.left - g1Margin.right;
@@ -37,7 +38,7 @@ $(document).on("turbolinks:load", function(){
             .range([g1_height, 0]);
 
         //console.log("y test", y(500))
-        var sampleBarsColor = d3.scaleOrdinal().domain(popTypes).range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+        var sampleBarsColor = d3.scaleOrdinal().domain(popTypes).range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00", "#B0A8B9"]);
 
         var slice = g1.selectAll(".slice")
             .data(data.samples)
@@ -125,17 +126,17 @@ $(document).on("turbolinks:load", function(){
             .value(function(d) { return d.count; });
 
         var g2Group = g2.selectAll(".arc")
-            .data(pie(data.race))
-            .enter().append("g")
-            .attr("class", "arc");
+            .data(pie(data.race));
 
-        g2Group.append("path")
+        g2Group.enter().append("path")
+            .attr("class", "arc")
             .attr("d", arc)
             .style("fill", function(d, i) { return raceColors(i); })
             .attr("class", "changeCursor");
 
         var g2Legend = g2.append("g")
             .attr("transform", "translate(" + (g2Width -450) + "," + (g2Height - 265)+")" );
+
         raceList.forEach(function(race, i) {
             var g2LegendRow = g2Legend.append("g")
                 .attr("transform", "translate(0,"+ (i * 20) + ")");
@@ -149,9 +150,9 @@ $(document).on("turbolinks:load", function(){
                 .attr("y", 10)
                 .attr("text-anchor", "end")
                 .style("text-transform", "capitalize")
-                .attr("class", "changeCursor")
+                .attr("class", "changeCursor legendEntry")
                 .text(race)
-                .on('click', function() { sendQuery("race", race); if ($(this).hasClass("underlinedText") ) { $(this).removeClass("underlinedText"); $(this).attr({'fill':'black'}); } else { $(this).addClass("underlinedText"); $(this).attr({'fill':'lightgrey'}); } });
+                .on('click', function() { sendQuery("race", race); if ($(this).hasClass("greyedOutText") ) { $(this).removeClass("greyedOutText"); $(this).attr({'fill':'black'}); } else { $(this).addClass("greyedOutText"); $(this).attr({'fill':'lightgrey'}); } });
         });
         g2.append("text")
             .attr("class", "pie-chart label")
@@ -179,11 +180,11 @@ $(document).on("turbolinks:load", function(){
             .append("svg")
             .attr("width", g3Width)
             .attr("height",g3Height)
-            //.attr("style", "border:1px solid green")
+           // .attr("style", "border:1px solid green")
             .append("g")
             .attr("transform", "translate("+ (g3Width - g3Radius - 10) + "," + (g3Height / 2 + 5) + ")");
 
-        var courseColors = d3.scaleOrdinal().range(["#845EC2", "#4B4453", "#B0A8B9", "#C34A36", "#FF8066", "#4E8397", "#F3C5FF"]);
+        var courseColors = d3.scaleOrdinal().range(["#845EC2", "#4B4453", "#B0A8B9", "#C34A36", "#FF8066", "#4E8397", "#F3C5FF", "Lime"]);
         var courseList = data.disease_course.map(function(d) { return d.disease_course;});
 
         var arc = d3.arc()
@@ -195,12 +196,11 @@ $(document).on("turbolinks:load", function(){
             .value(function(d) { return d.count; });
 
         var g3Group = g3.selectAll(".arc")
-            .data(pie(data.disease_course))
-            .enter().append("g")
-            .attr("class", "arc");
+            .data(pie(data.disease_course));
 
-        g3Group.append("path")
+        g3Group.enter().append("path")
             .attr("d", arc)
+            .attr("class", "arc")
             .style("fill", function(d, i) { return courseColors(i); })
             .attr("class", "changeCursor");
 
@@ -219,9 +219,9 @@ $(document).on("turbolinks:load", function(){
                 .attr("y", 10)
                 .attr("text-anchor", "end")
                 .style("text-transform", "capitalize")
-                .attr("class", "changeCursor")
+                .attr("class", "changeCursor  legendEntry")
                 .text(course)
-                .on('click', function() { sendQuery("course", course); if ($(this).hasClass("underlinedText") ) { $(this).removeClass("underlinedText");; $(this).attr({'fill':'black'}); } else { $(this).addClass("underlinedText"); $(this).attr({'fill':'lightgrey'}); } });
+                .on('click', function() { sendQuery("course", course); if ($(this).hasClass("greyedOutText") ) { $(this).removeClass("greyedOutText");; $(this).attr({'fill':'black'}); } else { $(this).addClass("greyedOutText"); $(this).attr({'fill':'lightgrey'}); } });
         });
         g3.append("text")
             .attr("class", "pie-chart label")
@@ -261,11 +261,10 @@ $(document).on("turbolinks:load", function(){
             .value(function(d) { return d.count; });
 
         var g4Group = g4.selectAll(".arc")
-            .data(pie(data.sex))
-            .enter().append("g")
-            .attr("class", "arc");
+            .data(pie(data.sex));
 
-        g4Group.append("path")
+        g4Group .enter().append("path")
+            .attr("class", "arc")
             .attr("d", arc)
             .style("fill", function(d, i) { return sexColors(i); })
             .attr("class", "changeCursor");
@@ -285,9 +284,9 @@ $(document).on("turbolinks:load", function(){
                 .attr("y", 10)
                 .attr("text-anchor", "end")
                 .style("text-transform", "capitalize")
-                .attr("class", "changeCursor")
+                .attr("class", "changeCursor  legendEntry")
                 .text(sex)
-                .on('click', function() { sendQuery("sex", sex); if ($(this).hasClass("underlinedText") ) { $(this).removeClass("underlinedText"); $(this).attr({'fill':'black'}); } else { $(this).addClass("underlinedText"); $(this).attr({'fill':'lightgrey'}); } });
+                .on('click', function() { sendQuery("sex", sex); if ($(this).hasClass("greyedOutText") ) { $(this).removeClass("greyedOutText"); $(this).attr({'fill':'black'}); } else { $(this).addClass("greyedOutText"); $(this).attr({'fill':'lightgrey'}); } });
         });
         g4.append("text")
             .attr("class", "pie-chart label")
@@ -299,94 +298,9 @@ $(document).on("turbolinks:load", function(){
 
         // END SEX PIE CHART
 
-        // START EDSS HISTOGRAM
-        // var g5Margin = {"left":75, "top":15, "right":10, "bottom":60}
-        // var g5Height = 250 - g5Margin.top - g5Margin.bottom;
-        // var g5Width = 350 - g5Margin.left - g5Margin.right;
-        //
-        //
-        // data.disease_course.forEach(function(d) {
-        //     d.count = + d.count;
-        // });
-        //
-        // var g5 = d3.select("#edss_chart")
-        //     .append("svg")
-        //     .attr("width", g5Width + g5Margin.left + g5Margin.right)
-        //     .attr("height",g5Height + g5Margin.top + g5Margin.bottom)
-        //     //.attr("style", "border:1px solid green")
-        //     .append("g")
-        //     .attr("transform", "translate("+ g5Margin.left + "," + g5Margin.top + ")");
-        //
-        // var edss_bars = g5.selectAll("rect").data(data.edss_scores);
-        //
-        // var edssList = data.edss_scores.map(function(d) { return d.score;});
-        //
-        // var edssBarXScale = d3.scaleBand()
-        //     .domain(edssList)
-        //     .range([0, g5Width])
-        //     .paddingInner(0.1)
-        //     .paddingOuter(0);
-        //
-        // var edssBarYMax = d3.max(data.edss_scores, function (d) {return +d.count});
-        // var edssBarYScale = d3.scaleLog()
-        //     .domain([1, edssBarYMax])
-        //     .range([g5Height, 30])
-        //     .base(5);
-        //
-        // edss_bars.enter()
-        //     .append("rect")
-        //     .attr("x", function(d) { return edssBarXScale(d.score) })
-        //     .attr("y", function(d) { return edssBarYScale(d.count) })
-        //     .attr("width", edssBarXScale.bandwidth)
-        //     .attr("height", function(d) { return g5Height - edssBarYScale(d.count)  })
-        //     .attr("class", "changeCursor")
-        //     .attr("fill", "lightblue")
-        //     .attr("data-selected", "false")
-        //     .on('click', function(d) { alert($(this).data("selected")); $(this).data({"selected": true} )  });
-        //
-        // var edssBarsBottomAxis = d3.axisBottom(edssBarXScale);
-        // var edssBarsLeftAxis = d3.axisLeft(edssBarYScale)
-        //     .ticks(4);
-        //
-        // g5.append("g")
-        //     .attr("class", "bottom axis")
-        //     .attr("transform", "translate(0,"+g5Height+")")
-        //     .call(edssBarsBottomAxis)
-        //     .selectAll("text")
-        //     .attr("y", 5)
-        //     .attr("x", -8)
-        //     .attr("text-anchor", "end")
-        //     .attr("transform", "rotate(-60)")
-        //     .style("font-size","14px");
-        //
-        // g5.append("text")
-        //     .attr("class", "x axis-label")
-        //     .attr("x", g5Width / 2)
-        //     .attr("y", g5Margin.top)
-        //     .attr("font-size", "18px")
-        //     .attr("text-anchor", "middle")
-        //     .text("Recent EDSS");
-        //
-        // g5.append("g")
-        //     .attr("class", "left axis")
-        //     .call(edssBarsLeftAxis)
-        //     .selectAll("text")
-        //     .style("font-size", "12px");
-        //
-        // g5.append("text")
-        //     .attr("class", "y axis-label")
-        //     .attr("x", - (g5Height / 2))
-        //     .attr("y", -60)
-        //     .attr("font-size", "12px")
-        //     .attr("text-anchor", "middle")
-        //     .attr("transform", "rotate(-90)")
-        //     .text("N Subjects");
-        //
-
-        // END EDSS HISTOGRAM
 
         // START AGE ONSET HISTOGRAM
-        var g7Margin = {"left":125, "top":15, "right":0, "bottom":60}
+        var g7Margin = {"left":40, "top":15, "right":100, "bottom":60}
         var g7Height = 250 - g7Margin.top - g7Margin.bottom;
         var g7Width = 350 - g7Margin.left - g7Margin.right;
 
@@ -403,7 +317,7 @@ $(document).on("turbolinks:load", function(){
             .append("g")
             .attr("transform", "translate("+ g7Margin.left + "," + g7Margin.top + ")");
 
-        var onset_bars = g7.selectAll("rect").data(data.age_onset);
+
 
         var onsetList = data.age_onset.map(function(d) { return d.age_range;});
 
@@ -414,58 +328,85 @@ $(document).on("turbolinks:load", function(){
             .paddingOuter(0);
 
         var onsetBarYMax = d3.max(data.age_onset, function (d) {return +d.count});
-        var onsetBarYScale = d3.scaleLog()
+        var onsetBarYScale = d3.scaleLinear()
             .domain([1, onsetBarYMax])
-            .range([g7Height, 30])
-            .base(5);
+            .range([g7Height, 30]);
 
-        onset_bars.enter()
-            .append("rect")
-            .attr("x", function(d) { return onsetBarXScale(d.age_range) })
-            .attr("y", function(d) { return onsetBarYScale(d.count) })
-            .attr("width", onsetBarXScale.bandwidth)
-            .attr("height", function(d) { return g7Height - onsetBarYScale(d.count)  })
-            .attr("fill", "#ff8c00")
-            .attr("class", "changeCursor")
-            .on('click', function(d) { sendQuery("age_range", d.age_range); if ($(this).hasClass("selectedBar")) { $(this).removeClass("selectedBar"); $(this).attr("fill", "#ff8c00") } else { $(this).addClass("selectedBar"); $(this).attr("fill", "whitesmoke"); $(this).attr("stroke", "lightgrey"); } } );
+        // var onset_bars = g7.selectAll("rect").data(data.age_onset);
+        // onset_bars.enter()
+        //     .append("rect")
+        //     .attr("x", function(d) { return onsetBarXScale(d.age_range) })
+        //     .attr("y", function(d) { return onsetBarYScale(d.count) })
+        //     .attr("width", onsetBarXScale.bandwidth)
+        //     .attr("height", function(d) { return g7Height - onsetBarYScale(d.count)  })
+        //     .attr("fill", "#ff8c00");
+            // .attr("class", "changeCursor")
+            // .on('click', function(d) { sendQuery("age_range", d.age_range); if ($(this).hasClass("selectedBar")) { $(this).removeClass("selectedBar"); $(this).attr("fill", "#ff8c00") } else { $(this).addClass("selectedBar"); $(this).attr("fill", "whitesmoke"); $(this).attr("stroke", "lightgrey"); } } );
 
         var onsetBarsBottomAxis = d3.axisBottom(onsetBarXScale);
         var onsetBarsLeftAxis = d3.axisLeft(onsetBarYScale)
             .ticks(4);
 
-        g7.append("g")
+        var onsetAxisBottom = g7.append("g")
             .attr("class", "bottom axis")
-            .attr("transform", "translate(0,"+g7Height+")")
-            .call(onsetBarsBottomAxis)
-            .selectAll("text")
-            .attr("y", 5)
-            .attr("x", -8)
-            .attr("text-anchor", "end")
-            .attr("transform", "rotate(-40)")
-            .style("font-size","14px");
+            .attr("transform", "translate(0,"+g7Height+")");
+
 
         g7.append("text")
             .attr("class", "x axis-label")
-            .attr("x", g7Width / 2)
-            .attr("y", g7Margin.top)
-            .attr("font-size", "18px")
+            .attr("x", g7Width / 2 - 25)
+            .attr("y", g7Margin.top -15)
+            .attr("font-size", "20px")
             .attr("text-anchor", "middle")
             .text("Age of Onset");
 
-        g7.append("g")
-            .attr("class", "left axis")
-            .call(onsetBarsLeftAxis)
-            .selectAll("text")
-            .style("font-size", "12px");
+        var onsetAxisLeft = g7.append("g")
+            .attr("class", "left axis");
 
-        g7.append("text")
-            .attr("class", "y axis-label")
-            .attr("x", - (g7Height / 2))
-            .attr("y", -50)
-            .attr("font-size", "12px")
-            .attr("text-anchor", "middle")
-            .attr("transform", "rotate(-90)")
-            .text("N Subjects");
+
+        var g7Legend = g7.append("g")
+            .attr("trasform","translate(0, 0)");
+
+        onsetList.forEach(function(onsetRange, i) {
+            var g7LegendRow = g7Legend.append("g")
+                .attr("transform", "translate(230,"+ ((i * 20) + 30)+ ")");
+            g7LegendRow.append("text")
+                .attr("x", -10)
+                .attr("y",  10)
+                .attr("text-anchor", "start")
+                .attr("class", "changeCursor legendEntry")
+                .text("• "+onsetRange)
+                .style("font-size", "10pt")
+                .on('click', function() { sendQuery("age_range", onsetRange); if ($(this).hasClass("greyedOutText") ) { $(this).removeClass("greyedOutText"); $(this).attr({'fill':'black'}); } else { $(this).addClass("greyedOutText"); $(this).attr({'fill':'lightgrey'}); } })
+                .on('mouseover', function() { $(this).addClass("underlinedText")})
+                .on('mouseout', function() { $(this).removeClass("underlinedText")});
+        });
+        // raceList.forEach(function(race, i) {
+        //     var g2LegendRow = g2Legend.append("g")
+        //         .attr("transform", "translate(0,"+ (i * 20) + ")");
+        //     g2LegendRow.append("rect")
+        //         .attr("width", 10)
+        //         .attr("height", 10)
+        //         .attr("fill", raceColors(i));
+        //
+        //     g2LegendRow.append("text")
+        //         .attr("x", -10)
+        //         .attr("y", 10)
+        //         .attr("text-anchor", "end")
+        //         .style("text-transform", "capitalize")
+        //         .attr("class", "changeCursor")
+        //         .text(race)
+        //         .on('click', function() { sendQuery("race", race); if ($(this).hasClass("greyedOutText") ) { $(this).removeClass("greyedOutText"); $(this).attr({'fill':'black'}); } else { $(this).addClass("greyedOutText"); $(this).attr({'fill':'lightgrey'}); } });
+        // });
+
+        // g7.append("text")
+        //     .attr("class", "y axis-label")
+        //     .attr("x", - (g7Height / 2))
+        //     .attr("y", -50)
+        //     .attr("font-size", "12px")
+        //     .attr("text-anchor", "middle")
+        //     .attr("transform", "rotate(-90)")
+        //     .text("N Subjects");
         // END AGE ONSET HISTOGRAM
 
         // START GRAPH UPDATE CODE
@@ -503,10 +444,10 @@ $(document).on("turbolinks:load", function(){
                 queryString += paramsArray.join("&");
                 //console.log(queryString)
                 queryUrl = queryUrl + queryString;
-                console.log(queryUrl);
+                //console.log(queryUrl);
             }
             //console.log(params)
-
+            // make AJAX call to the biorepository data endpoint and redraw the graphs
             $.get(queryUrl).done(function(data) {
                 console.log("done", data);
 
@@ -555,8 +496,104 @@ $(document).on("turbolinks:load", function(){
                     .selectAll("text")
                     .style("font-size", 12);
 
-            });
+                // update and redraw the doughnut charts
+                function arcTween(a) {
+                    //console.log(this._current);
+                    var i = d3.interpolate(this._current, a);
+                    this._current = i(0);
+                    return function(b) {
+                        return arc(i(b));
+                    };
+                }
+                var g2arcs = g2.selectAll(".arc")
+                    .data(pie(data.race));
+
+                g2arcs.transition(t)
+                    .attrTween("d", arcTween);
+
+                g2arcs.enter().append("path")
+                    .attr("class", "arc")
+                    .attr("fill", function(d, i) {return raceColors(i);})
+                    .attr("d", arc)
+                    .each(function(d) { this._current = d;});
+
+
+                var g3arcs = g3.selectAll(".arc")
+                    .data(pie(data.disease_course));
+
+                g3arcs.transition(t)
+                    .attrTween("d", arcTween);
+
+                g3arcs.enter().append("path")
+                    .attr("class", "arc")
+                    .attr("fill", function(d, i) {return courseColors(i);})
+                    .attr("d", arc)
+                    .each(function(d) { this._current = d;});
+
+                var g4arcs = g4.selectAll(".arc")
+                    .data(pie(data.sex));
+
+                g4arcs.transition(t)
+                    .attrTween("d", arcTween);
+
+                g4arcs.enter().append("path")
+                    .attr("class", "arc")
+                    .attr("fill", function(d, i) {return sexColors(i);})
+                    .attr("d", arc)
+                    .each(function(d) { this._current = d; });
+                // update and redraw the age of onset histogram
+
+                onsetList = data.age_onset.map(function(d) { return d.age_range; });
+                onsetBarXScale.domain(onsetList);
+                onsetBarYMax = d3.max(data.age_onset, function(d){ return +d.count; });
+                onsetBarYScale.domain([1, onsetBarYMax]);
+                //JOIN data to objects
+                var onsetBars = g7.selectAll("rect").data(data.age_onset);
+                // REMOVE any objects not in the new data set (should be none)
+                onsetBars.exit().remove();
+                // UPDATE existing objects dimensions and properties with new values
+                onsetBars.transition(t)
+                    .attr("x", function(d) { return onsetBarXScale(d.age_range) })
+                    .attr("y", function(d) { return onsetBarYScale(d.count) })
+                    .attr("width", onsetBarXScale.bandwidth)
+                    .attr("height", function(d) { return g7Height - onsetBarYScale(d.count)  })
+                    .attr("fill", "#ff8c00");
+                // ENTER new objects if needed (should not be)
+                onsetBars.enter()
+                    .append("rect")
+                    .attr("x", function(d) { return onsetBarXScale(d.age_range) })
+                    .attr("y", function(d) { return onsetBarYScale(d.count) })
+                    .attr("width", onsetBarXScale.bandwidth)
+                    .attr("height", function(d) { return g7Height - onsetBarYScale(d.count)  })
+                    .attr("fill", "#ff8c00");
+
+                var onsetXAxis = d3.axisBottom(onsetBarXScale);
+                var onsetYAxis = d3.axisLeft(onsetBarYScale)
+                    .ticks(3);
+
+                onsetAxisBottom.transition(t).call(onsetXAxis)
+                    .selectAll("text")
+                    .attr("y", 5)
+                    .attr("x", -8)
+                    .attr("text-anchor", "end")
+                    .attr("transform", "rotate(-40)")
+                    .style("font-size","14px");
+
+                onsetAxisLeft.transition(t).call(onsetYAxis)
+                    .selectAll("text")
+                    .style("font-size", "12px");
+
+
+            }); // closes sendQuery callback function
         }
+
+        // Add hook to reset dashboard button
+        $('#resetDashboard').on('click', function(){
+            console.log("Reset");
+            $('.legendEntry').removeClass("greyedOutText");
+            $('.legendEntry').attr("fill", "black");
+            sendQuery();
+        })
     }); // closes AJAX call to /home/biorepo_data.json
 
 });
