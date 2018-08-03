@@ -4,8 +4,12 @@ class HomeController < ApplicationController
 
   end
 
-  def biorepository
+  def accept
+    puts accept_request_params.to_json
+  end
 
+  def biorepository
+    @customer = Customer.new
   end
 
   def biorepo_data
@@ -24,5 +28,9 @@ class HomeController < ApplicationController
 
     def biorepo_data_params
       params.permit(age_range: [], sex: [], race: [], course: [])
+    end
+
+    def accept_request_params
+      params.require(:customer).permit(:firstname, :lastname, :email, :institution, :studyname, :studydescription, :irb)
     end
 end

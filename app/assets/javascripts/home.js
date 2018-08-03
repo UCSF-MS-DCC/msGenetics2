@@ -46,19 +46,6 @@ $(document).on("turbolinks:load", function(){
             .attr("class", "g")
             .attr("transform", function(d) { return "translate("+(x0(d.sampleType)) + ",0)" });
 
-        // slice.selectAll("rect")
-        //     .data(function(d) { return d.values; })
-        //     .enter().append("rect")
-        //     .attr("width", x1.bandwidth())
-        //     .attr("x", function(d) { return x1(d.population); })
-        //     .style("fill", function(d) { return sampleBarsColor(d.population); })
-        //     .attr("y", function(d) { return y(+d.count); })
-        //     .attr("height", function(d) { return g1_height - y(+d.count); })
-
-        // var samplesBottomAxis = d3.axisBottom(x0);
-        // var samplesLeftAxis = d3.axisLeft(y)
-        //     .ticks(12)
-
         var xAxisGroup = g1.append("g")
             .attr("class", "bottom-axis")
             .attr("transform", "translate(0,"+g1_height+")");
@@ -161,8 +148,6 @@ $(document).on("turbolinks:load", function(){
             .attr("font-size", "20px")
             .attr("text-anchor", "middle")
             .text("Ancestry (self-declared)");
-
-        sendQuery();
 
         // END ANCESTRY PIE CHART
 
@@ -317,8 +302,6 @@ $(document).on("turbolinks:load", function(){
             .append("g")
             .attr("transform", "translate("+ g7Margin.left + "," + g7Margin.top + ")");
 
-
-
         var onsetList = data.age_onset.map(function(d) { return d.age_range;});
 
         var onsetBarXScale = d3.scaleBand()
@@ -332,17 +315,6 @@ $(document).on("turbolinks:load", function(){
             .domain([1, onsetBarYMax])
             .range([g7Height, 30]);
 
-        // var onset_bars = g7.selectAll("rect").data(data.age_onset);
-        // onset_bars.enter()
-        //     .append("rect")
-        //     .attr("x", function(d) { return onsetBarXScale(d.age_range) })
-        //     .attr("y", function(d) { return onsetBarYScale(d.count) })
-        //     .attr("width", onsetBarXScale.bandwidth)
-        //     .attr("height", function(d) { return g7Height - onsetBarYScale(d.count)  })
-        //     .attr("fill", "#ff8c00");
-            // .attr("class", "changeCursor")
-            // .on('click', function(d) { sendQuery("age_range", d.age_range); if ($(this).hasClass("selectedBar")) { $(this).removeClass("selectedBar"); $(this).attr("fill", "#ff8c00") } else { $(this).addClass("selectedBar"); $(this).attr("fill", "whitesmoke"); $(this).attr("stroke", "lightgrey"); } } );
-
         var onsetBarsBottomAxis = d3.axisBottom(onsetBarXScale);
         var onsetBarsLeftAxis = d3.axisLeft(onsetBarYScale)
             .ticks(4);
@@ -350,7 +322,6 @@ $(document).on("turbolinks:load", function(){
         var onsetAxisBottom = g7.append("g")
             .attr("class", "bottom axis")
             .attr("transform", "translate(0,"+g7Height+")");
-
 
         g7.append("text")
             .attr("class", "x axis-label")
@@ -362,7 +333,6 @@ $(document).on("turbolinks:load", function(){
 
         var onsetAxisLeft = g7.append("g")
             .attr("class", "left axis");
-
 
         var g7Legend = g7.append("g")
             .attr("trasform","translate(0, 0)");
@@ -376,42 +346,18 @@ $(document).on("turbolinks:load", function(){
                 .attr("text-anchor", "start")
                 .attr("class", "changeCursor legendEntry")
                 .text("• "+onsetRange)
-                .style("font-size", "10pt")
+                .style("font-size", "16px")
                 .on('click', function() { sendQuery("age_range", onsetRange); if ($(this).hasClass("greyedOutText") ) { $(this).removeClass("greyedOutText"); $(this).attr({'fill':'black'}); } else { $(this).addClass("greyedOutText"); $(this).attr({'fill':'lightgrey'}); } })
                 .on('mouseover', function() { $(this).addClass("underlinedText")})
                 .on('mouseout', function() { $(this).removeClass("underlinedText")});
         });
-        // raceList.forEach(function(race, i) {
-        //     var g2LegendRow = g2Legend.append("g")
-        //         .attr("transform", "translate(0,"+ (i * 20) + ")");
-        //     g2LegendRow.append("rect")
-        //         .attr("width", 10)
-        //         .attr("height", 10)
-        //         .attr("fill", raceColors(i));
-        //
-        //     g2LegendRow.append("text")
-        //         .attr("x", -10)
-        //         .attr("y", 10)
-        //         .attr("text-anchor", "end")
-        //         .style("text-transform", "capitalize")
-        //         .attr("class", "changeCursor")
-        //         .text(race)
-        //         .on('click', function() { sendQuery("race", race); if ($(this).hasClass("greyedOutText") ) { $(this).removeClass("greyedOutText"); $(this).attr({'fill':'black'}); } else { $(this).addClass("greyedOutText"); $(this).attr({'fill':'lightgrey'}); } });
-        // });
 
-        // g7.append("text")
-        //     .attr("class", "y axis-label")
-        //     .attr("x", - (g7Height / 2))
-        //     .attr("y", -50)
-        //     .attr("font-size", "12px")
-        //     .attr("text-anchor", "middle")
-        //     .attr("transform", "rotate(-90)")
-        //     .text("N Subjects");
         // END AGE ONSET HISTOGRAM
-
+        sendQuery();
         // START GRAPH UPDATE CODE
-        var params = {}
+        var params = {};
         function sendQuery(param, value) {
+            console.log(params);
             //console.log(param, value)
             // each time a user clicks a graphic element, it is either added to the query string filter (click on) or removed from it (click off)
             // the first part of the function handles managing the filtering parameters and building the query string to attach to the AJAX request
@@ -444,12 +390,12 @@ $(document).on("turbolinks:load", function(){
                 queryString += paramsArray.join("&");
                 //console.log(queryString)
                 queryUrl = queryUrl + queryString;
-                //console.log(queryUrl);
+                console.log(queryUrl);
             }
             //console.log(params)
             // make AJAX call to the biorepository data endpoint and redraw the graphs
             $.get(queryUrl).done(function(data) {
-                console.log("done", data);
+                //console.log("done", data);
 
                 sampleTypes = data.samples.map(function(obj) { return obj.sampleType });
 
@@ -546,11 +492,11 @@ $(document).on("turbolinks:load", function(){
                 onsetList = data.age_onset.map(function(d) { return d.age_range; });
                 onsetBarXScale.domain(onsetList);
                 onsetBarYMax = d3.max(data.age_onset, function(d){ return +d.count; });
-                onsetBarYScale.domain([1, onsetBarYMax]);
+                onsetBarYScale.domain([0, onsetBarYMax]);
                 //JOIN data to objects
                 var onsetBars = g7.selectAll("rect").data(data.age_onset);
                 // REMOVE any objects not in the new data set (should be none)
-                onsetBars.exit().remove();
+                //onsetBars.exit().remove();
                 // UPDATE existing objects dimensions and properties with new values
                 onsetBars.transition(t)
                     .attr("x", function(d) { return onsetBarXScale(d.age_range) })
@@ -589,12 +535,17 @@ $(document).on("turbolinks:load", function(){
 
         // Add hook to reset dashboard button
         $('#resetDashboard').on('click', function(){
-            console.log("Reset");
+            params = {};
             $('.legendEntry').removeClass("greyedOutText");
             $('.legendEntry').attr("fill", "black");
             sendQuery();
         })
     }); // closes AJAX call to /home/biorepo_data.json
+
+    $('#requestForm').on('submit', function() {
+        console.log("Submitted")
+            $('#formModal').modal('hide');
+        })
 
 });
 

@@ -1,0 +1,52 @@
+<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Request Information About Using Our Samples</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for @customer, :url => {:controller => "home", :action =>"accept"}, :html => {:id => "requestForm"} do |f| %>
+          <div class="form-group">
+            <%= f.label :firstname, "First Name", :class => "col-sm-3 control-label" %>
+            <%= f.text_field :firstname, :class => "col-sm-8" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :lastname, "Last Name", :class => "col-sm-3 control-label" %>
+            <%= f.text_field :lastname, :class => "col-sm-8" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :email, "Email", :class => "col-sm-3 control-label" %>
+            <%= f.text_field :email, :class => "col-sm-8" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :institution, "Institution", :class => "col-sm-3 control-label" %>
+            <%= f.text_field :institution, :class => "col-sm-8" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :studyname, "Name of study", :class => "col-sm-4 control-label" %>
+            <%= f.text_field :studyname, :class => "col-sm-7" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :studydescription, "Briefly describe your proposed study or experiment", :class => "col-sm-12 control-label" %>
+            <%= f.text_area :studydescription, :class => "col-sm-12", :rows => "5" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :irb, "Do you have an IRB? ", :class => "col-sm-5" %>
+            <%= f.label :irb, "Yes ", :class => "col-sm-1 control-label" %>&nbsp;
+            <%= f.radio_button :irb, :checked => true, :value => "Yes"  %>
+            <%= f.label :irb, "No ", :class => "col-sm-1  control-label" %>
+            <%= f.radio_button :irb, :checked => true, :value => "No"  %>
+          </div>
+        </div>
+          <div class="modal-footer">
+            <div class="form-group">
+              <%= f.submit "Submit Request", :class => "btn btn-action", :id => "requestSubmit" %>
+            </div>
+        <% end %>
+        </div>
+    </div>
+  </div>
+</div>

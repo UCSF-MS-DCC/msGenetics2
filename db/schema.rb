@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_20_230021) do
+ActiveRecord::Schema.define(version: 2018_08_03_212225) do
+
+  create_table "customers", force: :cascade do |t|
+    t.string "email"
+    t.string "firstname"
+    t.string "lastname"
+    t.boolean "irb"
+    t.text "studyname"
+    t.text "studydescription"
+    t.text "institution"
+    t.string "telephone"
+    t.text "address"
+    t.boolean "contactemailok"
+    t.boolean "contacttelephoneok"
+    t.boolean "contactpapermail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "subjects", force: :cascade do |t|
     t.datetime "created_at", null: false
