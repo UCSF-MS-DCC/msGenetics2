@@ -2,19 +2,40 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.changeCursor {
-  cursor: pointer;
-}
-
-.greyedOutText {
-  text-decoration: underline;
-  color: lightgray;
-}
-
 .clearedText {
   text-decoration: none;
 }
 
 .selectedBar {
   fill : "Lime"
+}
+
+.btn-action {
+  background-color: darkblue;
+  color:white;
+}
+
+.legendEntry {
+  cursor:pointer;
+}
+
+.legendEntry:hover  {
+  text-decoration: underline;
+}
+
+.legendEntryActive {
+  fill:black;
+}
+
+.legendEntryInactive {
+  fill:lightgrey;
+}
+
+.graphElement {
+  cursor:pointer;
+}
+
+.underlineLegendEntry {
+  text-decoration: underline;
+  font-weight: bold;
 }

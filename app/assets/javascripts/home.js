@@ -1,7 +1,14 @@
 $(document).on("turbolinks:load", function(){
     $.get("/home/biorepo_data.json", function(data) {
         console.log(data);
-        console.log(window.screen.availWidth)
+        //console.log(window.screen.availWidth);
+        function addUnderScores(str) {
+            if (str.split(" ").length > 1) {
+                return str.split(" ").join("_");
+            } else {
+                return str;
+            }
+        }
         var t = d3.transition().duration(1500);
         var g1Margin = {"left":80, "top":100, "right": 20, "bottom":75}
         var g1_height = 700 - g1Margin.top - g1Margin.bottom;
@@ -89,9 +96,9 @@ $(document).on("turbolinks:load", function(){
             d.count = + d.count;
         });
 
-        var g2Height = 200;
-        var g2Width = 350;
-        var g2Radius = Math.min(g2Width, g2Height) / 2;
+        var g2Height = 230;
+        var g2Width = 450;
+        var g2Radius = Math.min(g2Width, g2Height) / 2 ;
 
         var g2 = d3.select("#race_chart")
             .append("svg")
@@ -99,10 +106,10 @@ $(document).on("turbolinks:load", function(){
             .attr("height",g2Height)
             //.attr("style", "border:1px solid green")
             .append("g")
-            .attr("transform", "translate("+ (g2Width - g2Radius - 10) + "," + (g2Height / 2 + 5)+ ")");
+            .attr("transform", "translate("+ (g2Radius + 70) + "," + (g2Height / 2 + 15)+ ")");
 
         var raceList = data.race.map(function(d) { return d.race; });
-        var raceColors = d3.scaleOrdinal().range(["#845EC2", "#4B4453", "#B0A8B9", "#C34A36", "#FF8066", "#4E8397", "#F3C5FF"]);
+        var raceColors = d3.scaleOrdinal().range(["#845EC2", "#4B4453", "#2db0d8", "#C34A36", "#FF8066", "#4E8397", "#F3C5FF"]);
 
         var arc = d3.arc()
             .innerRadius(g2Radius - 60)
@@ -119,32 +126,33 @@ $(document).on("turbolinks:load", function(){
             .attr("class", "arc")
             .attr("d", arc)
             .style("fill", function(d, i) { return raceColors(i); })
-            .attr("class", "changeCursor");
+            .attr("class", "graphElement");
 
         var g2Legend = g2.append("g")
-            .attr("transform", "translate(" + (g2Width -450) + "," + (g2Height - 265)+")" );
+            .attr("transform", "translate(" + (g2Width - 335) + "," + (g2Height - 310)+")" );
 
         raceList.forEach(function(race, i) {
             var g2LegendRow = g2Legend.append("g")
-                .attr("transform", "translate(0,"+ (i * 20) + ")");
+                .attr("transform", "translate(0,"+ (i * 16) + ")");
             g2LegendRow.append("rect")
                 .attr("width", 10)
                 .attr("height", 10)
                 .attr("fill", raceColors(i));
 
             g2LegendRow.append("text")
-                .attr("x", -10)
+                .attr("x", 20)
                 .attr("y", 10)
-                .attr("text-anchor", "end")
+                .attr("text-anchor", "start")
                 .style("text-transform", "capitalize")
-                .attr("class", "changeCursor legendEntry")
+                .attr("class", "legendEntry legendEntryActive legendEntry"+addUnderScores(race))
+                .style("font-size","11pt")
                 .text(race)
-                .on('click', function() { sendQuery("race", race); if ($(this).hasClass("greyedOutText") ) { $(this).removeClass("greyedOutText"); $(this).attr({'fill':'black'}); } else { $(this).addClass("greyedOutText"); $(this).attr({'fill':'lightgrey'}); } });
+                .on('click', function() {sendQuery("race", race);});
         });
         g2.append("text")
             .attr("class", "pie-chart label")
-            .attr("x", 0)
-            .attr("y", -90)
+            .attr("x", 50)
+            .attr("y", -115)
             .attr("font-size", "20px")
             .attr("text-anchor", "middle")
             .text("Ancestry (self-declared)");
@@ -153,7 +161,7 @@ $(document).on("turbolinks:load", function(){
 
         // BEGIN DISEASE COURSE PIE CHART
 
-        var g3Height = 200;
+        var g3Height = 230;
         var g3Width = 350;
         var g3Radius = Math.min(g3Width, g3Height) / 2
 
@@ -165,11 +173,12 @@ $(document).on("turbolinks:load", function(){
             .append("svg")
             .attr("width", g3Width)
             .attr("height",g3Height)
-           // .attr("style", "border:1px solid green")
+            //.attr("style", "border:1px solid green")
             .append("g")
-            .attr("transform", "translate("+ (g3Width - g3Radius - 10) + "," + (g3Height / 2 + 5) + ")");
+            .attr("transform", "translate("+ (g3Width - g3Radius - 10) + "," + (g3Height / 2 + 15) + ")");
 
-        var courseColors = d3.scaleOrdinal().range(["#845EC2", "#4B4453", "#B0A8B9", "#C34A36", "#FF8066", "#4E8397", "#F3C5FF", "Lime"]);
+       // var courseColors = d3.scaleOrdinal().range(["#845EC2", "#4B4453", "#B0A8B9", "#C34A36", "#FF8066", "#4E8397", "#F3C5FF", "Lime"]);
+        var courseColors = d3.scaleOrdinal().range(["red", "yellow", "darkcyan", "skyblue", "orange", "magenta", "indigo", "green"]);
         var courseList = data.disease_course.map(function(d) { return d.disease_course;});
 
         var arc = d3.arc()
@@ -187,13 +196,13 @@ $(document).on("turbolinks:load", function(){
             .attr("d", arc)
             .attr("class", "arc")
             .style("fill", function(d, i) { return courseColors(i); })
-            .attr("class", "changeCursor");
+            .attr("class", "graphElement");
 
         var g3Legend = g3.append("g")
-            .attr("transform", "translate(" + (g3Width -460) + "," + (g3Height - 280)+")" );
+            .attr("transform", "translate(" + (g3Width -500) + "," + (g3Height - 300)+")" );
         courseList.forEach(function(course, i) {
             var g3LegendRow = g3Legend.append("g")
-                .attr("transform", "translate(0," + (i * 20) + ")");
+                .attr("transform", "translate(0," + (i * 16) + ")");
             g3LegendRow.append("rect")
                 .attr("width", 10)
                 .attr("height", 10)
@@ -204,21 +213,22 @@ $(document).on("turbolinks:load", function(){
                 .attr("y", 10)
                 .attr("text-anchor", "end")
                 .style("text-transform", "capitalize")
-                .attr("class", "changeCursor  legendEntry diseaseCourseLegend"+course)
+                .attr("class", "legendEntry legendEntryActive legendEntry"+addUnderScores(course))
+                .style("font-size","11pt")
                 .text(course)
-                .on('click', function() { sendQuery("course", course); if ($(this).hasClass("greyedOutText") ) { $(this).removeClass("greyedOutText");; $(this).attr({'fill':'black'}); } else { $(this).addClass("greyedOutText"); $(this).attr({'fill':'lightgrey'}); } });
+                .on('click', function() { sendQuery("course", course); });
         });
         g3.append("text")
             .attr("class", "pie-chart label")
-            .attr("x", 0)
-            .attr("y", -90)
+            .attr("x", -50)
+            .attr("y", -115)
             .attr("font-size", "20px")
             .attr("text-anchor", "middle")
             .text("MS Course");
         // END DISEASE COURSE PIE CHART
 
         // START SEX PIE CHART
-        var g4Height = 200;
+        var g4Height = 230;
         var g4Width = 350;
         var g4Radius = Math.min(g4Width, g4Height) / 2
 
@@ -232,7 +242,7 @@ $(document).on("turbolinks:load", function(){
             .attr("height",g4Height)
             //.attr("style", "border:1px solid green")
             .append("g")
-            .attr("transform", "translate("+ (g4Width - g4Radius -10) + "," + (g4Height / 2 + 5) + ")");
+            .attr("transform", "translate("+ (g4Width - g4Radius -10) + "," + (g4Height / 2 + 15) + ")");
 
         var sexColors = d3.scaleOrdinal().range(d3.schemeCategory20);
         var sexList = data.sex.map(function(d) { return d.sex; });
@@ -248,18 +258,18 @@ $(document).on("turbolinks:load", function(){
         var g4Group = g4.selectAll(".arc")
             .data(pie(data.sex));
 
-        g4Group .enter().append("path")
+        g4Group.enter().append("path")
             .attr("class", "arc")
             .attr("d", arc)
             .style("fill", function(d, i) { return sexColors(i); })
-            .attr("class", "changeCursor");
+            .attr("class", "graphElement");
 
 
         var g4Legend = g4.append("g")
-            .attr("transform", "translate(" + (g4Width -450) + "," + (g4Height - 260)+")" );
+            .attr("transform", "translate(" + (g4Width -480) + "," + (g4Height - 290)+")" );
         sexList.forEach(function(sex, i) {
             var g4LegendRow = g4Legend.append("g")
-                .attr("transform", "translate(0,"+ (i * 20) + ")");
+                .attr("transform", "translate(0,"+ (i * 16) + ")");
             g4LegendRow.append("rect")
                 .attr("width", 10)
                 .attr("height", 10)
@@ -270,25 +280,26 @@ $(document).on("turbolinks:load", function(){
                 .attr("y", 10)
                 .attr("text-anchor", "end")
                 .style("text-transform", "capitalize")
-                .attr("class", "changeCursor  legendEntry")
+                .attr("class", "legendEntry legendEntryActive legendEntry"+addUnderScores(sex))
+                .style("font-size","11pt")
                 .text(sex)
-                .on('click', function() { sendQuery("sex", sex); if ($(this).hasClass("greyedOutText") ) { $(this).removeClass("greyedOutText"); $(this).attr({'fill':'black'}); } else { $(this).addClass("greyedOutText"); $(this).attr({'fill':'lightgrey'}); } });
+                .on('click', function() { sendQuery("sex", sex); });
         });
         g4.append("text")
             .attr("class", "pie-chart label")
-            .attr("x", 0)
-            .attr("y", -90)
+            .attr("x", -50)
+            .attr("y", -115)
             .attr("font-size", "20px")
             .attr("text-anchor", "middle")
-            .text("Sex");
+            .text("Gender");
 
         // END SEX PIE CHART
 
 
         // START AGE ONSET HISTOGRAM
-        var g7Margin = {"left":40, "top":15, "right":100, "bottom":60}
+        var g7Margin = {"left":80, "top":15, "right":50, "bottom":50}
         var g7Height = 250 - g7Margin.top - g7Margin.bottom;
-        var g7Width = 350 - g7Margin.left - g7Margin.right;
+        var g7Width = 400 - g7Margin.left - g7Margin.right;
 
 
         data.age_onset.forEach(function(d) {
@@ -340,17 +351,16 @@ $(document).on("turbolinks:load", function(){
 
         onsetList.forEach(function(onsetRange, i) {
             var g7LegendRow = g7Legend.append("g")
-                .attr("transform", "translate(230,"+ ((i * 20) + 30)+ ")");
+                .attr("transform", "translate(230,"+ ((i * 18) + 30)+ ")");
+
             g7LegendRow.append("text")
                 .attr("x", -10)
                 .attr("y",  10)
                 .attr("text-anchor", "start")
-                .attr("class", "changeCursor legendEntry onsetLegend"+onsetRange)
-                .text("• "+onsetRange)
-                .style("font-size", "16px")
-                .on('click', function() { sendQuery("age_range", onsetRange); if ($(this).hasClass("greyedOutText") ) { $(this).removeClass("greyedOutText"); $(this).attr({'fill':'black'}); } else { $(this).addClass("greyedOutText"); $(this).attr({'fill':'lightgrey'}); } })
-                .on('mouseover', function() { $(this).addClass("underlinedText")})
-                .on('mouseout', function() { $(this).removeClass("underlinedText")});
+                .attr("class", "legendEntry legendEntryActive legendEntry"+addUnderScores(onsetRange))
+                .text(onsetRange)
+                .style("font-size", "13px")
+                .on('click', function() { sendQuery("age_range", onsetRange);})
         });
 
         // END AGE ONSET HISTOGRAM
@@ -364,9 +374,12 @@ $(document).on("turbolinks:load", function(){
             // the first part of the function handles managing the filtering parameters and building the query string to attach to the AJAX request
             queryUrl = "/home/biorepo_data.json";
             if (param) {
+                var legendClass = '.legendEntry'+addUnderScores(value);
                 if (params[param]) {
                     if (params[param].indexOf(value) === -1) {
                         params[param].push(value);
+                        $(legendClass).removeClass('legendEntryActive');
+                        $(legendClass).addClass('legendEntryInactive');
                     }
                     else {
                         idx = params[param].indexOf(value);
@@ -374,15 +387,19 @@ $(document).on("turbolinks:load", function(){
                         if (params[param].length < 1) {
                             delete params[param];
                         }
+                        $(legendClass).removeClass('legendEntryInactive');
+                        $(legendClass).addClass('legendEntryActive');
                     }
                 }
                 else {
-                    params[param] = [value]
+                    params[param] = [value];
+                    $(legendClass).removeClass('legendEntryActive');
+                    $(legendClass).addClass('legendEntryInactive');
                 }
                 queryString = "?";
                 paramsArray = [];
                 Object.keys(params).forEach(function(key) {
-                    values = params[key]
+                    values = params[key];
                     values.forEach(function(value){
                         paramsArray.push(key+"[]="+value);
                     })
@@ -445,25 +462,28 @@ $(document).on("turbolinks:load", function(){
 
                 // update and redraw the doughnut charts
                 function arcTween(a) {
-                    //console.log(this._current);
+                    console.log(this._current);
                     var i = d3.interpolate(this._current, a);
                     this._current = i(0);
                     return function(b) {
                         return arc(i(b));
                     };
-                }
+                };
+
                 var g2arcs = g2.selectAll(".arc")
                     .data(pie(data.race));
 
                 g2arcs.transition(t)
-                    .attrTween("d", arcTween);
+                    .attrTween("d", arcTween)
 
                 g2arcs.enter().append("path")
-                    .attr("class", "arc")
-                    .attr("fill", function(d, i) {return raceColors(i);})
+                    .attr("class", "arc graphElement")
+                    .attr("fill", function(d, i) { return raceColors(i);})
                     .attr("d", arc)
-                    .each(function(d) { this._current = d;});
-
+                    .each(function(d) { this._current = d;})
+                    .on('mouseover', function(d, i) { $('.legendEntry'+addUnderScores(d.data.race)).addClass("underlineLegendEntry")})
+                    .on('mouseout', function(d, i) { $('.legendEntry'+addUnderScores(d.data.race)).removeClass("underlineLegendEntry")})
+                    .on('click', function(d, i) { sendQuery("race", d.data.race); });
 
                 var g3arcs = g3.selectAll(".arc")
                     .data(pie(data.disease_course));
@@ -472,11 +492,13 @@ $(document).on("turbolinks:load", function(){
                     .attrTween("d", arcTween);
 
                 g3arcs.enter().append("path")
-                    .attr("class", "arc")
+                    .attr("class", "arc graphElement")
                     .attr("fill", function(d, i) {return courseColors(i);})
                     .attr("d", arc)
                     .each(function(d) { this._current = d;})
-                    .on('click', function(d, i) { alert(d.data.disease_course); console.log(d); $('.diseaseCourseLegend'+d.data.disease_course).attr({"fill":"red"}); });
+                    .on('mouseover', function(d, i) { $('.legendEntry'+addUnderScores(d.data.disease_course)).addClass("underlineLegendEntry")})
+                    .on('mouseout', function(d, i) { $('.legendEntry'+addUnderScores(d.data.disease_course)).removeClass("underlineLegendEntry")})
+                    .on('click', function(d, i) { sendQuery("course", d.data.disease_course); });
 
                 var g4arcs = g4.selectAll(".arc")
                     .data(pie(data.sex));
@@ -485,10 +507,13 @@ $(document).on("turbolinks:load", function(){
                     .attrTween("d", arcTween);
 
                 g4arcs.enter().append("path")
-                    .attr("class", "arc")
+                    .attr("class", "arc graphElement")
                     .attr("fill", function(d, i) {return sexColors(i);})
                     .attr("d", arc)
-                    .each(function(d) { this._current = d; });
+                    .each(function(d) { this._current = d; })
+                    .on('mouseover', function(d, i) { $('.legendEntry'+addUnderScores(d.data.sex)).addClass("underlineLegendEntry")})
+                    .on('mouseout', function(d, i) { $('.legendEntry'+addUnderScores(d.data.sex)).removeClass("underlineLegendEntry")})
+                    .on('click', function(d, i) { sendQuery("sex", d.data.sex); });
                 // update and redraw the age of onset histogram
 
                 onsetList = data.age_onset.map(function(d) { return d.age_range; });
@@ -505,7 +530,9 @@ $(document).on("turbolinks:load", function(){
                     .attr("y", function(d) { return onsetBarYScale(d.count) })
                     .attr("width", onsetBarXScale.bandwidth)
                     .attr("height", function(d) { return g7Height - onsetBarYScale(d.count)  })
-                    .attr("fill", "#ff8c00");
+                    //.attr("fill", "#ff8c00")
+                    .attr("fill", "#6231f7")
+                    .attr("class", "graphElement");
                 // ENTER new objects if needed (should not be)
                 onsetBars.enter()
                     .append("rect")
@@ -513,14 +540,16 @@ $(document).on("turbolinks:load", function(){
                     .attr("y", function(d) { return onsetBarYScale(d.count) })
                     .attr("width", onsetBarXScale.bandwidth)
                     .attr("height", function(d) { return g7Height - onsetBarYScale(d.count)  })
-                    .attr("fill", "#ff8c00")
-                    .on('click', function(d, i) { console.log(d); $('.onsetLegend'+d.age_range).attr({"fill":"red"});x});
+                    //.attr("fill", "#ff8c00")
+                    .attr("fill", "#6231f7")
+                    .attr("class", "graphElement")
+                    .on('click', function(d, i) { sendQuery("age_range", d.age_range) });
 
                 var onsetXAxis = d3.axisBottom(onsetBarXScale);
                 var onsetYAxis = d3.axisLeft(onsetBarYScale)
                     .ticks(3);
 
-                onsetAxisBottom.transition(t).call(onsetXAxis)
+                onsetAxisBottom.call(onsetXAxis)
                     .selectAll("text")
                     .attr("y", 5)
                     .attr("x", -8)
@@ -539,12 +568,13 @@ $(document).on("turbolinks:load", function(){
         // Add hook to reset dashboard button
         $('#resetDashboard').on('click', function(){
             params = {};
-            $('.legendEntry').removeClass("greyedOutText");
-            $('.legendEntry').attr("fill", "black");
+            $('.legendEntry').removeClass('legendEntryInactive');
+            $('.legendEntry').addClass('legendEntryActive');
             sendQuery();
         })
     }); // closes AJAX call to /home/biorepo_data.json
 
+    // Hide the request modal on submitting
     $('#requestForm').on('submit', function() {
         console.log("Submitted")
             $('#formModal').modal('hide');
