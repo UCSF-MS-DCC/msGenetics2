@@ -5,7 +5,12 @@ class HomeController < ApplicationController
   end
 
   def accept
-    puts accept_request_params.to_json
+    puts params[:customer]
+    @samples_request = Customer.new(accept_request_params)
+    if @samples_request.save
+      puts "Request saved"
+      BiorepositoryNotificationMailer.with(customer: @samples_request).samples_request_notification.deliver_now
+    end
   end
 
   def biorepository

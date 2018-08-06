@@ -63,7 +63,7 @@ module HomeHelper
       ages.each_with_index {|val, idx|
         if val == ages.last
           onsets = models.where("age_onset >= ?", val).where("(disease == 'CIS' OR disease == 'RIS' OR disease == 'MS' OR disease == 'MS - Reported' OR disease == 'MS - Confirmed' OR disease == 'Unknown')")
-          output[:age_onset].push({age_range:"> #{val}", count:onsets.size})
+          output[:age_onset].push({age_range:"#{val} and up", count:onsets.size})
         else
           end_age = ages[idx+1]
           onsets = models.where("age_onset >= ?", val).where("age_onset < ?", end_age).where("(disease == 'CIS' OR disease == 'RIS' OR disease == 'MS' OR disease == 'MS - Reported' OR disease == 'MS - Confirmed' OR disease == 'Unknown')")
@@ -89,8 +89,8 @@ module HomeHelper
     if params[:age_range]
       where_clause_age = []
       params[:age_range].each do |age_onset|
-        if age_onset.include? ">"
-          start = age_onset.split(" ")[1]
+        if age_onset.include? "and up"
+          start = age_onset.split(" ")[0]
           where_clause_age.push("(age_onset >= #{start})")
         else
           start = age_onset.split(' ')[0]
