@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_03_212225) do
+ActiveRecord::Schema.define(version: 2018_08_06_230002) do
 
   create_table "customers", force: :cascade do |t|
     t.string "email"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2018_08_03_212225) do
     t.boolean "contactpapermail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "sampletype"
+    t.text "studygroup"
   end
 
   create_table "subjects", force: :cascade do |t|

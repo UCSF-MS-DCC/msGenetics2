@@ -12,7 +12,7 @@ $(document).on("turbolinks:load", function(){
         var t = d3.transition().duration(1500);
         var g1Margin = {"left":80, "top":100, "right": 20, "bottom":75}
         var g1_height = 700 - g1Margin.top - g1Margin.bottom;
-        var g1_width = 600 - g1Margin.left - g1Margin.right;
+        var g1_width = 550 - g1Margin.left - g1Margin.right;
 
         var g1 = d3.select("#samples_count_chart")
             .append("svg")

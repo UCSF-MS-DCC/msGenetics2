@@ -2,12 +2,17 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Request Information About Using Our Samples</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Request Information About UCSF Samples</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+        <p style="font-size:10pt;">The MSDB makes biological materials (DNA, serum, and plasma) available to qualified researchers
+          studying Multiple Sclerosis (MS) or other diseases that will help researchers understand the underlying causes of MS. In keeping with the variety of family structures seen in the general population, ascertainment was not restricted
+          to isolated cases, and when possible, collection was extended to family members.</p>
+        <hr>
+        <p style="font-size:10pt;">Please provide us with some basic information.</p>
         <%= form_for @customer, :url => {:controller => "home", :action =>"accept"}, :html => {:id => "requestForm"} do |f| %>
           <div class="form-group">
             <%= f.label :firstname, "First Name", :class => "col-sm-3 control-label" %>
@@ -30,8 +35,16 @@
             <%= f.text_field :studyname, :class => "col-sm-7" %>
           </div>
           <div class="form-group">
-            <%= f.label :studydescription, "Briefly describe your proposed study or experiment", :class => "col-sm-12 control-label" %>
+            <%= f.label :studydescription, "Briefly describe your proposed experiment", :class => "col-sm-12 control-label" %>
             <%= f.text_area :studydescription, :class => "col-sm-12", :rows => "5", :required => true %>
+          </div>
+          <div class="form-group">
+            <%= f.label :studygroup, "What subject phenotypes do you require?", :class => "col-sm-12 control-label" %>
+            <%= f.text_area :studygroup, :class => "col-sm-12", :rows => "5", :required => true %>
+          </div>
+          <div class="form-group">
+            <%= f.label :sampletype, "What sample types do you require (plasma, blood, dna)?", :class => "col-sm-12 control-label" %>
+            <%= f.text_field :sampletype, :class => "col-sm-12", :required => true %>
           </div>
           <div class="form-group">
             <%= f.label :irb, "Do you have an IRB? ", :class => "col-sm-5" %>

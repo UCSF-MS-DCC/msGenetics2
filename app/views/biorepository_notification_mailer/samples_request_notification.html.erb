@@ -4,7 +4,11 @@
   <meta content=='text/html; charset=UTF-8' http-equiv="Content-Type" />
 </head>
 <body>
-<h3>Testing the mailer</h3>
-<h5><%= @customer.firstname %> <%= @customer.lastname %></h5>
+<h3>Request for Information</h3>
+<h3><%= @customer.firstname %> <%= @customer.lastname %> email: <%= @customer.email %></h3>
+<h3>from <%= @customer.institution %></h3>
+<h3>is requesting information about UCSF Biorepository samples</h3>
+<h3>proposed experiment description:</h3>
+<p><%= @customer.studydescription %></p>
 </body>
 </html>
