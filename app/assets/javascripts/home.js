@@ -204,7 +204,7 @@ $(document).on("turbolinks:load", function(){
                 .attr("y", 10)
                 .attr("text-anchor", "end")
                 .style("text-transform", "capitalize")
-                .attr("class", "changeCursor  legendEntry")
+                .attr("class", "changeCursor  legendEntry diseaseCourseLegend"+course)
                 .text(course)
                 .on('click', function() { sendQuery("course", course); if ($(this).hasClass("greyedOutText") ) { $(this).removeClass("greyedOutText");; $(this).attr({'fill':'black'}); } else { $(this).addClass("greyedOutText"); $(this).attr({'fill':'lightgrey'}); } });
         });
@@ -253,6 +253,7 @@ $(document).on("turbolinks:load", function(){
             .attr("d", arc)
             .style("fill", function(d, i) { return sexColors(i); })
             .attr("class", "changeCursor");
+
 
         var g4Legend = g4.append("g")
             .attr("transform", "translate(" + (g4Width -450) + "," + (g4Height - 260)+")" );
@@ -344,7 +345,7 @@ $(document).on("turbolinks:load", function(){
                 .attr("x", -10)
                 .attr("y",  10)
                 .attr("text-anchor", "start")
-                .attr("class", "changeCursor legendEntry")
+                .attr("class", "changeCursor legendEntry onsetLegend"+onsetRange)
                 .text("• "+onsetRange)
                 .style("font-size", "16px")
                 .on('click', function() { sendQuery("age_range", onsetRange); if ($(this).hasClass("greyedOutText") ) { $(this).removeClass("greyedOutText"); $(this).attr({'fill':'black'}); } else { $(this).addClass("greyedOutText"); $(this).attr({'fill':'lightgrey'}); } })
@@ -474,7 +475,8 @@ $(document).on("turbolinks:load", function(){
                     .attr("class", "arc")
                     .attr("fill", function(d, i) {return courseColors(i);})
                     .attr("d", arc)
-                    .each(function(d) { this._current = d;});
+                    .each(function(d) { this._current = d;})
+                    .on('click', function(d, i) { alert(d.data.disease_course); console.log(d); $('.diseaseCourseLegend'+d.data.disease_course).attr({"fill":"red"}); });
 
                 var g4arcs = g4.selectAll(".arc")
                     .data(pie(data.sex));
@@ -511,7 +513,8 @@ $(document).on("turbolinks:load", function(){
                     .attr("y", function(d) { return onsetBarYScale(d.count) })
                     .attr("width", onsetBarXScale.bandwidth)
                     .attr("height", function(d) { return g7Height - onsetBarYScale(d.count)  })
-                    .attr("fill", "#ff8c00");
+                    .attr("fill", "#ff8c00")
+                    .on('click', function(d, i) { console.log(d); $('.onsetLegend'+d.age_range).attr({"fill":"red"});x});
 
                 var onsetXAxis = d3.axisBottom(onsetBarXScale);
                 var onsetYAxis = d3.axisLeft(onsetBarYScale)
@@ -523,7 +526,7 @@ $(document).on("turbolinks:load", function(){
                     .attr("x", -8)
                     .attr("text-anchor", "end")
                     .attr("transform", "rotate(-40)")
-                    .style("font-size","14px");
+                    .style("font-size","12px");
 
                 onsetAxisLeft.transition(t).call(onsetYAxis)
                     .selectAll("text")
