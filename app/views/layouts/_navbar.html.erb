@@ -6,20 +6,19 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <%= link_to "Home", root_path, :class => "nav-item nav-link active" %>
-      <%= link_to "Biorepository", biorepository_path, :class=> "nav-item nav-link active" %>
+      <%= link_to "About", about_path, :class=> "nav-item nav-link active" %>
+      <%= link_to "Research", research_path, :class => "nav-item nav-link active" %>
       <%= link_to "Publications", root_path, :class => "nav-item nav-link active" %>
-      <%= link_to "Research", root_path, :class => "nav-item nav-link active" %>
+
+      <% if current_page?(:controller => 'home', :action => 'biorepository') %>
+        <span class="nav-item" style="color:white;padding-left:150px;padding-top:2px;font-size:16pt;">The MSDB is supported by the US National Multiple Sclerosis Society</span>
+      <% end %>
 
   </div>
 </nav>
 <script>
   $(document).on('turbolinks:load', function(){
       var pathname = window.location.pathname;
-      console.log(window.location.pathname);
       $('.navbar-nav > a[href="'+pathname+'"]').css("text-decoration","underline");
-      pathname = pathname.split("/")[1];
-      console.log("pathname", pathname)
-      $('marquee').css("display", "none");
-      $('marquee#'+pathname).css("display","inline-block");
   })
 </script>

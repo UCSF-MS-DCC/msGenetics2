@@ -1,0 +1,21 @@
+<%= render "home/project_top" %>
+
+  <div id="slideCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item item active">
+        <%= image_tag("ester-msgenetics.jpg", :class => "d-block w-100") %>
+      </div>
+      <div class="carousel-item item ">
+        <%= image_tag("dataentry-msgenetics.jpg", :class => "d-block w-100") %>
+      </div>
+      <div class="carousel-item item ">
+        <%= image_tag("team-msgenetics.jpg", :class => "d-block w-100") %>
+      </div>
+    </div>
+  </div>
+
+<script>
+  $('#slideCarousel').carousel({
+      interval:5000
+  });
+</script>

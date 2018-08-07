@@ -40,3 +40,50 @@
   text-decoration: underline;
   font-weight: bold;
 }
+
+#navLinkRow {
+  position:absolute;
+  width:100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top:20px;
+  padding-bottom: 20px;
+  z-index:1;
+  top:100px;
+}
+
+.indexSubjectLink {
+  color:white;
+  font-size: 16pt;
+}
+
+.indexSubjectLink:hover {
+  color:white;
+}
+
+#ucsfLogo {
+  height:100px;
+  position:absolute;
+  z-index:1;
+}
+
+#slideCarousel {
+  z-index: -99;
+  position:relative;
+}
+html,body{height:100%;}
+.carousel,.item,.active{height:100%;}
+.carousel-inner{height:100%;}
+
+.aboutSubjectLink {
+  color:white;
+  font-size: 16pt;
+}
+
+body {
+  background: image_url("dna-msgenetics.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}

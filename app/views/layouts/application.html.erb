@@ -10,7 +10,10 @@
   </head>
 
   <body>
-    <%= render "layouts/navbar" %>
+
     <%= yield %>
+  <% unless current_page?(:controller => 'home', :action => 'index') %>
+    <%= render "layouts/footer" %>
+  <% end %>
   </body>
 </html>

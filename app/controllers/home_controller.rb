@@ -4,6 +4,14 @@ class HomeController < ApplicationController
 
   end
 
+  def about
+
+  end
+
+  def research
+
+  end
+
   def accept
     puts params[:customer]
     @samples_request = Customer.new(accept_request_params)

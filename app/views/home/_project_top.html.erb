@@ -1,0 +1,36 @@
+<div class="container-fluid" id="indexContainer">
+  <div class="row">
+    <%= image_tag("UCSF_logobox_navy_RGB_sized.jpg", :id => "ucsfLogo") %>
+    <div style="display:inline-block; height:100px;background-color:white;position:absolute;left:100px;">
+      <h3 style="padding-top:60px;">&nbsp;&nbsp;The Multiple Sclerosis Genetics Project&nbsp;&nbsp;</h3>
+      <% if current_page?(:controller => 'home', :action => 'biorepository') %>
+        <%= image_tag('ms-society-logo.png', :style => "max-height:120px;position:absolute;left:560px;top:-10px;") %>
+        <h5 style="position:absolute;left:685px;width:650px;top:50px;">The MSDB is supported by the US National Mulitple Sclerosis Society</h5>
+      <% end %>
+    </div>
+  </div>
+  <div class="row" id="navLinkRow">
+
+    <div class="col-sm-2 offset-sm-1 text-center">
+      <%= link_to "Home", root_path, :class => "indexSubjectLink" %>
+    </div>
+
+    <div class="col-sm-2 text-center">
+       <%= link_to "About", about_path, :class => "indexSubjectLink" %>
+    </div>
+
+
+    <div class="col-sm-2 text-center">
+      <%= link_to "Research", research_path, :class => "indexSubjectLink" %>
+    </div>
+
+    <div class="col-sm-2 text-center">
+      <a href="#" class="indexSubjectLink">Publications</a>
+    </div>
+
+    <div class="col-sm-2 text-center">
+      <%= link_to "Biorepository", biorepository_path, :class => "indexSubjectLink" %>
+    </div>
+
+  </div>
+</div>

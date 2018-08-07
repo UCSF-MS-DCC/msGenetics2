@@ -1,7 +1,14 @@
 $(document).on("turbolinks:load", function(){
     $.get("/home/biorepo_data.json", function(data) {
-        console.log(data);
+        //console.log(data);
         //console.log(window.screen.availWidth);
+
+        if (window.location.pathname === "/biorepository") {
+            $('#infoModal').modal('show');
+            seenModal = true;
+        }
+        //$('#infoModal').modal('show');
+
         function addUnderScores(str) {
             if (str.split(" ").length > 1) {
                 return str.split(" ").join("_");
@@ -11,7 +18,7 @@ $(document).on("turbolinks:load", function(){
         }
         var t = d3.transition().duration(1500);
         var g1Margin = {"left":80, "top":100, "right": 20, "bottom":75}
-        var g1_height = 700 - g1Margin.top - g1Margin.bottom;
+        var g1_height = 500 - g1Margin.top - g1Margin.bottom;
         var g1_width = 550 - g1Margin.left - g1Margin.right;
 
         var g1 = d3.select("#samples_count_chart")
@@ -96,7 +103,7 @@ $(document).on("turbolinks:load", function(){
             d.count = + d.count;
         });
 
-        var g2Height = 230;
+        var g2Height = 220;
         var g2Width = 450;
         var g2Radius = Math.min(g2Width, g2Height) / 2 ;
 
@@ -152,7 +159,7 @@ $(document).on("turbolinks:load", function(){
         g2.append("text")
             .attr("class", "pie-chart label")
             .attr("x", 50)
-            .attr("y", -115)
+            .attr("y", -108)
             .attr("font-size", "20px")
             .attr("text-anchor", "middle")
             .text("Ancestry (self-declared)");
@@ -161,7 +168,7 @@ $(document).on("turbolinks:load", function(){
 
         // BEGIN DISEASE COURSE PIE CHART
 
-        var g3Height = 230;
+        var g3Height = 220;
         var g3Width = 350;
         var g3Radius = Math.min(g3Width, g3Height) / 2
 
@@ -221,14 +228,14 @@ $(document).on("turbolinks:load", function(){
         g3.append("text")
             .attr("class", "pie-chart label")
             .attr("x", -50)
-            .attr("y", -115)
+            .attr("y", -108)
             .attr("font-size", "20px")
             .attr("text-anchor", "middle")
             .text("MS Course");
         // END DISEASE COURSE PIE CHART
 
         // START SEX PIE CHART
-        var g4Height = 230;
+        var g4Height = 220;
         var g4Width = 350;
         var g4Radius = Math.min(g4Width, g4Height) / 2
 
@@ -288,7 +295,7 @@ $(document).on("turbolinks:load", function(){
         g4.append("text")
             .attr("class", "pie-chart label")
             .attr("x", -50)
-            .attr("y", -115)
+            .attr("y", -108)
             .attr("font-size", "20px")
             .attr("text-anchor", "middle")
             .text("Gender");
@@ -297,8 +304,8 @@ $(document).on("turbolinks:load", function(){
 
 
         // START AGE ONSET HISTOGRAM
-        var g7Margin = {"left":80, "top":15, "right":50, "bottom":50}
-        var g7Height = 250 - g7Margin.top - g7Margin.bottom;
+        var g7Margin = {"left":80, "top":15, "right":75, "bottom":50}
+        var g7Height = 220 - g7Margin.top - g7Margin.bottom;
         var g7Width = 400 - g7Margin.left - g7Margin.right;
 
 
@@ -351,7 +358,7 @@ $(document).on("turbolinks:load", function(){
 
         onsetList.forEach(function(onsetRange, i) {
             var g7LegendRow = g7Legend.append("g")
-                .attr("transform", "translate(230,"+ ((i * 18) + 30)+ ")");
+                .attr("transform", "translate(270,"+ ((i * 18) + 30)+ ")");
 
             g7LegendRow.append("text")
                 .attr("x", -10)
@@ -578,7 +585,6 @@ $(document).on("turbolinks:load", function(){
     $('#requestForm').on('submit', function() {
         console.log("Submitted")
             $('#formModal').modal('hide');
-        })
-
+        });
 });
 

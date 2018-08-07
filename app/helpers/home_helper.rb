@@ -4,7 +4,7 @@ module HomeHelper
       output = {}
       # number of patients with samples of the various types
       s_types = %w(plasma serum dna)
-      pop_types = ["cases", "related unaffected", "unrelated controls"]
+      pop_types = ["cases", "related unaffected individuals", "unrelated controls"]
       output[:samples] = []
       s_types.each do |sam_type|
         bundle = {sampleType: sam_type, values:[]}

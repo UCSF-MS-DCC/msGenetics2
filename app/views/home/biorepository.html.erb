@@ -1,21 +1,31 @@
-<div class="container-fluid">
+<%= render 'home/project_top' %>
+
+<div class="container-fluid" style="position:absolute;top:175px;">
 
   <div class="row justify-content-lg-left" style="border-bottom:1px solid lightgrey;margin-bottom:4px;margin-top:10px;">
     <div class="col col-sm-5">
-      <h4>UCSF MS Biorepository Samples Data Dashboard</h4>
+      <h4>MS Biorepository Samples Data Dashboard</h4>
     </div>
-    <div class="col col-sm-7"><p class="text-center" style="padding-left:50px;font-size:10pt;">Clicking on an element will remove all subjects with that phenotype from all graphs. To restore, click on the faint grey value in the graph's legend, or press the "Reset Dashboard" button to reset all graphs.</p></div>
+    <div class="col col-sm-7"><p class="text-center" style="padding-left:50px;font-size:10pt;">Clicking on an element will remove all subjects with that phenotype from all graphs. To restore, click on the faint grey value in the graph's legend, or press the "Reset Dashboard" button to restore all graphs.</p></div>
   </div>
 
   <div class="row">
-    <div class="col-sm-5" id="samples_count_chart"></div>
+    <div class="col-sm-5">
+      <div class="row">
+        <div id="samples_count_chart">
+        </div>
+        <div class="col-sm-3 offset-sm-3 text-center">
+          <button type="button" class="btn btn-sm btn-action" data-toggle="modal" data-target="#formModal">Inquire About Samples</button>
+        </div>
+      </div>
+    </div>
     <div class="col-sm-6">
       <div class="row justify-content-lg-center">
         <div class="col-sm-12">
 
         </div>
       </div>
-      <h6 class="text-center" style="padding-bottom:10px;text-decoration: underline;padding-left:100px;">Applies only to MS Cases</h6>
+      <!--<h6 class="text-center" style="padding-bottom:10px;text-decoration: underline;padding-left:100px;">Applies only to MS Cases</h6>-->
       <div class="row">
         <div class="col-sm-6"></div>
         <div class="col-sm-6"></div>
@@ -25,19 +35,16 @@
         <div class="col-sm-6" id="age_onset_chart"></div>
       </div>
       <hr>
-      <h6 class="text-center" style="padding-bottom:15px;text-decoration: underline;padding-left:100px;">Applies to all study participants</h6>
+      <!--<h6 class="text-center" style="padding-bottom:15px;text-decoration: underline;padding-left:100px;">Applies to all study participants</h6>-->
 
       <div class="row">
         <div class="col-sm-6" id="sex_chart"></div>
         <div class="col-sm-6" id="race_chart"></div>
       </div>
-      <hr>
+
       <div class="row">
-        <div class="col-sm-3 offset-sm-6">
-          <button id="resetDashboard" class = "btn btn-sm btn-action">Reset Dashboard</button>
-        </div>
-        <div class="col-sm-3">
-          <button type="button" class="btn btn-sm btn-action" data-toggle="modal" data-target="#formModal">Contact Us About Samples</button>
+        <div class="col-sm-12 text-right">
+          <button id="resetDashboard" class="btn btn-sm btn-action" style="margin-top:20px;">Reset Dashboard</button>
         </div>
       </div>
     </div>
@@ -45,7 +52,11 @@
 
 </div>
 
+<%= render 'home/bio_bank_info_modal' %>
 <%= render 'home/form_modal' %>
 
 <script src="https://unpkg.com/jeezy/lib/jeezy.min.js"></script>
 
+<script>
+  $('body').css('background','none')
+</script>
