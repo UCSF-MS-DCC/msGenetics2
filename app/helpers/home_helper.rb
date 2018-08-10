@@ -3,7 +3,7 @@ module HomeHelper
   def test1(models)
       output = {}
       # number of patients with samples of the various types
-      s_types = %w(plasma serum dna)
+      s_types = %w(plasma serum DNA)
       pop_types = ["cases", "related unaffected individuals", "unrelated controls"]
       output[:samples] = []
       s_types.each do |sam_type|

@@ -12,6 +12,10 @@ class HomeController < ApplicationController
 
   end
 
+  def publications
+
+  end
+
   def accept
     puts params[:customer]
     @samples_request = Customer.new(accept_request_params)

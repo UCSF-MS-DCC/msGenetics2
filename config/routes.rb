@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   get '/home/biorepo_data'
   get '/about', to: 'home#about', as: 'about'
   get '/research', to: 'home#research', as: 'research'
+  get '/publication', to: 'home#publication', as: 'publication'
   post '/home/accept'
 end

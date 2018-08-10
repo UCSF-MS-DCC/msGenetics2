@@ -41,14 +41,26 @@
   font-weight: bold;
 }
 
+#pub-scroll-window {
+  height:500px;
+  border-top: 2px solid lightblue;
+  border-bottom:2px solid lightblue;
+  padding-top:5px;
+  padding-bottom:5px;
+}
+
 #navLinkRow {
   position:absolute;
   width:100%;
   background-color: rgba(0, 0, 0, 0.4);
-  padding-top:20px;
-  padding-bottom: 20px;
+  padding-top:10px;
+  padding-bottom: 10px;
   z-index:1;
   top:100px;
+}
+
+.nav-link {
+  text-decoration: underline;
 }
 
 .indexSubjectLink {
@@ -58,6 +70,9 @@
 
 .indexSubjectLink:hover {
   color:white;
+}
+.indexSubjectLink:active {
+  text-decoration: underline;
 }
 
 #ucsfLogo {

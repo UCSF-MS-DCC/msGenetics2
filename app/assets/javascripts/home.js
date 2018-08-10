@@ -7,7 +7,12 @@ $(document).on("turbolinks:load", function(){
             $('#infoModal').modal('show');
             seenModal = true;
         }
-        //$('#infoModal').modal('show');
+
+        $('#pub-scroll-window').mCustomScrollbar({
+            theme:"rounded-dots-dark",
+            scrollbarPosition:"outside",
+            scrollButtons:{enable:true}
+        });
 
         function addUnderScores(str) {
             if (str.split(" ").length > 1) {
@@ -298,7 +303,7 @@ $(document).on("turbolinks:load", function(){
             .attr("y", -108)
             .attr("font-size", "20px")
             .attr("text-anchor", "middle")
-            .text("Gender");
+            .text("Sex");
 
         // END SEX PIE CHART
 
@@ -358,7 +363,7 @@ $(document).on("turbolinks:load", function(){
 
         onsetList.forEach(function(onsetRange, i) {
             var g7LegendRow = g7Legend.append("g")
-                .attr("transform", "translate(270,"+ ((i * 18) + 30)+ ")");
+                .attr("transform", "translate(260,"+ ((i * 18) + 30)+ ")");
 
             g7LegendRow.append("text")
                 .attr("x", -10)
@@ -475,13 +480,13 @@ $(document).on("turbolinks:load", function(){
                     return function(b) {
                         return arc(i(b));
                     };
-                };
+                }
 
                 var g2arcs = g2.selectAll(".arc")
                     .data(pie(data.race));
 
                 g2arcs.transition(t)
-                    .attrTween("d", arcTween)
+                    .attrTween("d", arcTween);
 
                 g2arcs.enter().append("path")
                     .attr("class", "arc graphElement")
@@ -583,7 +588,7 @@ $(document).on("turbolinks:load", function(){
 
     // Hide the request modal on submitting
     $('#requestForm').on('submit', function() {
-        console.log("Submitted")
+        // console.log("Submitted")
             $('#formModal').modal('hide');
         });
 });
