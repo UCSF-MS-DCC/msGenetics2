@@ -1,7 +1,7 @@
 <div class="container-fluid" id="indexContainer">
   <div class="row">
     <%= image_tag("UCSF_logobox_navy_RGB_sized.jpg", :id => "ucsfLogo") %>
-    <div style="display:inline-block; height:100px;background-color:white;position:absolute;left:100px;">
+    <div style="display:inline-block; height:100px;background-color:white;position:absolute;left:100px;z-index: 1">
       <h2 style="padding-top:60px;">&nbsp;&nbsp;The Multiple Sclerosis Genetics Project&nbsp;&nbsp;</h2>
       <% if current_page?(:controller => 'home', :action => 'biorepository') %>
         <%= image_tag('ms-society-logo.png', :style => "max-height:35px;position:absolute;left:660px;top:60px;") %>

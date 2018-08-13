@@ -1,27 +1,44 @@
 <%= render "home/project_top" %>
 
   <div id="slideCarousel" class="carousel slide" data-ride="carousel">
+
+    <ul class="carousel-indicators">
+      <li data-target="#slideCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#slideCarousel" data-slide-to="1"></li>
+      <li data-target="#slideCarousel" data-slide-to="2"></li>
+      <li data-target="#slideCarousel" data-slide-to="3"></li>
+      <li data-target="#slideCarousel" data-slide-to="4"></li>
+    </ul>
+
     <div class="carousel-inner">
-      <div class="carousel-item item active">
+      <div class="carousel-item active">
         <%= image_tag("ester-msgenetics.jpg", :class => "d-block w-100") %>
       </div>
-      <div class="carousel-item item ">
+      <div class="carousel-item">
         <%= image_tag("microscope-msgenetics.png", :class => "d-block w-100") %>
       </div>
-      <div class="carousel-item item ">
+      <div class="carousel-item">
         <%= image_tag("dataentry-msgenetics.jpg", :class => "d-block w-100") %>
       </div>
-      <div class="carousel-item item ">
+      <div class="carousel-item">
         <%= image_tag("team-msgenetics.jpg", :class => "d-block w-100") %>
       </div>
-      <div class="carousel-item item ">
+      <div class="carousel-item">
         <%= image_tag("robot-msgenetics.png", :class => "d-block w-100") %>
       </div>
     </div>
+
+    <a class="carousel-control-prev" href="#slideCarousel" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#slideCarousel" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+
   </div>
 
 <script>
-  $('#slideCarousel').carousel({
-      interval:4000
-  });
+    $('#slideCarousel').carousel({
+        interval:5000
+    });
 </script>
