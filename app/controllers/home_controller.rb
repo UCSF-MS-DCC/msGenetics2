@@ -17,7 +17,6 @@ class HomeController < ApplicationController
   end
 
   def accept
-    puts params[:customer]
     @samples_request = Customer.new(accept_request_params)
     if @samples_request.save
       puts "Request saved"
@@ -48,6 +47,6 @@ class HomeController < ApplicationController
     end
 
     def accept_request_params
-      params.require(:customer).permit(:firstname, :lastname, :email, :institution, :studyname, :studydescription, :irb)
+      params.require(:sample_request).permit(:firstname, :lastname, :email, :institution, :studygroup, :studyname, :studydescription, :irb, :sampletype, :comments)
     end
 end

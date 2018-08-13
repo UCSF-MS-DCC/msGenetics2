@@ -422,9 +422,43 @@ $(document).on("turbolinks:load", function(){
             });
 
             // END AGE ONSET HISTOGRAM
+            // call sendQuery to draw the graphs
             sendQuery();
-            // START GRAPH UPDATE CODE
+            //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ START GRAPH UPDATE CODE $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+            // The params hash holds the categories and values selected to be hidden from the graphs.
             var params = {};
+            // This function prefills the phenotypes field in the form modal
+            function addFormPhenotypes(params) {
+                phenotypeMasterList = {
+                    "course":["RIS", "CIS", "RR", "UNC", "SP", "PP", "PR", "UNK"],
+                    "age_range":["10 - 20", "20 - 30", "30 - 40", "40 - 50", "50 - 60", "60 and up"],
+                    "sex":["Male", "Female", "Unknown"],
+                    "race":["african american", "asian", "european", "hispanic", "multirace", "native american", "unknown"]
+                };
+                for (cat in params) {
+                    params[cat].forEach(function(val) {
+                        var i = phenotypeMasterList[cat].indexOf(val);
+                        if (i !== -1) {
+                            phenotypeMasterList[cat].splice(i, 1);
+                        }
+                    });
+                }
+                outputString = "";
+                for (key in phenotypeMasterList) {
+                    if (phenotypeMasterList[key].length > 0 ) {
+                        outputString += key + " : ";
+                        phenotypeMasterList[key].forEach(function(element, index) {
+                            if (index !== phenotypeMasterList[key].length - 1) {
+                                outputString += element + ", "
+                            }
+                            else {
+                                outputString += element + ";\n"
+                            }
+                        });
+                    }
+                }
+                return outputString;
+            } // close addFormPhenotypes function definition
 
             function sendQuery(param, value) {
                 // each time a user clicks a graphic element, it is either added to the query string filter (click on) or removed from it (click off)
@@ -463,8 +497,9 @@ $(document).on("turbolinks:load", function(){
                     });
                     queryString += paramsArray.join("&");
                     queryUrl = queryUrl + queryString;
-                    console.log(queryUrl);
                 }
+                // Update the request form by prefilling the phenotypes field with values NOT filtered from the graphs (i.e. that are not part of the params hash). See _form_modal.html.erb view
+                $('#formStudyGroup').val(addFormPhenotypes(params));
                 // make AJAX call to the biorepository data endpoint and redraw the graphs
                 $.get(queryUrl).done(function (data) {
 

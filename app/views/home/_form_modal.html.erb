@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body">
         <p style="font-size:10pt;">Please provide us with some basic information.</p>
-        <%= form_for @customer, :url => {:controller => "home", :action =>"accept"}, :html => {:id => "requestForm"} do |f| %>
+        <%= form_for :sample_request, :url => {:controller => "home", :action =>"accept"}, :html => {:id => "requestForm"} do |f| %>
           <div class="form-group">
             <%= f.label :firstname, "First Name", :class => "col-sm-3 control-label" %>
             <%= f.text_field :firstname, :class => "col-sm-8", :required => true %>
@@ -36,11 +36,15 @@
           </div>
           <div class="form-group">
             <%= f.label :studygroup, "What subject phenotypes do you require?", :class => "col-sm-12 control-label" %>
-            <%= f.text_area :studygroup, :class => "col-sm-12", :rows => "5", :required => true %>
+            <%= f.text_area :studygroup, :class => "col-sm-12", :rows => "5", :required => true, :id => "formStudyGroup" %>
           </div>
           <div class="form-group">
-            <%= f.label :sampletype, "What sample types do you require (plasma, blood, dna)?", :class => "col-sm-12 control-label" %>
+            <%= f.label :sampletype, "What sample types do you require (plasma, blood, DNA)?", :class => "col-sm-12 control-label" %>
             <%= f.text_field :sampletype, :class => "col-sm-12", :required => true %>
+          </div>
+          <div class="form-group">
+            <%= f.label :comments, "Any other comments or details", :class => "col-sm-12 control-label" %>
+            <%= f.text_area :comments, :class => "col-sm-12", :required => false, :rows => 5 %>
           </div>
         </div>
           <div class="modal-footer">

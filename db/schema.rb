@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_06_230002) do
+ActiveRecord::Schema.define(version: 2018_08_13_215257) do
 
   create_table "customers", force: :cascade do |t|
     t.string "email"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2018_08_06_230002) do
     t.datetime "updated_at", null: false
     t.text "sampletype"
     t.text "studygroup"
+    t.text "comments"
   end
 
   create_table "subjects", force: :cascade do |t|
