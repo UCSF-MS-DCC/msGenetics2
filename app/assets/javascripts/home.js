@@ -1,5 +1,9 @@
 $(document).on("turbolinks:load", function(){
 
+    $('#slideCarousel').carousel({
+        interval:4000
+    });
+
     if (window.location.pathname === '/publication') {
         $('#pub-scroll-window').mCustomScrollbar({
             theme:"rounded-dots-dark",
@@ -213,7 +217,6 @@ $(document).on("turbolinks:load", function(){
                 .append("g")
                 .attr("transform", "translate(" + (g3Width - g3Radius - 10) + "," + (g3Height / 2 + 15) + ")");
 
-            // var courseColors = d3.scaleOrdinal().range(["#845EC2", "#4B4453", "#B0A8B9", "#C34A36", "#FF8066", "#4E8397", "#F3C5FF", "Lime"]);
             var courseColors = d3.scaleOrdinal().range(["red", "yellow", "darkcyan", "skyblue", "orange", "magenta", "indigo", "green"]);
             var courseList = data.disease_course.map(function (d) {
                 return d.disease_course;
@@ -427,7 +430,7 @@ $(document).on("turbolinks:load", function(){
             //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ START GRAPH UPDATE CODE $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
             // The params hash holds the categories and values selected to be hidden from the graphs.
             var params = {};
-            // This function prefills the phenotypes field in the form modal
+            // This function prefills the phenotypes field in the samples request form modal
             function addFormPhenotypes(params) {
                 phenotypeMasterList = {
                     "course":["RIS", "CIS", "RR", "UNC", "SP", "PP", "PR", "UNK"],
