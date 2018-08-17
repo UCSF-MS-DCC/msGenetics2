@@ -19,6 +19,8 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'd3-rails'
 gem 'active_model_serializers'
+gem 'pg', '1.0.0', group: :production
+gem 'rails_12factor', group: :production
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
