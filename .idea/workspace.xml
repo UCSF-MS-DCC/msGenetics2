@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2ce64c1b-401f-410d-9bc5-330ccf12f96d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -47,7 +45,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Gemfile" value="40" />
+          <entry key="Gemfile" value="100" />
           <entry key="erb" value="17" />
           <entry key="js" value="38" />
           <entry key="rb" value="238" />
@@ -59,7 +57,7 @@
         <counts>
           <entry key="JavaScript" value="38" />
           <entry key="RHTML" value="17" />
-          <entry key="Ruby" value="278" />
+          <entry key="Ruby" value="338" />
           <entry key="SCSS" value="8" />
           <entry key="YAML" value="63" />
         </counts>
@@ -82,8 +80,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+            <state relative-caret-position="120">
+              <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -190,12 +188,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1532018638202</updated>
-      <workItem from="1534203206297" duration="7210000" />
+      <workItem from="1534203206297" duration="7468000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7210000" />
+    <option name="totallyTimeSpent" value="7468000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="2560" height="1440" extended-state="0" />
@@ -304,8 +302,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+        <state relative-caret-position="120">
+          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
         </state>
       </provider>
     </entry>
