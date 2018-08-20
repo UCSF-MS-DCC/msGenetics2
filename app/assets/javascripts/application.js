@@ -11,10 +11,10 @@
 // about supported directives.
 //
 //= require jquery3
+//= require rails-ujs
 //= require popper
 //= require bootstrap-sprockets
 //= require d3
-//= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require jquery.mCustomScrollbar.concat.min
