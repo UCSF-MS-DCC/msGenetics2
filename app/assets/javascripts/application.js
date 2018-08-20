@@ -18,6 +18,6 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery.mCustomScrollbar.concat.min
-//= require static
+//= require home.js
 //= require_tree .
 
