@@ -21,3 +21,6 @@
 //= require home.js
 //= require_tree .
 
+$(document).on('turbolinks:load', function(){
+    alert("Application.js")
+})
