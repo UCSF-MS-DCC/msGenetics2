@@ -1,20 +1,26 @@
 <div class="container content-container">
   <br>
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-10 offset-sm-1">
       <h1 class="text-center">Decoding the Genetic Risk of Multiple Sclerosis</h1>
+      <hr>
     </div>
   </div>
-  <div class="row">
-    <div class="col-sm-8 offset-sm-2">
-      <%= video_tag(["Biorepository.mp4"], :size => "720x480",:autoplay => true, :loop => true, :style => "float:left;margin-right:20px;") %>
-    </div>
-  </div>
+
   <div class="row">
     <div class="col-sm-10 offset-sm-1">
-       <p> The UCSF MS Biorepository and DNA Bank, located at The University of California San Francisco, provides and coordinates services to collect,
-        process, store, catalog, ensure quality control, and distribute biospecimens with annotated
-          clinical data.</p>
-    </div>
+
+      <p class="text-left"><%= image_tag("alessandro01.jpg", :style => "max-height:225px;float:right; margin-left:20px;margin-bottom:10px;") %><b>The Multiple Sclerosis Genetic Susceptibility Project</b>  is a multi-center research study dedicated to finding the genetic factors underlying the development of MS and affecting disease progression.
+        The project was established in 1989 and builds on the effort of scientists and staff with synergistic skills and demonstrated commitment to this
+        effort. The principles of cooperation, dedication, and innovation have been conducive to the growth of the group and its scientific productivity.</p>
+<br>
+      <p class="text-left"><b>The mission of the MS Genetics Group at UCSF</b>  is to fully understand the genetic causes of multiple sclerosis (MS) and to apply the fundamental knowledge that we acquire to improve our capacity to prevent, diagnose, and treat the disease.</p>
+<br>
+      <p class="text-justify"><b>Patient participation is critical.</b> Our research depends on the support and participation of individuals diagnosed with MS and their family members, spouses, and friends. We maintain a unique repository of DNA and other
+        biological materials that together, constitute a resource of great importance in promoting studies on genetic susceptibility and development of biomarkers in MS.</p>
+      <b>If you or someone in your family is interested in participating in this study or would like to receive more information, please click the button below, or contact our study clinical coordinator at 1 (866) MS-GENES or 1 (866) 674-3637.</b>
+      <br>
+      <%= link_to "Click Here To Join The Study", "https://redcap.ucsf.edu/surveys/?s=849FYFLPA7", :class => "btn btn-action btn-block action-link", target: :blank %>
+    </div> <!-- close about-main tab pane -->
   </div>
 </div>

@@ -5,21 +5,17 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="navbar-item">
-        <%= link_to "About The Project", about_path, :class => "nav-link active" %>
+        <%= link_to "MS Genetics Lab", about_path, :class => "nav-link active" %>
       </li>
       <li class="navbar-item">
         <%= link_to "Patient Participation", research_path, :class => "nav-link active" %>
       </li>
       <li class="navbar-item">
-        <div class="dropdown show">
-          <%= link_to "Biorepository", biorepository2_path, :class => "nav-link active dropdown-toggle", :"data-toggle" => "dropdown" %>
-          <div class="dropdown-menu" style="min-width: 250px;">
-            <%= link_to "About the Biorepository", biorepository2_path, :style => "display:block;padding-left:15px;" %>
-            <%= link_to "Bio-Specimens Dashboard", dashboard_path, :style => "display:block;padding-left:15px;" %>
-          </div>
-        </div>
+        <%= link_to "Biorepository", biorepository_path, :class => "nav-link active" %>
       </li>
-
+      <li class="navbar-item">
+        <%= link_to "Specimens Dashboard", dashboard_path, :class => "nav-link active" %>
+      </li>
     </ul>
   </div>
 
