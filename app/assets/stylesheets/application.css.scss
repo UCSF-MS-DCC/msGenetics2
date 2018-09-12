@@ -24,4 +24,76 @@
 //
 //  /* the rest of your styling */
 //}
+html {
 
+}
+html,body {
+  min-height:100%;
+}
+body {
+  margin:0;
+  padding:0;
+  background-color: #EFEFEF;
+  background-clip: content-box;
+  font-family: "Catamaran" sans-serif;
+  line-height:2;
+}
+
+.container {
+  background-color:white;
+  border-left:1px solid #DADADA;
+  border-right:1px solid #DADADA;
+}
+
+.bg-blue {
+  background-color: #052049
+}
+.nav-item {
+  color:white;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size:11pt;
+  margin-right:0px;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.footer-link-list {
+  list-style: none;
+  margin:0;
+  margin-top:25px;
+  margin-bottom:20px;
+  padding:0;
+}
+
+.footer-link {
+  color:white;
+  text-decoration:none;
+  font-size:12pt;
+  &:hover {
+    text-decoration: underline;
+    color:white;
+  }
+}
+
+.footer-container {
+  background-color: #052049;
+  color:white;
+  bottom:0;
+}
+
+.ucsf-logo {
+  max-height:125px;
+  margin-top:30px;
+}
+
+.header-logo {
+  max-height: 165px;
+  padding-top:10px;
+  padding-bottom:5px;
+  margin-left: auto;
+  margin-right: auto;
+  display:block;
+}

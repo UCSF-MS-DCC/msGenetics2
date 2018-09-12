@@ -1,6 +1,6 @@
 class BiorepositoryNotificationMailer < ApplicationMailer
   def samples_request_notification
     @customer = params[:customer]
-    mail(to: @customer.email, subject:"Request for samples information")
+    mail(to: 'biorepository@ucsf.edu', subject:"Request for samples information from: <%= @customer.email %>")
   end
 end

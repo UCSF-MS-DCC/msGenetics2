@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'home#index'
+  root 'home#index2'
   get '/biorepository', to: 'home#biorepository', as: 'biorepository' #this formats the request. get "URL in address bar", to "controller/action", as "rails path name"
+  get '/biorepository2', to: 'home#biorepository2', as: 'biorepository2'
+  get '/dashboard', to: 'home#dashboard', as: 'dashboard'
   get '/home/biorepo_data'
+  get '/home/biorepo_update'
+  get '/home/biorepo_update_unrelated'
   get '/about', to: 'home#about', as: 'about'
   get '/research', to: 'home#research', as: 'research'
-  get '/publication', to: 'home#publication', as: 'publication'
   post '/home/accept'
 end

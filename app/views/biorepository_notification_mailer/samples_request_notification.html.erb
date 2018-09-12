@@ -8,8 +8,10 @@
 <h3><%= @customer.firstname %> <%= @customer.lastname %> email: <%= @customer.email %></h3>
 <h3>from <%= @customer.institution %></h3>
 <h3>is requesting information about UCSF Biorepository samples</h3>
-<h5>Phenotypes:</h5>
+<h5>Affected Phenotypes:</h5>
 <p><%= @customer.studygroup %></p>
+<h5>Unrelated Unaffected Individuals Phenotypes</h5>
+<p><%= @customer.studygroupunaffected %></p>
 <h5>Material requested:</h5>
 <p><%= @customer.sampletype %></p>
 <h5>Study name:</h5>

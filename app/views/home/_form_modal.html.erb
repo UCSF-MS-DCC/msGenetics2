@@ -35,11 +35,15 @@
             <%= f.text_area :studydescription, :class => "col-sm-12", :rows => "5", :required => true %>
           </div>
           <div class="form-group">
-            <%= f.label :studygroup, "What subject phenotypes do you require?", :class => "col-sm-12 control-label" %>
+            <%= f.label :studygroup, "What MS Affected Individual phenotypes do you require?", :class => "col-sm-12 control-label" %>
             <%= f.text_area :studygroup, :class => "col-sm-12", :rows => "5", :required => true, :id => "formStudyGroup" %>
           </div>
           <div class="form-group">
-            <%= f.label :sampletype, "What sample types do you require (plasma, blood, DNA)?", :class => "col-sm-12 control-label" %>
+            <%= f.label :studygroupunrelated, "What Unrelated Unaffected phenotypes do you require?", :class => "col-sm-12 control-label" %>
+            <%= f.text_area :studygroupunrelated, :class => "col-sm-12", :rows => "5", :required => true, :id => "formStudyGroupUnaffected" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :sampletype, "Which sample types do you require (plasma, blood, DNA)?", :class => "col-sm-12 control-label" %>
             <%= f.text_field :sampletype, :class => "col-sm-12", :required => true %>
           </div>
           <div class="form-group">

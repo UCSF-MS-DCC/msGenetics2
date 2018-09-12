@@ -1,0 +1,146 @@
+<div class="container content-container">
+  <br>
+  <div class="row">
+    <div class="col-sm-10 offset-sm-1">
+      <h1>UCSF MS Biorepository</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-10 offset-sm-1">
+      <p style="font-size:11pt; line-height:150%"><%=image_tag("alessandro01.jpg", :style => "max-height:175px;float:right;margin-left:20px;overflow:auto;") %>
+        The MS Genetics Laboratory is located on the second floor of the Sandler Neurosciences Center (SNC) at the UCSF Mission Bay (MB) Campus. We occupy 12 desk areas and 12 adjacent benches in 2,550 square feet of wet lab space, which is part of a larger 8,500
+        square foot open laboratory complex dedicated to neuroimmunology research. Dry space with 6 cubicles for bioinformatics and
+        statistical analysts, clinical research coordinators, and administrative personnel is directly attached to the laboratory.
+      </p>
+      <p style="font-size:11pt; line-height:150%">The MS DNA Bank makes biological materials (DNA, serum, and plasma) available to qualified researchers
+        studying Multiple Sclerosis (MS) or other diseases that will help researchers understand the underlying causes of MS.</p>
+      <p style="font-size:11pt; line-height:150%"> In keeping with the variety of family structures seen in the general population, ascertainment was not restricted
+        to isolated cases, and when possible, collection was extended to family members.</p>
+      <p style="font-size:11pt; line-height:150%">For information regarding longitudinal or other biological samples, <a href="mailto:biorepository@ucsf.edu">click here to  contact the biorepository manager directly</a></p>
+      <p style="font-size:11pt; line-height:150%;">To explore bio-samples available for researchers, visit our <%= link_to "Bio-Specimens Data Dashboard", dashboard_path %></p>
+    </div>
+  </div>
+<!--<div class="row">-->
+<!--  <div class="col-sm-12">-->
+<!--    <h3 class="text-center">-->
+<!--      Bio-Specimens/Phenotypes Dashboard-->
+<!--    </h3>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div style="border:2px solid darkgray; border-radius:10px; padding-top:10px;padding-bottom:20px; background-color:#F9F9F9">-->
+<!--  <div class="row"">-->
+<!--    <div class="col-sm-10 offset-sm-1">-->
+<!--      <p class="text-center" style="font-size:10pt; line-height:125% ;margin-bottom:0px;"><em>-->
+<!--        Use this specimen dashboard to explore our biobank. Click on the graphs below to select phenotypes of interest. To contact our biorepository-->
+<!--        manager, click the 'Inquire About Samples' button, fill out, and submit the brief form. To clear all selections, click the 'Reset' button.</em>-->
+<!--      </p>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <hr>-->
+<!--  <div class="row">-->
+<!--    <div class="col-sm-6 offset-sm-1"">-->
+<!--      <table class="table table-bordered" style="background-color: white;">-->
+<!--        <tr>-->
+<!--          <td colspan="4" class="text-center">-->
+<!--            Individuals With Samples Available-->
+<!--          </td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <th></th>-->
+<!--          <th>Serum</th>-->
+<!--          <th>Plasma</th>-->
+<!--          <th>DNA</th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--        <td>MS Cases</td>-->
+<!--        <td id="cases-serum">-</td>-->
+<!--        <td id="cases-plasma">-</td>-->
+<!--        <td id="cases-dna">-</td>-->
+<!--      </tr>-->
+<!--        <tr>-->
+<!--          <td>Related Unaffected <sup>*</sup></td>-->
+<!--          <td id="related-serum">-</td>-->
+<!--          <td id="related-plasma">-</td>-->
+<!--          <td id="related-dna">-</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td>Unrelated Unaffected</td>-->
+<!--          <td id="controls-serum">-</td>-->
+<!--          <td id="controls-plasma">-</td>-->
+<!--          <td id="controls-dna">-</td>-->
+<!--        </tr>-->
+<!--      </table>-->
+
+<!--    </div>-->
+<!--    <div class="col-sm-4">-->
+<!--      <div id="phenos_box" style="background-color: white;">-->
+<!--        <h6 class="text-center" style="text-decoration: underline;margin-top:10px;margin-bottom:5px;">MS Cases Phenotypes</h6>-->
+<!--        <h6 class="text-left" id="pheno-selection-course">&nbsp;&nbsp;MS Course:&nbsp;<span id="pheno-box-course-list" class="pheno-list"></span></h6>-->
+<!--        <h6 class="text-left" id="pheno-selection-age-onset">&nbsp;&nbsp;Age of Onset:&nbsp;<span id="pheno-box-age-list" class="pheno-list"></span></h6>-->
+<!--        <h6 class="text-left" id="pheno-selection-sex">&nbsp;&nbsp;Sex:&nbsp;<span id="pheno-box-sex-list" class="pheno-list"></span></h6>-->
+<!--        <h6 class="text-left" id="pheno-selection-ancestry">&nbsp;&nbsp;Ancestry:&nbsp;<span id="pheno-box-ancestry-list" class="pheno-list"></span></h6>-->
+<!--      </div>-->
+<!--      <hr>-->
+<!--      <div id="unrelated_phenos_box" style="background-color: white;">-->
+<!--        <h6 class="text-center" style="text-decoration: underline;margin-top:10px;margin-bottom:5px;">Unrelated Unaffected Phenotypes</h6>-->
+<!--        <h6 class="text-left" id="pheno-selection-sex">&nbsp;&nbsp;Sex:&nbsp;<span id="unrelated-pheno-box-sex-list" class="pheno-list"></span></h6>-->
+<!--        <h6 class="text-left" id="pheno-selection-ancestry">&nbsp;&nbsp;Ancestry:&nbsp;<span id="unrelated-pheno-box-ancestry-list" class="pheno-list"></span></h6>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="row">-->
+<!--    <div class="col-sm-10 offset-sm-1">-->
+<!--      <span style="font-size:11pt;font-style: italic"><sup>*</sup> Unaffected individuals of any sex or ancestry who are consanguineous with the MS Cases in the row above.</span>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <hr>-->
+<!--  <div class="row">-->
+<!--    <div class="col-sm-3 offset-sm-2">-->
+<!--      <button data-toggle="modal" data-target="#formModal" class="btn btn-action btn-block">Inquire About Samples</button>-->
+<!--    </div>-->
+<!--    <div class="col-sm-3 offset-sm-2">-->
+<!--      <button style="margin-right:50px;" class="btn btn-action btn-block" id="resetButton">Reset</button>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <hr>-->
+<!--  <div class="row">-->
+<!--    <div class="col-sm-10 offset-sm-1">-->
+<!--      <h5 class="text-center" style="text-decoration: underline">MS Cases</h5>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="row">-->
+<!--    <div class="col-sm-5 offset-sm-1">-->
+<!--      <div id="disease_course_chart"></div>-->
+<!--    </div>-->
+<!--    <div class="col-sm-5">-->
+<!--      <div id="age_onset_chart"></div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <hr>-->
+<!--  <div class="row">-->
+<!--    <div class="col-sm-5 offset-sm-1">-->
+<!--      <div id="sex_chart"></div>-->
+<!--    </div>-->
+<!--    <div class="col-sm-5">-->
+<!--      <div id="race_chart"></div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <hr>-->
+<!--  <div class="row">-->
+<!--    <div class="col-sm-12">-->
+<!--      <h5 class="text-center" style="text-decoration: underline">Unrelated Unaffected Individuals</h5>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="row">-->
+<!--    <div class="col-sm-5 offset-sm-1">-->
+<!--      <div id="unrelated_sex_chart"></div>-->
+<!--    </div>-->
+<!--    <div class="col-sm-5">-->
+<!--      <div id="unrelated_race_chart"></div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <hr>-->
+<!--  <h5 class="text-center">The MS DNA Bank is supported by the <%#= link_to "US National Multiple Sclerosis Society", "https://www.nationalmssociety.org/", target: :blank %><%= link_to  "https://www.nationalmssociety.org/", target: :blank do %><%= image_tag('ms-society-logo.png', :class => "ms-society-logo") %><% end %></h5>-->
+<!--</div>-->
+  <%#= render 'home/form_modal' %>
+</div>

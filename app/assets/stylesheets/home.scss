@@ -11,8 +11,17 @@
 }
 
 .btn-action {
-  background-color: darkblue;
+  background-color: #052049;
   color:white;
+}
+
+.action-link {
+  color:white;
+  text-decoration: none;
+  &:hover {
+    color: white;
+    text-decoration: underline;
+  }
 }
 
 .legendEntry {
@@ -26,14 +35,19 @@
 
 .legendEntryActive {
   fill:black;
+  font-weight:bold
 }
 
 .legendEntryInactive {
-  fill:lightgrey;
+  fill:lightslategray;
+  text-decoration:none;
 }
 
 .graphElement {
   cursor:pointer;
+}
+.inactiveGraphElement {
+  opacity:.5;
 }
 
 .underlineLegendEntry {
@@ -42,7 +56,7 @@
 }
 
 #pub-scroll-window {
-  height:500px;
+  height:50%;
   border-top: 2px solid lightblue;
   border-bottom:2px solid lightblue;
   padding-top:5px;
@@ -58,9 +72,58 @@
   z-index:1;
   top:100px;
 }
-
+.nav-tabs > .active > a, .nav-tabs > .active a:focus {
+  outline:0;
+  margin-right:0px;
+}
+.nav-item {
+  background-color: #999999;
+  border-top:1px solid white;
+  &:hover {
+    border:0px;
+  }
+  outline:0;
+  &:focus {
+    outline:0;
+  }
+}
 .nav-link {
   text-decoration: underline;
+  margin-right:0px;
+  color:white;
+  &:hover {
+    color:white;
+  }
+}
+.study-menu-div {
+  border:1px solid black;
+  border-radius:2px;
+}
+.study-menu-toggle {
+  color:white;
+  text-decoration: none;
+}
+.study-menu-header {
+  background-color: #666666;
+  color:white;
+  padding:5px;
+  margin-bottom: 0px;
+}
+
+.about-menu-div {
+  border:1px solid black;
+  border-radius:2px;
+}
+.about-menu-header {
+  background-color: #666666;
+  color:white;
+  padding:5px;
+  margin-bottom: 0px;
+}
+
+.about-menu-link {
+  color:white;
+  text-decoration: none;
 }
 
 .indexSubjectLink {
@@ -89,20 +152,46 @@
   margin-top:20px;
 }
 
-html,body{height:100%;}
-.carousel,.item,.active{height:100%;}
-.carousel-inner{height:100%;}
-
-.aboutSubjectLink {
-  color:white;
-  font-size: 16pt;
+.pheno-list {
+  font-size: 10pt;
 }
 
-body {
-  background: image_url("dna-msgenetics.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+#phenos_box {
+  border:1px solid lightgray;
+  background-color:lightlightgrey;
+  height:'100%';
+}
+#unrelated_phenos_box {
+  border:1px solid lightgray;
+  background-color:lightlightgrey;
+  height:'100%';
+}
+.content-container {
+  height: auto !important;
+  padding-bottom:50px;
+}
 
+.bio-chart-note {
+  font-size:10pt;
+}
+
+.ms-society-logo {
+  max-height: 50px;
+  padding-left:10px;
+}
+
+.thumbnail-portrait {
+  max-height:150px;
+  float:left;
+  margin-right:25px;
+  border:1px solid black;
+}
+
+.about-group-header {
+
+}
+.bio-chart-note {
+  line-height: 100%;
+  font-size:9pt;
+  margin-top:50px;
 }

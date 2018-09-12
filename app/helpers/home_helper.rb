@@ -1,33 +1,12 @@
 module HomeHelper
 
-  def test1(models)
+  def test1(subjects, relateds, unrelateds)
       output = {}
-      # number of patients with samples of the various types
-      s_types = %w(plasma serum DNA)
-      pop_types = ["cases", "related unaffected individuals", "unrelated controls"]
-      output[:samples] = []
-      s_types.each do |sam_type|
-        bundle = {sampleType: sam_type, values:[]}
-        pop_types.each do |pop|
-          val_bundle = {population:pop}
-          count = 0
-          if pop == "cases"
-            count = models.where("(disease == 'CIS' OR disease == 'RIS' OR disease == 'MS' OR disease == 'MS - Reported' OR disease == 'MS - Confirmed')").where.not("#{sam_type}":nil).where.not(sex:nil).where.not(race:nil).where.not(age_onset:nil).where.not(disease_course:nil).count
-          elsif pop == "unrelated controls"
-            count = models.where("disease =='Control' OR disease == 'Not MS - Unaffected - Unrelated'").where.not("#{sam_type}":nil).where.not(sex:nil).where.not(race:nil).count
-          else
-            count = models.where("disease == ? OR disease == ? OR disease == ?", "Not MS - Unaffected - Related", "Not MS - unaffected - related", "Not MS - Unaffected - Unrelated - Spouse" ).where.not("#{sam_type}":nil).where.not(sex:nil).where.not(race:nil).count
-          end
-          val_bundle[:count] = count
-          bundle[:values].push(val_bundle)
-        end
-        output[:samples].push(bundle)
-      end
-      # N of patients by sex
+      # N of subjects and relateds by sex
       output[:sex] = []
       sexes = %w(F M U)
       sexes.each do |sex|
-        sex_count = models.where(sex:sex).count
+        sex_count = subjects.where(sex:sex).count
         long_value = nil
         if sex == "M"
           long_value = "Male"
@@ -39,11 +18,11 @@ module HomeHelper
         output[:sex].push({sex:long_value, count:sex_count})
       end
 
-      # N of subjects by race
+      # N of subjects and relateds by race
       output[:race] = []
       races = Subject.pluck(:race).uniq.sort
       races.each do |r|
-        race_count = models.where(race:r).count
+        race_count = subjects.where(race:r).count
         output[:race].push({race:r, count:race_count})
       end
       # N of subjects by disease course
@@ -51,7 +30,7 @@ module HomeHelper
       courses = ["RIS", "CIS", "RR", "UNC", "SP", "PP", "PR", "UNK"]
       courses.each do |course|
           unless course == "" || !course
-            course_count = models.where(disease_course:course).count
+            course_count = subjects.where(disease_course:course).count
             if course_count.size > 0
               output[:disease_course].push({disease_course:course, count:course_count})
             end
@@ -62,14 +41,36 @@ module HomeHelper
       ages = [10, 20, 30, 40, 50, 60]
       ages.each_with_index {|val, idx|
         if val == ages.last
-          onsets = models.where("age_onset >= ?", val).where("(disease == 'CIS' OR disease == 'RIS' OR disease == 'MS' OR disease == 'MS - Reported' OR disease == 'MS - Confirmed')")
+          onsets = subjects.where("age_onset >= ?", val)
           output[:age_onset].push({age_range:"#{val} and up", count:onsets.size})
         else
           end_age = ages[idx+1]
-          onsets = models.where("age_onset >= ?", val).where("age_onset < ?", end_age).where("(disease == 'CIS' OR disease == 'RIS' OR disease == 'MS' OR disease == 'MS - Reported' OR disease == 'MS - Confirmed' OR disease == 'Unknown')")
+          onsets = subjects.where("age_onset >= ?", val).where("age_onset < ?", end_age)
           output[:age_onset].push({age_range:"#{val} - #{end_age}", count:onsets.size})
         end
       }
+      #N of UnrelatedUnaffected by sex
+      output[:unrelated_sex] = []
+      sexes = %w(F M U)
+      sexes.each do |sex|
+        sex_count = unrelateds.where(sex:sex).count
+        long_value = nil
+        if sex == "M"
+          long_value = "Male"
+        elsif sex == "F"
+          long_value = "Female"
+        elsif sex == "U"
+          long_value = "Unknown"
+        end
+        output[:unrelated_sex].push({sex:long_value, count:sex_count})
+      end
+      #N of UnrelatedUnaffected by race
+      output[:unrelated_race] = []
+      races = UnrelatedUnaffected.pluck(:race).uniq.sort
+      races.each do |r|
+        race_count = subjects.where(race:r).count
+        output[:unrelated_race].push({race:r, count:race_count})
+      end
     puts output.to_json
     output
   end

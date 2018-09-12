@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_13_215257) do
+ActiveRecord::Schema.define(version: 2018_09_10_162024) do
 
   create_table "customers", force: :cascade do |t|
     t.string "email"
@@ -30,6 +30,31 @@ ActiveRecord::Schema.define(version: 2018_08_13_215257) do
     t.text "sampletype"
     t.text "studygroup"
     t.text "comments"
+    t.string "studygroupunaffected"
+  end
+
+  create_table "families", force: :cascade do |t|
+    t.integer "subject_id"
+    t.integer "related_unaffected_id"
+    t.integer "pedigree"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["related_unaffected_id"], name: "index_families_on_related_unaffected_id"
+    t.index ["subject_id"], name: "index_families_on_subject_id"
+  end
+
+  create_table "related_unaffecteds", force: :cascade do |t|
+    t.string "sex"
+    t.string "race"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "dna", precision: 8, scale: 2
+    t.decimal "serum", precision: 8, scale: 2
+    t.decimal "plasma", precision: 8, scale: 2
+    t.decimal "pax", precision: 8, scale: 2
+    t.decimal "blood", precision: 8, scale: 2
+    t.decimal "hla", precision: 8, scale: 2
+    t.integer "pedigree"
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -49,6 +74,21 @@ ActiveRecord::Schema.define(version: 2018_08_13_215257) do
     t.decimal "blood", precision: 8, scale: 2
     t.decimal "hla", precision: 8, scale: 2
     t.string "disease"
+    t.integer "pedigree"
+    t.string "affected_status"
+  end
+
+  create_table "unrelated_unaffecteds", force: :cascade do |t|
+    t.string "sex"
+    t.string "race"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "dna", precision: 8, scale: 2
+    t.decimal "serum", precision: 8, scale: 2
+    t.decimal "plasma", precision: 8, scale: 2
+    t.decimal "pax", precision: 8, scale: 2
+    t.decimal "blood", precision: 8, scale: 2
+    t.decimal "hla", precision: 8, scale: 2
   end
 
 end

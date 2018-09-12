@@ -1,0 +1,2 @@
+class UnrelatedUnaffected < ApplicationRecord
+end

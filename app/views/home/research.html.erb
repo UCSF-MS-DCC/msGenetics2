@@ -1,28 +1,34 @@
-<%= render 'home/project_top' %>
 
-<div class="container-fluid"style="position:absolute;top:185px;">
+
+<div class="container content-container">
+  <br>
   <div class="row">
-    <div class="col-sm-3">
-      <h5 class="text-left">Studies open for enrollment</h5>
+    <div class="col-sm-9 offset-sm-2">
+      <h1 class="text-center">Join the Study</h1>
     </div>
   </div>
-
+  <hr>
   <div class="row">
     <div class="col-sm-3">
-      <ul class="nav nav-tabs flex-column">
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#case-control">Case/Control Study</a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#multi-case">Multi-Case Family Study</a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#quartet">Quartet Study</a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#twins">Twins Study</a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#arhms">ARHMS (Alliance for Research in Hispanic MS) Study</a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#african-american">African American Study</a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#pediatric">Pediatric Study</a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#microbiome">Microbiome Study</a></li>
-      </ul>
+      <div class="study-menu-div">
+        <ul class="nav nav-tabs flex-column">
+          <li class="nav-item" style="border:none;"><a href="#summary" class="study-menu-header study-menu-toggle nav-link">Invitation to Participate</a></li>
+          <li class="nav-item"><a class="nav-link study-menu-header" data-toggle="tab" href="#enrollment-process">Enrollment Process</a></li>
+          <li class="nav-item"><span class="study-menu-header study-menu-toggle nav-link">Studies open for enrollment:</span></li>
+          <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#case-control">- Case/Control Study</a></li>
+          <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#multi-case">- Multi-Case Family Study</a></li>
+          <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#quartet">- Quartet Study</a></li>
+          <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#twins">- Twins Study</a></li>
+          <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#arhms">- ARHMS (Alliance for Research in Hispanic MS) Study</a></li>
+          <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#african-american">- African American Study</a></li>
+          <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#pediatric">- Pediatric Study</a></li>
+          <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#microbiome">- Microbiome Study</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="col-sm-8 tab-content">
+    <div class="col-sm-9 tab-content">
 
-      <div class="tab-pane container active" id="summary">
+      <div class="tab-pane active" id="summary">
         <h5>Multiple sclerosis is the most common cause of non-traumatic neurological disability in young adults, affecting approximately 2.3 million people worldwide and more than 400,000 individuals in the US.</h5>
 
         <hr>
@@ -37,10 +43,33 @@
         <p>To address these questions we build on recent extraordinary developments in understanding the human genome, but more important, we rely on the cooperation of thousands of altruistic individuals who donate
           their blood to these experiments. The demonstration of even a modest functional effect of a known gene or group of genes on the course of MS has great potential to elucidate fundamental disease mechanisms
           that drive neurodegeneration and yield novel prognostic and therapeutic opportunities for progressive MS, the major unmet need in the field.</p>
-        <%= link_to "Join The Study", "https://redcap.ucsf.edu/surveys/?s=849FYFLPA7", :class => "btn btn-action btn-block", target: :blank %>
+        <%= link_to "Click Here To Join The Study", "https://redcap.ucsf.edu/surveys/?s=849FYFLPA7", :class => "btn btn-action btn-block action-link", target: :blank %>
       </div>
 
-      <div class="tab-pane container" id="case-control">
+      <div class="tab-pane" id="enrollment-process">
+        <h3>Enrollment Process</h3>
+        <hr>
+        <p>
+          Our research process begins with patients, families, and friends. If you, or a family member, have been diagnosed with MS, we invite you to join this study. Large numbers of participants and their families are needed to help achieve our ambitious goals.
+        </p>
+        <h4 class="text-center" style="text-decoration:underline;">Please help us achieve our common goal.</h4>
+        <br>
+        <h5 class="text-center">Participants will be asked to:</h5>
+        <ul class="text-center" style="list-style:none;margin:0;padding:0;">
+          <li>1. Read and sign a consent and authorization form</li>
+          <li>2. Complete a clinical information form</li>
+          <li>3. Complete a family information form</li>
+          <li>4. Donate a blood sample (approximately five tablespoons)</li>
+        </ul>
+        <br>
+        <h5 class="text-center">To participate or request additional information, please complete our <%= link_to "Intake Survey", "https://redcap.ucsf.edu/surveys/?s=849FYFLPA7", target: :_blank %> or contact us directly at:</h5>
+        <p class="text-center">UCSF Clinical Coordinator<br>675 Nelson Rising Ln<br>San Francisco, CA 94158<br><b>or</b><br>1 (866) MS-GENES or 1 (866) 674-3637<br>Fax: 1 (415) 476-1256<br>Email: <a href="mailto:msdb@ucsf.edu">msdb@ucsf.edu</a></p>
+        <h5 class="text-center">At all times, records and other information that is shared with investigators are handled in a confidential manner. There are no charges for participation in this study. De-identified data
+          may be shared with qualified researchers to accelerate discovery.</h5>
+
+      </div>
+
+      <div class="tab-pane" id="case-control">
         <h3>Case/Control Study</h3>
         <hr>
         <p>
@@ -59,7 +88,7 @@
 
       </div>
 
-      <div class="tab-pane container" id="multi-case">
+      <div class="tab-pane" id="multi-case">
         <h3>Multi-Case Family Study</h3>
         <hr>
         <p>This study is for families in which multiple, living family members have been diagnosed with MS. Studies show that the risk of developing MS is about 1 in 750 to 1 in 1000 in the population. The risk of a sibling of a person with MS is 20 to 40 fold higher.
@@ -70,7 +99,7 @@
         <h5>To participate or request additional information, please complete our brief <%= link_to "Intake Survey", "https://redcap.ucsf.edu/surveys/?s=849FYFLPA7", target: :_blank %> or contact us directly: 1-866-MS-Genes (1-866-674-3637)</h5>
       </div>
 
-      <div class="tab-pane container" id="quartet">
+      <div class="tab-pane" id="quartet">
         <h3>Quartet Study</h3>
         <hr>
         <p>
@@ -83,7 +112,7 @@
         <h5>To participate or request additional information, please complete our brief <%= link_to "Intake Survey", "https://redcap.ucsf.edu/surveys/?s=849FYFLPA7", target: :_blank %> or contact us directly: 1-866-MS-Genes (1-866-674-3637)</h5>
       </div>
 
-      <div class="tab-pane container" id="twins">
+      <div class="tab-pane" id="twins">
         <h3>Twins Study</h3>
         <hr>
         <p>
@@ -97,7 +126,7 @@
         <h5>To participate or request additional information, please complete our brief <%= link_to "Intake Survey", "https://redcap.ucsf.edu/surveys/?s=849FYFLPA7", target: :_blank %> or contact us directly: 1-866-MS-Genes (1-866-674-3637)</h5>
       </div>
 
-      <div class="tab-pane container" id="arhms">
+      <div class="tab-pane" id="arhms">
         <h3>ARHMS - Alliance for Research in Hispanic MS Study</h3>
         <hr>
         <p>
@@ -110,7 +139,7 @@
         <h5>To participate or request additional information, please complete our brief <%= link_to "Intake Survey", "https://redcap.ucsf.edu/surveys/?s=849FYFLPA7", target: :_blank %> or contact us directly: 1-866-MS-Genes (1-866-674-3637)</h5>
       </div>
 
-      <div class="tab-pane container" id="african-american">
+      <div class="tab-pane" id="african-american">
         <h3>African American Study</h3>
         <hr>
         <p>
@@ -124,7 +153,7 @@
         <h5>To participate or request additional information, please complete our brief <%= link_to "Intake Survey", "https://redcap.ucsf.edu/surveys/?s=849FYFLPA7", target: :_blank %> or contact us directly: 1-866-MS-Genes (1-866-674-3637)</h5>
       </div>
 
-      <div class="tab-pane container" id="pediatric">
+      <div class="tab-pane" id="pediatric">
         <h3>Pediatric Study</h3>
         <hr>
         <p>
@@ -137,7 +166,7 @@
         <h5>For more information on how to participate please visit the <%= link_to "Pediatric website", "https://www.ucsfbenioffchildrens.org/clinics/multiple_sclerosis/index.html", target: :_blank %></h5>
       </div>
 
-      <div class="tab-pane container" id="microbiome">
+      <div class="tab-pane" id="microbiome">
         <h3>Microbiome Study</h3>
         <hr>
         <p>
@@ -151,7 +180,5 @@
       </div>
     </div>
   </div>
-
-  <!-- tab panes -->
-
 </div>
+

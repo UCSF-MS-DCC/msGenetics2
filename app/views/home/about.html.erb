@@ -1,33 +1,110 @@
-<%= render "home/project_top" %>
+<div class="container content-container">
+  <br>
+  <div class="row">
+    <div class="col-sm-9 offset-sm-2">
+      <h1 class="text-center">About The MS Genetics Project</h1>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="about-menu-div">
+        <div id="about-menu-list">
+          <ul class="nav nav-tabs flex-column">
+            <li class="nav-item" style="border:none;background-color: #666666"><a class=" about-menu-header about-menu-link nav-link" data-toggle="tab" href="#about-main">MS Genetics Project</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#principal_investigator">- Principal Investigator</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#biorepository_team">- Biorepository Team</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#data_team">- Data Management</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8 tab-content">
 
-<div class="container-fluid" style="position:relative;top:175px;">
-  <div class="row">
-    <div class="col-sm-12">
-      <h2 class="text-center">Decoding the genetic risk of Multiple Sclerosis</h2>
-    </div>
-  </div>
-<br>
-  <div class="row">
-    <div class="col-sm-5 offset-sm-1">
-      <h3 class="text-left">Who We Are</h3>
-      <p class="text-justify">The Multiple Sclerosis Genetic Susceptibility Project is a multi-center research study dedicated to finding the genetic factors underlying the development of MS and affecting disease progression.
-        The project was established in 1989 and builds on the effort of scientists and staff with synergistic skills and demonstrated commitment to this
-        effort. The principles of cooperation, dedication, and innovation have been conducive to the growth of the group and its scientific productivity.</p>
-    </div>
-    <div class="col-sm-4 offset-sm-1">
-      <h3 class="text-left">Our Mission</h3>
-      <p class="text-justify">The goal of the MS Genetics Group at UCSF is to fully understand the genetic causes of multiple sclerosis (MS) and to apply the fundamental knowledge that we acquire to improve our capacity to prevent, diagnose, and treat the disease.</p>
-    </div>
-  </div>
-<br>
-  <div class="row">
-    <div class="col-sm-6 offset-sm-3">
-      <h3 class="text-center">Patient Participation</h3>
-      <p class="text-justify">Our research depends on the support and participation of individuals diagnosed with MS and their family members, spouses, and friends. We maintain a unique repository of DNA and other
-        biological materials that together, constitute a resource of great importance in promoting studies on genetic susceptibility and development of biomarkers in MS.
+      <div class="tab-pane active" id="about-main">
 
-        <b>If you or someone in your family is interested in participating in this study or would like to receive more information, please click the button below, or contact our study clinical coordinator at 1 (866) MS-GENES or 1 (866) 674-3637.</b></p>
-      <%= link_to "Join The Study", "https://redcap.ucsf.edu/surveys/?s=849FYFLPA7", :class => "btn btn-action btn-block", target: :blank %>
-    </div>
-  </div>
-</div>
+        <h2 class="text-left">Who We Are</h2>
+
+        <p class="text-left"><%= image_tag("dataentry-msgenetics.jpg", :style => "max-height:200px;float:right; margin-left:20px;margin-bottom:10px;") %>The Multiple Sclerosis Genetic Susceptibility Project is a multi-center research study dedicated to finding the genetic factors underlying the development of MS and affecting disease progression.
+          The project was established in 1989 and builds on the effort of scientists and staff with synergistic skills and demonstrated commitment to this
+          effort. The principles of cooperation, dedication, and innovation have been conducive to the growth of the group and its scientific productivity.</p>
+
+        <h2 class="text-left">Our Mission</h2>
+        <p class="text-left">The goal of the MS Genetics Group at UCSF is to fully understand the genetic causes of multiple sclerosis (MS) and to apply the fundamental knowledge that we acquire to improve our capacity to prevent, diagnose, and treat the disease.</p>
+
+        <h2 class="text-left">Patient Participation</h2>
+        <p class="text-justify">Our research depends on the support and participation of individuals diagnosed with MS and their family members, spouses, and friends. We maintain a unique repository of DNA and other
+          biological materials that together, constitute a resource of great importance in promoting studies on genetic susceptibility and development of biomarkers in MS.</p>
+
+        <b>If you or someone in your family is interested in participating in this study or would like to receive more information, please click the button below, or contact our study clinical coordinator at 1 (866) MS-GENES or 1 (866) 674-3637.</b>
+        <br>
+        <br>
+      <%= link_to "Click Here To Join The Study", "https://redcap.ucsf.edu/surveys/?s=849FYFLPA7", :class => "btn btn-action btn-block action-link", target: :blank %>
+      </div> <!-- close about-main tab pane -->
+
+      <div class="tab-pane" id="principal_investigator">
+        <h2 class="text-left about-group-header">Principal Investigator</h2>
+        <hr>
+        <p>
+          <h4>Jorge Oksenberg, PhD.</h4>
+          <h6 style="margin-bottom:0;"><i>Professor in the Department of Neurology, UCSF</i></h6>
+          <a href="mailto:jorge.oksenberg@ucsf.edu" style="display: block;">Email:Jorge.Oksenberg@ucsf.edu</a>
+          <br>
+          <%= image_tag("jorge.jpg", :class => "thumbnail-portrait") %>
+          Dr. Oksenberg is the G.A. Zimmermann Endowed Chair in Neurology. As a native from Argentina, Dr. Oksenberg received his Ph.D. in Immunology from the Hebrew University of Jerusalem, Israel, and joined the UCSF faculty in 1993 following post-doctoral training at Stanford University. Since 1979 his research has focused in the areas of human
+          immunogenetics and the control of the immune response. He has authored numerous publication and scholarly reviews in the field and is a leading investigator in the International Multiple Sclerosis Genetics Consortium.
+        </p>
+      </div> <!-- close pi tab -->
+
+      <div class="tab-pane" id="biorepository_team">
+        <h2 class="text-left about-group-header">Biorepository Team</h2>
+        <hr>
+        <p>
+          <h4>Stacy Caillier</h4>
+          <h6><i>Lab Manager</i></h6>
+          <a href="mailto:stacy.caillier@ucsf.edu" style="display:block;">Email:Stacy.Caillier@ucsf.edu</a>
+          <br>
+          <%= image_tag("stacy.jpg", :class => "thumbnail-portrait") %>
+          Stacy started working with the MS Genetics Research Group in July of 1998, after graduating from the University of California, Santa Cruz with a bachelor degree in Neuroscience and Behavior. In addition to heading up the DNA genotyping projects, she works in quantitative PCR, and SNP/expression
+          chips. More recently, Stacy is leading the application of immunological assays to assess the functional role of genetic variants associated with MS susceptibility and progression.
+        </p>
+        <p>
+        <h4>Rosa Guerrero</h4>
+        <h6><i>Bio-specimens</i></h6>
+        <a href="mailto:rosa.guerrero@ucsf.edu" style="display:block;">Email:Rosa.Guerrero@ucsf.edu</a>
+        <br>
+        <%= image_tag("rosa.jpg", :class => "thumbnail-portrait") %>
+        Rosa started working with the group in July of 2004 after working at the UCSF DNA Bank. Rosa's primary responsibility is the isolation of high quality nucleic acids from blood samples received from across the United States and abroad for genetic studies in MS.
+        </p>
+        <br>
+        <p><h4>Nicholas Lee</h4><h6><i>Bio-specimens</i>  </h6><%= image_tag("UCSF_logobox_navy_RGB_sized.jpg", :class => "thumbnail-portrait") %><%= Faker::Lorem.paragraph(20) %></p>
+      </div> <!-- close biorepository_team tab -->
+
+      <div class="tab-pane" id="data_team">
+        <h2 class="text-left about-group-header">Data Management</h2>
+        <hr>
+        <p><h4>Adam Santaniello</h4>
+        <h6><i>Database Manager</i></h6>
+        <a href="mailto:adam.santaniello@ucsf.edu" style="display:block;">Email:Adam.Santaniello@ucsf.edu</a>
+        <%= image_tag("adams.jpg", :class => "thumbnail-portrait") %>
+        Adam has a B.S. in Engineering Science with Tau Beta Pi honors from Tufts University in Medford, MA. His prior experience includes software development and project management for consulting and
+        financial services firms. He joined our lab in November 2007 and is leading the integration and enhancement of the lab's data sources.
+        </p>
+        <br>
+        <p><h4>Adam Renschen</h4>
+        <h6><i>Data Systems Analyst</i></h6>
+        <%= image_tag("adamr.jpg", :class => "thumbnail-portrait") %>
+        Adam Renschen joined Dr. Oksenberg’s laboratory in October 2016 as a web developer and member of the data management team. He has designed, built, and deployed websites, databases, and API’s to securely
+        make research data available to remote consumers. He assists with the management of the laboratory databases and provides
+        general IT support.
+        </p>
+      </div> <!-- close data_team tab -->
+
+
+    </div> <!-- close right col/tab-content -->
+  </div> <!-- close row -->
+
+
+
+
+</div> <!-- close container -->

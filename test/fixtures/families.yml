@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subject: one
+  related_unaffected: one
+  pedigree: 1
+
+two:
+  subject: two
+  related_unaffected: two
+  pedigree: 1

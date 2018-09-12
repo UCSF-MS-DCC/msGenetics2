@@ -18,9 +18,8 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery.mCustomScrollbar.concat.min
-//= require home.js
 //= require_tree .
 
 $(document).on('turbolinks:load', function(){
-    alert("Application.js")
+    $('.content-container').css('min-height', ($(window).height() * .80))
 })
