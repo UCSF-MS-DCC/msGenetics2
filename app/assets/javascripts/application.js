@@ -21,5 +21,11 @@
 //= require_tree .
 
 $(document).on('turbolinks:load', function(){
-    $('.content-container').css('min-height', ($(window).height() * .80))
-})
+    $('.content-container').css('min-height', ($(window).height() * .80));
+
+    $(".nav .nav-link").on("click", function(){
+        $(".nav").find(".active").removeClass("active");
+        $(this).addClass("active");
+    });
+});
+

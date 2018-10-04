@@ -17,9 +17,15 @@ $(document).on("turbolinks:load", function(){
         $('#formModal').modal('hide');
     });
 
+    $('.scroll-to-table').on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: $("#dashtop").offset().top
+        }, 500);
+    });
+
     if (window.location.pathname === "/dashboard") {
         $.get("/home/biorepo_data.json", function(data) {
-            console.log(data)
             function addUnderScores(str) {
                 if (str.split(" ").length > 1) {
                     return str.split(" ").join("_");
@@ -382,14 +388,13 @@ $(document).on("turbolinks:load", function(){
             });
             g2.append("text")
                 .attr("class", "pie-chart label")
-                .attr("x", 50)
+                .attr("x", 0)
                 .attr("y", -108)
                 .attr("font-size", "20px")
                 .attr("text-anchor", "middle")
                 .text("Ancestry (self-declared)");
 
             // END ANCESTRY PIE CHART
-
             // BEGIN DISEASE COURSE PIE CHART
 
             var g3Height = 220;
@@ -502,7 +507,7 @@ $(document).on("turbolinks:load", function(){
                 });
             g3.append("text")
                 .attr("class", "pie-chart label")
-                .attr("x", -50)
+                .attr("x", 0)
                 .attr("y", -108)
                 .attr("font-size", "20px")
                 .attr("text-anchor", "middle")
@@ -620,15 +625,13 @@ $(document).on("turbolinks:load", function(){
             });
             g4.append("text")
                 .attr("class", "pie-chart label")
-                .attr("x", -50)
+                .attr("x", 0)
                 .attr("y", -108)
                 .attr("font-size", "20px")
                 .attr("text-anchor", "middle")
                 .text("Sex");
 
             // END SEX PIE CHART
-
-
             // START AGE ONSET HISTOGRAM
             var g7Margin = {"left": 80, "top": 15, "right": 75, "bottom": 50}
             var g7Height = 220 - g7Margin.top - g7Margin.bottom;
@@ -853,7 +856,7 @@ $(document).on("turbolinks:load", function(){
             });
             g8.append("text")
                 .attr("class", "pie-chart label")
-                .attr("x", -50)
+                .attr("x", 0)
                 .attr("y", -108)
                 .attr("font-size", "20px")
                 .attr("text-anchor", "middle")
@@ -972,7 +975,7 @@ $(document).on("turbolinks:load", function(){
             });
             g9.append("text")
                 .attr("class", "pie-chart label")
-                .attr("x", 50)
+                .attr("x", 0)
                 .attr("y", -108)
                 .attr("font-size", "20px")
                 .attr("text-anchor", "middle")

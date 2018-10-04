@@ -45,8 +45,12 @@ body {
   border-right:1px solid #DADADA;
 }
 
+#logo-box {
+  background-color: #273773;
+}
+
 .bg-blue {
-  background-color: #052049
+  background-color: #3D3E3E;
 }
 .nav-item {
   color:white;
@@ -54,11 +58,23 @@ body {
 
 .nav-link {
   text-decoration: none;
-  font-size:11pt;
-  margin-right:0px;
+  font-size:12pt;
+  margin-right:50px;
+  margin-left:50px;
   &:hover {
     text-decoration: underline;
   }
+  &:active {
+    text-decoration: underline;
+  }
+}
+nav-link:active {
+  text-decoration: underline;
+}
+
+nav-nav-link-active {
+  font-size:13pt;
+  text-decoration: underline;
 }
 .footer-link-list {
   list-style: none;
@@ -79,9 +95,10 @@ body {
 }
 
 .footer-container {
-  background-color: #052049;
+  background-color: #273773;
   color:white;
   bottom:0;
+  border-top:8px solid #17ab93;
 }
 
 .ucsf-logo {

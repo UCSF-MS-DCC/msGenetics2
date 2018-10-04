@@ -87,6 +87,9 @@
     outline:0;
   }
 }
+.nav-item-side-header {
+  background-color: #666666;
+}
 .nav-link {
   text-decoration: underline;
   margin-right:0px;
@@ -94,6 +97,19 @@
   &:hover {
     color:white;
   }
+}
+.tab-nav-link {
+  margin-right:0px;
+  color:white;
+  &:hover {
+    color:white;
+    text-decoration: underline;
+  }
+}
+.side-nav {
+  padding-top:5px;
+  padding-bottom:5px;
+  padding-left:20px;
 }
 .study-menu-div {
   border:1px solid black;
@@ -194,4 +210,9 @@
   line-height: 100%;
   font-size:9pt;
   margin-top:50px;
+}
+.scroll-to-table {
+  font-size:10pt;
+  text-decoration: underline;
+  display:block;
 }
