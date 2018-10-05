@@ -1,12 +1,5 @@
 $(document).on("turbolinks:load", function(){
 
-    if (window.location.pathname === '/publication') {
-        $('#pub-scroll-window').mCustomScrollbar({
-            theme:"rounded-dots-dark",
-            scrollbarPosition:"outside"
-        })
-    }
-
     if (window.location.pathname === "/biorepository") {
         $('#infoModal').modal('show');
         seenModal = true;
