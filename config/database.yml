@@ -22,6 +22,6 @@ test:
 
 production:
   adapter: postgresql
-  pool: 15
+  pool: 20
   encoding: utf8
 
