@@ -21,6 +21,7 @@ test:
   database: db/test.sqlite3
 
 production:
+  adapter: pg
   pool: 15
   encoding: utf8
 
