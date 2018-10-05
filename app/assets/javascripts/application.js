@@ -17,7 +17,6 @@
 //= require d3
 //= require activestorage
 //= require turbolinks
-//= require jquery.mCustomScrollbar.concat.min
 //= require_tree .
 
 $(document).on('turbolinks:load', function(){
