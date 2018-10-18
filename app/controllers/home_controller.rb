@@ -17,8 +17,10 @@ class HomeController < ApplicationController
 
   end
 
-  def publications
-
+  def dashboard
+    @subjectsamples = { msc_serum: Subject.where.not(serum:nil).where.not(disease_course:nil).count, msc_plasma: Subject.where.not(plasma:nil).where.not(disease_course:nil).count, msc_dna: Subject.where.not(dna:nil).where.not(disease_course:nil).count,
+                        ru_serum: RelatedUnaffected.where.not(serum:nil).count, ru_plasma: RelatedUnaffected.where.not(plasma:nil).count, ru_dna: RelatedUnaffected.where.not(dna:nil).count,
+                        uu_serum: UnrelatedUnaffected.where.not(serum:nil).count, uu_plasma: UnrelatedUnaffected.where.not(plasma:nil).count, uu_dna: UnrelatedUnaffected.where.not(dna:nil).count }
   end
 
   def accept
@@ -40,7 +42,7 @@ class HomeController < ApplicationController
   def biorepo_update
     affected_params = biorepo_data_params.slice(:sex, :race, :disease_course)
     non_affected_params = biorepo_data_params.slice(:sex, :race)
-    result = {:serum => {:cases => 0, :related_unaffected => 0}, :plasma => {:cases => 0, :related_unaffected => 0}, :dna => {:cases => 0, :related_unaffected => 0} }
+    result = {:serum => {:cases => Subject.where.not(serum:nil).count, :related_unaffected => RelatedUnaffected.where.not(serum:nil).count}, :plasma => {:cases => Subject.where.not(plasma:nil).count, :related_unaffected => RelatedUnaffected.where.not(plasma:nil).count}, :dna => {:cases => Subject.where.not(dna:nil).count, :related_unaffected => RelatedUnaffected.where.not(dna:nil).count} }
     if biorepo_data_params.to_hash.size > 0
       @cases = Subject.all
       @controls = UnrelatedUnaffected.all
@@ -73,7 +75,7 @@ class HomeController < ApplicationController
 
   def biorepo_update_unrelated
     non_affected_params = biorepo_data_params.slice(:sex, :race)
-    result = {:serum => 0, :dna => 0, :plasma => 0}
+    result = {:serum => UnrelatedUnaffected.where.not(serum:nil).count, :dna => UnrelatedUnaffected.where.not(plasma:nil).count, :plasma => UnrelatedUnaffected.where.not(dna:nil).count}
 
     if non_affected_params.to_hash.size > 0
       ["serum", "plasma", "dna"].each do |sam_type|

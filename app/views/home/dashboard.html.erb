@@ -33,21 +33,21 @@
       </tr>
       <tr>
         <td>Multiple Sclerosis Cases</td>
-        <td id="cases-serum">-</td>
-        <td id="cases-plasma">-</td>
-        <td id="cases-dna">-</td>
+        <td id="cases-serum"><%= @subjectsamples[:msc_serum] %></td>
+        <td id="cases-plasma"><%= @subjectsamples[:msc_plasma] %></td>
+        <td id="cases-dna"><%= @subjectsamples[:msc_dna] %></td>
       </tr>
       <tr>
         <td>Related Unaffected <sup>*</sup></td>
-        <td id="related-serum">-</td>
-        <td id="related-plasma">-</td>
-        <td id="related-dna">-</td>
+        <td id="related-serum"><%= @subjectsamples[:ru_serum] %></td>
+        <td id="related-plasma"><%= @subjectsamples[:ru_plasma] %></td>
+        <td id="related-dna"><%= @subjectsamples[:ru_dna] %></td>
       </tr>
       <tr>
         <td>Unrelated Unaffected</td>
-        <td id="controls-serum">-</td>
-        <td id="controls-plasma">-</td>
-        <td id="controls-dna">-</td>
+        <td id="controls-serum"><%= @subjectsamples[:uu_serum] %></td>
+        <td id="controls-plasma"><%= @subjectsamples[:uu_plasma] %></td>
+        <td id="controls-dna"><%= @subjectsamples[:uu_dna] %></td>
       </tr>
     </table>
 
@@ -127,7 +127,7 @@
 </div>
 <div class="row">
   <div class="col-sm-12">
-    <h5 class="text-center" style="margin-top:25px; margin-bottom:0px;">The MS DNA Bank is supported by the <%= link_to "US National Multiple Sclerosis Society", "https://www.nationalmssociety.org/", target: :blank %><%= link_to  "https://www.nationalmssociety.org/", target: :blank do %><%= image_tag('ms-society-logo.png', :class => "ms-society-logo") %><% end %></h5>
+    <h5 class="text-center" style="margin-top:25px; margin-bottom:0px;">The DNA Bank is supported by the <%= link_to "US National Multiple Sclerosis Society", "https://www.nationalmssociety.org/", target: :blank %><%= link_to  "https://www.nationalmssociety.org/", target: :blank do %><%= image_tag('ms-society-logo.png', :class => "ms-society-logo") %><% end %></h5>
   </div>
 </div>
 <%= render 'home/form_modal' %>
