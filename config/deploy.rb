@@ -32,6 +32,7 @@ set :console_user, :deployment
 # set :format,        :pretty
 # set :log_level,     :debug
 set :keep_releases, 5
+set :linked_filers, %w(config/master.key)
 
 ## Linked Files & Directories (Default None):
 # set :linked_files, %w{config/database.yml}

@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2ce64c1b-401f-410d-9bc5-330ccf12f96d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/credentials.yml.enc" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/Gemfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/app/controllers/api/v1/subjects_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/app/controllers/api/v1/subjects_controller.rb" afterDir="false" />
@@ -42,7 +41,7 @@
           <entry key="Capfile" value="1" />
           <entry key="Gemfile" value="7" />
           <entry key="Rakefile" value="1" />
-          <entry key="enc" value="1" />
+          <entry key="enc" value="2" />
           <entry key="erb" value="64" />
           <entry key="gitignore" value="1" />
           <entry key="js" value="17" />
@@ -52,18 +51,18 @@
           <entry key="rb" value="50" />
           <entry key="scss" value="14" />
           <entry key="yarn-integrity" value="1" />
-          <entry key="yml" value="5" />
+          <entry key="yml" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="17" />
-          <entry key="PLAIN_TEXT" value="5" />
+          <entry key="PLAIN_TEXT" value="6" />
           <entry key="RHTML" value="64" />
           <entry key="Ruby" value="59" />
           <entry key="SCSS" value="14" />
-          <entry key="YAML" value="5" />
+          <entry key="YAML" value="6" />
           <entry key="yarn.lock" value="2" />
         </counts>
       </usages-collector>
@@ -74,9 +73,9 @@
           <entry key="enc" value="15" />
           <entry key="erb" value="19816" />
           <entry key="js" value="7973" />
-          <entry key="rb" value="7089" />
+          <entry key="rb" value="7137" />
           <entry key="scss" value="3121" />
-          <entry key="yml" value="241" />
+          <entry key="yml" value="256" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -84,9 +83,9 @@
           <entry key="JavaScript" value="7973" />
           <entry key="PLAIN_TEXT" value="15" />
           <entry key="RHTML" value="19816" />
-          <entry key="Ruby" value="7403" />
+          <entry key="Ruby" value="7451" />
           <entry key="SCSS" value="3121" />
-          <entry key="YAML" value="241" />
+          <entry key="YAML" value="256" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.actions.runAnything" />
@@ -114,11 +113,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/deploy.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+            <state relative-caret-position="509">
+              <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -132,11 +131,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../../summit_api/config/secrets.yml">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/credentials.yml.enc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
+            <state>
+              <caret column="8" selection-start-column="8" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -149,7 +148,7 @@
     </leaf>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../summit_api" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -191,10 +190,10 @@
         <option value="$PROJECT_DIR$/Capfile" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/../../summit_api/config/deploy.rb" />
-        <option value="$PROJECT_DIR$/config/deploy.rb" />
         <option value="$PROJECT_DIR$/../../summit_api/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/config/credentials.yml.enc" />
         <option value="$PROJECT_DIR$/../../summit_api/config/secrets.yml" />
+        <option value="$PROJECT_DIR$/config/deploy.rb" />
       </list>
     </option>
   </component>
@@ -281,19 +280,19 @@
       <workItem from="1534203206297" duration="73915000" />
       <workItem from="1536076017692" duration="92405000" />
       <workItem from="1538776418040" duration="1260000" />
-      <workItem from="1539811716050" duration="13067000" />
+      <workItem from="1539811716050" duration="14094000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180647000" />
+    <option name="totallyTimeSpent" value="181674000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="2560" height="1440" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.11040508" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.11040508" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
@@ -610,10 +609,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/deploy.rb">
+    <entry file="file://$PROJECT_DIR$/config/master.key">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../summit_api/config/secrets.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+        <state relative-caret-position="330">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
@@ -624,12 +629,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/master.key">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/credentials.yml.enc">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -637,10 +636,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../summit_api/config/secrets.yml">
+    <entry file="file://$PROJECT_DIR$/config/deploy.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
+        <state relative-caret-position="509">
+          <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
         </state>
       </provider>
     </entry>
