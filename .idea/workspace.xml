@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ce64c1b-401f-410d-9bc5-330ccf12f96d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/home/about.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/about.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/home/biorepository.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/biorepository.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/home/dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/dashboard.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/home/index2.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/index2.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/home/research.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/research.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/_navbar.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/_navbar.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/Gemfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/app/controllers/api/v1/subjects_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/app/controllers/api/v1/subjects_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../summit_api/config/environments/production.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/config/environments/production.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../summit_api/config/secrets.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/config/secrets.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/db/schema.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/db/seeds.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/summit_api_development" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/summit_api_development" afterDir="false" />
@@ -48,25 +40,27 @@
           <entry key="Capfile" value="1" />
           <entry key="Gemfile" value="7" />
           <entry key="Rakefile" value="1" />
+          <entry key="enc" value="1" />
           <entry key="erb" value="64" />
           <entry key="js" value="17" />
           <entry key="json" value="1" />
+          <entry key="key" value="1" />
           <entry key="lock" value="3" />
           <entry key="rb" value="50" />
           <entry key="scss" value="14" />
           <entry key="yarn-integrity" value="1" />
-          <entry key="yml" value="4" />
+          <entry key="yml" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="17" />
-          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="PLAIN_TEXT" value="4" />
           <entry key="RHTML" value="64" />
           <entry key="Ruby" value="59" />
           <entry key="SCSS" value="14" />
-          <entry key="YAML" value="4" />
+          <entry key="YAML" value="5" />
           <entry key="yarn.lock" value="2" />
         </counts>
       </usages-collector>
@@ -78,7 +72,7 @@
           <entry key="js" value="7973" />
           <entry key="rb" value="7089" />
           <entry key="scss" value="3121" />
-          <entry key="yml" value="86" />
+          <entry key="yml" value="145" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -87,7 +81,7 @@
           <entry key="RHTML" value="19816" />
           <entry key="Ruby" value="7403" />
           <entry key="SCSS" value="3121" />
-          <entry key="YAML" value="86" />
+          <entry key="YAML" value="145" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.actions.runAnything" />
@@ -124,18 +118,32 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../summit_api/config/environments/production.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../summit_api/config/secrets.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/credentials.yml.enc">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../summit_api/config/deploy.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="27" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/config/master.key">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -184,6 +192,8 @@
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/../../summit_api/config/deploy.rb" />
         <option value="$PROJECT_DIR$/config/deploy.rb" />
+        <option value="$PROJECT_DIR$/../../summit_api/config/environments/production.rb" />
+        <option value="$PROJECT_DIR$/../../summit_api/config/secrets.yml" />
       </list>
     </option>
   </component>
@@ -217,24 +227,12 @@
           <expand>
             <path>
               <item name="msGenetics2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="summit_api" type="462c0819:PsiDirectoryNode" />
+              <item name="msGenetics2" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="msGenetics2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="summit_api" type="462c0819:PsiDirectoryNode" />
+              <item name="msGenetics2" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msGenetics2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="summit_api" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="environments" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msGenetics2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="summit_api" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="initializers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -282,15 +280,16 @@
       <workItem from="1534203206297" duration="73915000" />
       <workItem from="1536076017692" duration="92405000" />
       <workItem from="1538776418040" duration="1260000" />
-      <workItem from="1539811716050" duration="11139000" />
+      <workItem from="1539811716050" duration="12183000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178719000" />
+    <option name="totallyTimeSpent" value="179763000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="2560" height="1440" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.11040508" />
@@ -341,23 +340,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/migrate/20180904233716_add_pedigree_to_related_unaffecteds.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="56" selection-start-line="2" selection-start-column="56" selection-end-line="2" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20180905163644_add_affected_status_to_subjects.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" selection-start-line="33" selection-end-line="44" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/subject.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -642,7 +624,24 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../summit_api/config/environments/production.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/master.key">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/credentials.yml.enc">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../summit_api/config/secrets.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
