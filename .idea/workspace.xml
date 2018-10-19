@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ce64c1b-401f-410d-9bc5-330ccf12f96d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/Gemfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/app/controllers/api/v1/subjects_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/app/controllers/api/v1/subjects_controller.rb" afterDir="false" />
@@ -46,9 +45,9 @@
           <entry key="gitignore" value="1" />
           <entry key="js" value="17" />
           <entry key="json" value="1" />
-          <entry key="key" value="1" />
+          <entry key="key" value="2" />
           <entry key="lock" value="3" />
-          <entry key="rb" value="50" />
+          <entry key="rb" value="51" />
           <entry key="scss" value="14" />
           <entry key="yarn-integrity" value="1" />
           <entry key="yml" value="6" />
@@ -58,9 +57,9 @@
         <counts>
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="17" />
-          <entry key="PLAIN_TEXT" value="6" />
+          <entry key="PLAIN_TEXT" value="7" />
           <entry key="RHTML" value="64" />
-          <entry key="Ruby" value="59" />
+          <entry key="Ruby" value="60" />
           <entry key="SCSS" value="14" />
           <entry key="YAML" value="6" />
           <entry key="yarn.lock" value="2" />
@@ -113,13 +112,27 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/deploy.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="509">
               <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/master.key">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="32" lean-forward="true" selection-start-column="32" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -234,6 +247,12 @@
               <item name="msGenetics2" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="msGenetics2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="msGenetics2" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="environments" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -280,12 +299,12 @@
       <workItem from="1534203206297" duration="73915000" />
       <workItem from="1536076017692" duration="92405000" />
       <workItem from="1538776418040" duration="1260000" />
-      <workItem from="1539811716050" duration="14094000" />
+      <workItem from="1539811716050" duration="14396000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181674000" />
+    <option name="totallyTimeSpent" value="181976000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="2560" height="1440" extended-state="0" />
@@ -448,9 +467,6 @@
     <entry file="file://$PROJECT_DIR$/config/initializers/assets.rb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/config/manifest.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -609,9 +625,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/master.key">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -642,6 +655,16 @@
           <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/master.key">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="32" lean-forward="true" selection-start-column="32" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
