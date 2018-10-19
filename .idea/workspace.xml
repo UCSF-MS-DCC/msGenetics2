@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ce64c1b-401f-410d-9bc5-330ccf12f96d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/credentials.yml.enc" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/Gemfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/app/controllers/api/v1/subjects_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/app/controllers/api/v1/subjects_controller.rb" afterDir="false" />
@@ -144,20 +146,6 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/credentials.yml.enc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="8" selection-start-column="8" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/master.key">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -293,19 +281,19 @@
       <workItem from="1534203206297" duration="73915000" />
       <workItem from="1536076017692" duration="92405000" />
       <workItem from="1538776418040" duration="1260000" />
-      <workItem from="1539811716050" duration="12770000" />
+      <workItem from="1539811716050" duration="13067000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180350000" />
+    <option name="totallyTimeSpent" value="180647000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="2560" height="1440" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.11040508" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.11040508" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
