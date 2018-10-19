@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ce64c1b-401f-410d-9bc5-330ccf12f96d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/config/credentials.yml.enc" beforeDir="false" afterPath="$PROJECT_DIR$/config/credentials.yml.enc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/Gemfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/app/controllers/api/v1/subjects_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/app/controllers/api/v1/subjects_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/config/environments/production.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/config/environments/production.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../summit_api/config/secrets.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/config/secrets.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/db/schema.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/db/seeds.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/summit_api_development" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/summit_api_development" afterDir="false" />
@@ -42,6 +42,7 @@
           <entry key="Rakefile" value="1" />
           <entry key="enc" value="1" />
           <entry key="erb" value="64" />
+          <entry key="gitignore" value="1" />
           <entry key="js" value="17" />
           <entry key="json" value="1" />
           <entry key="key" value="1" />
@@ -56,7 +57,7 @@
         <counts>
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="17" />
-          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="PLAIN_TEXT" value="5" />
           <entry key="RHTML" value="64" />
           <entry key="Ruby" value="59" />
           <entry key="SCSS" value="14" />
@@ -68,20 +69,22 @@
         <counts>
           <entry key="Capfile" value="70" />
           <entry key="Gemfile" value="244" />
+          <entry key="enc" value="6" />
           <entry key="erb" value="19816" />
           <entry key="js" value="7973" />
           <entry key="rb" value="7089" />
           <entry key="scss" value="3121" />
-          <entry key="yml" value="145" />
+          <entry key="yml" value="160" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JavaScript" value="7973" />
+          <entry key="PLAIN_TEXT" value="6" />
           <entry key="RHTML" value="19816" />
           <entry key="Ruby" value="7403" />
           <entry key="SCSS" value="3121" />
-          <entry key="YAML" value="145" />
+          <entry key="YAML" value="160" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.actions.runAnything" />
@@ -127,18 +130,27 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../summit_api/config/secrets.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="315">
+              <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/credentials.yml.enc">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/credentials.yml.enc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="6" selection-start-column="6" selection-end-column="6" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -149,7 +161,7 @@
     </leaf>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../summit_api" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -194,6 +206,7 @@
         <option value="$PROJECT_DIR$/config/deploy.rb" />
         <option value="$PROJECT_DIR$/../../summit_api/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/../../summit_api/config/secrets.yml" />
+        <option value="$PROJECT_DIR$/config/credentials.yml.enc" />
       </list>
     </option>
   </component>
@@ -280,12 +293,12 @@
       <workItem from="1534203206297" duration="73915000" />
       <workItem from="1536076017692" duration="92405000" />
       <workItem from="1538776418040" duration="1260000" />
-      <workItem from="1539811716050" duration="12183000" />
+      <workItem from="1539811716050" duration="12497000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179763000" />
+    <option name="totallyTimeSpent" value="180077000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="2560" height="1440" extended-state="0" />
@@ -340,13 +353,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/subject.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="51" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/family.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -633,13 +639,20 @@
     <entry file="file://$PROJECT_DIR$/config/master.key">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/credentials.yml.enc">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../../summit_api/config/secrets.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="315">
+          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/credentials.yml.enc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
