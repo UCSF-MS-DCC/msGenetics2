@@ -91,4 +91,20 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.default_url_options = { host: 'msgenetics.ucsf.edu' }
+
+  #config.force_ssl = true
+  config.action_mailer.smtp_settings = {
+      :user_name  =>  ENV['PROD_MAIL_USERNAME']  ,
+      :password   =>  ENV['PROD_MAIL_PASSWORD'] ,
+      :domain     =>  ENV['PROD_MAIL_DOMAIN'],
+      :address    =>  ENV['PROD_MAIL_ADDRESS'],
+      :port       =>  ENV['PROD_MAIL_PORT']
+      # :authentication => :plain,
+      # :enable_starttls_auto => true
+  }
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
 end
