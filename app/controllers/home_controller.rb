@@ -24,9 +24,9 @@ class HomeController < ApplicationController
   end
 
   def accept
+    puts "Controller found"
     @samples_request = Customer.new(accept_request_params)
     if @samples_request.save
-      puts "Request saved"
       BiorepositoryNotificationMailer.with(customer: @samples_request).samples_request_notification.deliver_now
     end
   end
