@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body">
         <p style="font-size:10pt;">Please provide us with some basic information.</p>
-        <%= form_for :sample_request, :url => {:controller => "home", :action =>"accept"}, :html => {:id => "requestForm"} do |f| %>
+        <%= form_with url: home_accept_path, :html => {:id => "requestForm"} do |f| %>
           <div class="form-group">
             <%= f.label :firstname, "First Name", :class => "col-sm-3 control-label" %>
             <%= f.text_field :firstname, :class => "col-sm-8", :required => true %>
