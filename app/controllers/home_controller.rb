@@ -26,7 +26,7 @@ class HomeController < ApplicationController
 
   def accept
     @samples_request = Customer.new(accept_request_params)
-    if @samples_request.save && verify_recaptcha
+    if @samples_request.save
       BiorepositoryNotificationMailer.with(customer: @samples_request).samples_request_notification.deliver_now
     end
   end
