@@ -25,9 +25,8 @@ class HomeController < ApplicationController
   end
 
   def accept
-    puts accept_request_params.to_json
     @samples_request = Customer.new(accept_request_params)
-    if @samples_request.save
+    if @samples_request.save && verify_recaptcha
       BiorepositoryNotificationMailer.with(customer: @samples_request).samples_request_notification.deliver_now
     end
   end
