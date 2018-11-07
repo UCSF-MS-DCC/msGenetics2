@@ -7,6 +7,7 @@ $(document).on("turbolinks:load", function(){
 
     // Hide the request modal on submitting
     $('#requestForm').on('submit', function() {
+        alert("Thank you for your interest. Our biorepository manager will contact you by  email.");
         $('#formModal').modal('hide');
     });
 
