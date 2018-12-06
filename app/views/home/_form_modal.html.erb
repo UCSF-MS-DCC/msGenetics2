@@ -50,13 +50,12 @@
             <%= f.label :comments, "How much of each material do you require?", :class => "col-sm-12 control-label" %>
             <%= f.text_area :comments, :class => "col-sm-12", :required => false, :rows => 5 %>
           </div>
-        </div>
-          <div class="modal-footer">
-            <div class="form-group">
-              <%= f.submit "Submit Request", :class => "btn btn-action", :id => "requestSubmit" %>
-            </div>
+          <div class="form-group">
+            <%= f.submit "Submit Request", :class => "btn btn-action", :id => "requestSubmit" %>
+          </div>
         <% end %>
         </div>
+        <div class="modal-footer"></div>
     </div>
   </div>
 </div>

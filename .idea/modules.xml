@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../INDIGO/.idea/INDIGO.iml" filepath="$PROJECT_DIR$/../../INDIGO/.idea/INDIGO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../msgenes2/msgenes/.idea/msgenes.iml" filepath="$PROJECT_DIR$/../../msgenes2/msgenes/.idea/msgenes.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/msgenetics2.iml" filepath="$PROJECT_DIR$/.idea/msgenetics2.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../summit_api/.idea/summit_api.iml" filepath="$PROJECT_DIR$/../../summit_api/.idea/summit_api.iml" />
     </modules>
