@@ -5,7 +5,7 @@
       <change beforePath="$PROJECT_DIR$/../../msgenes2/msgenes/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../msgenes2/msgenes/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../msgenes2/msgenes/app/assets/stylesheets/application.css.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../msgenes2/msgenes/app/assets/stylesheets/application.css.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../msgenes2/msgenes/app/views/devise/sessions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/../../msgenes2/msgenes/app/views/devise/sessions/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/mailers/biorepository_notification_mailer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/mailers/biorepository_notification_mailer.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/app/models/relapse.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/app/models/relapse.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/app/models/user.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/config/routes.rb" afterDir="false" />
@@ -43,14 +43,14 @@
           <entry key="Rakefile" value="1" />
           <entry key="coffee" value="1" />
           <entry key="enc" value="2" />
-          <entry key="erb" value="143" />
+          <entry key="erb" value="145" />
           <entry key="gitignore" value="1" />
           <entry key="html" value="2" />
           <entry key="js" value="44" />
           <entry key="json" value="1" />
           <entry key="key" value="2" />
           <entry key="lock" value="3" />
-          <entry key="rb" value="204" />
+          <entry key="rb" value="207" />
           <entry key="scss" value="36" />
           <entry key="yarn-integrity" value="1" />
           <entry key="yml" value="13" />
@@ -63,8 +63,8 @@
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="44" />
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="RHTML" value="142" />
-          <entry key="Ruby" value="229" />
+          <entry key="RHTML" value="144" />
+          <entry key="Ruby" value="232" />
           <entry key="SCSS" value="36" />
           <entry key="YAML" value="13" />
           <entry key="yarn.lock" value="2" />
@@ -79,7 +79,7 @@
           <entry key="erb" value="29909" />
           <entry key="html" value="30" />
           <entry key="js" value="19875" />
-          <entry key="rb" value="20678" />
+          <entry key="rb" value="20771" />
           <entry key="scss" value="7633" />
           <entry key="yml" value="304" />
         </counts>
@@ -91,7 +91,7 @@
           <entry key="JavaScript" value="19875" />
           <entry key="PLAIN_TEXT" value="37" />
           <entry key="RHTML" value="29887" />
-          <entry key="Ruby" value="21122" />
+          <entry key="Ruby" value="21215" />
           <entry key="SCSS" value="7633" />
           <entry key="YAML" value="304" />
         </counts>
@@ -142,29 +142,39 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../INDIGO/app/views/layouts/_header.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="46" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../INDIGO/app/assets/stylesheets/dataview.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="84" selection-start-line="20" selection-start-column="84" selection-end-line="20" selection-end-column="84" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/mailers/biorepository_notification_mailer.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
               <caret line="6" column="62" selection-start-line="6" selection-start-column="62" selection-end-line="6" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/biorepository_notification_mailer/samples_request_notification.html.erb">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/schema.rb">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/home/_form_modal.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -217,7 +227,6 @@
         <option value="$PROJECT_DIR$/../../INDIGO/app/views/dataview/index.html.erb" />
         <option value="$PROJECT_DIR$/../../INDIGO/app/datatables/sample_index_datatable.rb" />
         <option value="$PROJECT_DIR$/../../INDIGO/app/controllers/dataview_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/home/_form_modal.html.erb" />
         <option value="$PROJECT_DIR$/../../INDIGO/app/views/layouts/_header.html.erb" />
         <option value="$PROJECT_DIR$/../../INDIGO/app/assets/javascripts/chart.js" />
@@ -228,6 +237,7 @@
         <option value="$PROJECT_DIR$/../../INDIGO/app/datatables/kir_superindex_datatable.rb" />
         <option value="$PROJECT_DIR$/../../INDIGO/app/datatables/hla_superindex_datatable.rb" />
         <option value="$PROJECT_DIR$/app/mailers/biorepository_notification_mailer.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
       </list>
     </option>
   </component>
@@ -273,7 +283,44 @@
               <item name="msGenetics2" type="b2602c69:ProjectViewProjectNode" />
               <item name="msGenetics2" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="msGenetics2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="msGenetics2" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="mailers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="msGenetics2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="msGenetics2" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="msGenetics2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="msGenetics2" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="msGenetics2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="msGenetics2" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="biorepository_notification_mailer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="msGenetics2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="msGenetics2" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="msGenetics2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="msGenetics2" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -321,12 +368,12 @@
       <workItem from="1536076017692" duration="92405000" />
       <workItem from="1538776418040" duration="1260000" />
       <workItem from="1539811716050" duration="74778000" />
-      <workItem from="1541708167597" duration="138944000" />
+      <workItem from="1541708167597" duration="139204000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="381302000" />
+    <option name="totallyTimeSpent" value="381562000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="2560" height="1440" extended-state="0" />
@@ -392,27 +439,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../msgenes2/msgenes/app/views/home/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../msgenes2/msgenes/config/database.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../msgenes2/msgenes/app/views/devise/sessions/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../msgenes2/msgenes/app/controllers/home_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -620,23 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/_form_modal.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../INDIGO/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -731,6 +740,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="62" selection-start-line="6" selection-start-column="62" selection-end-line="6" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/biorepository_notification_mailer/samples_request_notification.html.erb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/schema.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/_form_modal.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/customer.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="84" selection-start-line="20" selection-start-column="84" selection-end-line="20" selection-end-column="84" />
         </state>
       </provider>
     </entry>

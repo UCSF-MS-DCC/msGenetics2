@@ -18,7 +18,7 @@ class HomeController < ApplicationController
   end
 
   def dashboard
-    puts Rails.env == 'development'
+# msc = multiple sclerosis cases, ru = related unaffected, uu = unrelated unaffected
     @subjectsamples = { msc_serum: Subject.where.not(serum:nil).where.not(disease_course:nil).count, msc_plasma: Subject.where.not(plasma:nil).where.not(disease_course:nil).count, msc_dna: Subject.where.not(dna:nil).where.not(disease_course:nil).count,
                         ru_serum: RelatedUnaffected.where.not(serum:nil).count, ru_plasma: RelatedUnaffected.where.not(plasma:nil).count, ru_dna: RelatedUnaffected.where.not(dna:nil).count,
                         uu_serum: UnrelatedUnaffected.where.not(serum:nil).count, uu_plasma: UnrelatedUnaffected.where.not(plasma:nil).count, uu_dna: UnrelatedUnaffected.where.not(dna:nil).count }
@@ -26,7 +26,6 @@ class HomeController < ApplicationController
   end
 
   def accept
-    puts "ACCEPT"
     @samples_request = Customer.new(accept_request_params)
     if @samples_request.save
       BiorepositoryNotificationMailer.with(customer: @samples_request).samples_request_notification.deliver_now
