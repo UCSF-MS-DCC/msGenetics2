@@ -5,7 +5,6 @@ class BiorepositoryNotificationMailer < ApplicationMailer
       mail(to: 'adam.renschen@ucsf.edu', subject:"Request for samples information from: #{@customer.email}")
     else
       mail(to: 'biorepository@ucsf.edu', subject:"Request for samples information from: #{@customer.email}")
-      mail(to: 'adam.renschen@ucsf.edu', subject:"Request for samples information from: #{@customer.email}")
     end
   end
 end

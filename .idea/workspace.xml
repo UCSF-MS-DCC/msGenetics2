@@ -5,12 +5,7 @@
       <change beforePath="$PROJECT_DIR$/../../msgenes2/msgenes/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../msgenes2/msgenes/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../msgenes2/msgenes/app/assets/stylesheets/application.css.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../msgenes2/msgenes/app/assets/stylesheets/application.css.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../msgenes2/msgenes/app/views/devise/sessions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/../../msgenes2/msgenes/app/views/devise/sessions/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/mailers/biorepository_notification_mailer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/mailers/biorepository_notification_mailer.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/home/_form_modal.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/_form_modal.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/app/models/relapse.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/app/models/relapse.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/app/models/user.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../summit_api/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../summit_api/config/routes.rb" afterDir="false" />
@@ -48,15 +43,15 @@
           <entry key="Rakefile" value="1" />
           <entry key="coffee" value="1" />
           <entry key="enc" value="2" />
-          <entry key="erb" value="141" />
+          <entry key="erb" value="143" />
           <entry key="gitignore" value="1" />
           <entry key="html" value="2" />
-          <entry key="js" value="42" />
+          <entry key="js" value="44" />
           <entry key="json" value="1" />
           <entry key="key" value="2" />
           <entry key="lock" value="3" />
-          <entry key="rb" value="197" />
-          <entry key="scss" value="34" />
+          <entry key="rb" value="204" />
+          <entry key="scss" value="36" />
           <entry key="yarn-integrity" value="1" />
           <entry key="yml" value="13" />
         </counts>
@@ -66,11 +61,11 @@
           <entry key="CoffeeScript" value="1" />
           <entry key="HTML" value="2" />
           <entry key="JSON" value="1" />
-          <entry key="JavaScript" value="42" />
+          <entry key="JavaScript" value="44" />
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="RHTML" value="140" />
-          <entry key="Ruby" value="222" />
-          <entry key="SCSS" value="34" />
+          <entry key="RHTML" value="142" />
+          <entry key="Ruby" value="229" />
+          <entry key="SCSS" value="36" />
           <entry key="YAML" value="13" />
           <entry key="yarn.lock" value="2" />
         </counts>
@@ -81,11 +76,11 @@
           <entry key="Gemfile" value="374" />
           <entry key="coffee" value="2" />
           <entry key="enc" value="15" />
-          <entry key="erb" value="29784" />
+          <entry key="erb" value="29909" />
           <entry key="html" value="30" />
-          <entry key="js" value="19620" />
-          <entry key="rb" value="19180" />
-          <entry key="scss" value="7606" />
+          <entry key="js" value="19875" />
+          <entry key="rb" value="20653" />
+          <entry key="scss" value="7633" />
           <entry key="yml" value="304" />
         </counts>
       </usages-collector>
@@ -93,11 +88,11 @@
         <counts>
           <entry key="CoffeeScript" value="2" />
           <entry key="HTML" value="30" />
-          <entry key="JavaScript" value="19620" />
+          <entry key="JavaScript" value="19875" />
           <entry key="PLAIN_TEXT" value="37" />
-          <entry key="RHTML" value="29762" />
-          <entry key="Ruby" value="19624" />
-          <entry key="SCSS" value="7606" />
+          <entry key="RHTML" value="29887" />
+          <entry key="Ruby" value="21097" />
+          <entry key="SCSS" value="7633" />
           <entry key="YAML" value="304" />
         </counts>
       </usages-collector>
@@ -109,49 +104,67 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/home/dashboard.html.erb">
+        <entry file="file://$PROJECT_DIR$/../../INDIGO/app/assets/javascripts/dataview.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="741">
-              <caret line="103" column="26" selection-start-line="103" selection-start-column="26" selection-end-line="103" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/home/_form_modal.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+            <state relative-caret-position="916">
+              <caret line="214" column="5" selection-start-line="214" selection-start-column="5" selection-end-line="214" selection-end-column="5" />
               <folding>
-                <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../INDIGO/app/views/layouts/application.html.erb">
+        <entry file="file://$PROJECT_DIR$/../../INDIGO/app/datatables/sample_superindex_datatable.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="61" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
+            <state relative-caret-position="690">
+              <caret line="46" column="417" selection-start-line="46" selection-start-column="417" selection-end-line="46" selection-end-column="417" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../INDIGO/db/schema.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="398">
+              <caret line="132" selection-start-line="132" selection-end-line="154" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../INDIGO/app/views/dataview/superindex.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="534">
+              <caret line="174" column="75" selection-start-line="174" selection-start-column="75" selection-end-line="174" selection-end-column="75" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../INDIGO/app/views/layouts/_header.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="354">
+              <caret line="46" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../INDIGO/app/assets/stylesheets/dataview.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/mailers/biorepository_notification_mailer.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="108" selection-start-line="7" selection-start-column="108" selection-end-line="7" selection-end-column="108" />
+            <state relative-caret-position="90">
+              <caret line="6" column="108" selection-start-line="6" selection-start-column="108" selection-end-line="6" selection-end-column="108" />
             </state>
           </provider>
         </entry>
@@ -164,7 +177,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../../msgenes2/msgenes/app/controllers/home_controller.rb" />
         <option value="$PROJECT_DIR$/../../msgenes2/msgenes/app/views/home/publications.html.erb" />
         <option value="$PROJECT_DIR$/../../msgenes2/msgenes/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/../../msgenes2/msgenes/app/views/home/jobs.html.erb" />
@@ -204,17 +216,18 @@
         <option value="$PROJECT_DIR$/../../INDIGO/app/assets/stylesheets/welcome.scss" />
         <option value="$PROJECT_DIR$/../../INDIGO/app/views/dataview/index.html.erb" />
         <option value="$PROJECT_DIR$/../../INDIGO/app/datatables/sample_index_datatable.rb" />
-        <option value="$PROJECT_DIR$/../../INDIGO/app/datatables/sample_superindex_datatable.rb" />
-        <option value="$PROJECT_DIR$/../../INDIGO/app/datatables/hla_superindex_datatable.rb" />
-        <option value="$PROJECT_DIR$/../../INDIGO/app/assets/javascripts/chart.js" />
-        <option value="$PROJECT_DIR$/../../INDIGO/app/views/layouts/_header.html.erb" />
         <option value="$PROJECT_DIR$/../../INDIGO/app/controllers/dataview_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/home/_form_modal.html.erb" />
+        <option value="$PROJECT_DIR$/../../INDIGO/app/views/layouts/_header.html.erb" />
+        <option value="$PROJECT_DIR$/../../INDIGO/app/assets/javascripts/chart.js" />
         <option value="$PROJECT_DIR$/../../INDIGO/app/assets/javascripts/dataview.js" />
         <option value="$PROJECT_DIR$/../../INDIGO/app/assets/stylesheets/dataview.scss" />
+        <option value="$PROJECT_DIR$/../../INDIGO/app/datatables/sample_superindex_datatable.rb" />
         <option value="$PROJECT_DIR$/../../INDIGO/app/views/dataview/superindex.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
+        <option value="$PROJECT_DIR$/../../INDIGO/app/datatables/kir_superindex_datatable.rb" />
+        <option value="$PROJECT_DIR$/../../INDIGO/app/datatables/hla_superindex_datatable.rb" />
         <option value="$PROJECT_DIR$/app/mailers/biorepository_notification_mailer.rb" />
-        <option value="$PROJECT_DIR$/app/views/home/_form_modal.html.erb" />
       </list>
     </option>
   </component>
@@ -249,25 +262,18 @@
           <expand>
             <path>
               <item name="msGenetics2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="INDIGO" type="462c0819:PsiDirectoryNode" />
+              <item name="msGenetics2" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="msGenetics2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="INDIGO" type="462c0819:PsiDirectoryNode" />
+              <item name="msGenetics2" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="msGenetics2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="INDIGO" type="462c0819:PsiDirectoryNode" />
+              <item name="msGenetics2" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msGenetics2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="INDIGO" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+              <item name="mailers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -315,12 +321,12 @@
       <workItem from="1536076017692" duration="92405000" />
       <workItem from="1538776418040" duration="1260000" />
       <workItem from="1539811716050" duration="74778000" />
-      <workItem from="1541708167597" duration="130982000" />
+      <workItem from="1541708167597" duration="138579000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="373340000" />
+    <option name="totallyTimeSpent" value="380937000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="2560" height="1440" extended-state="0" />
@@ -386,20 +392,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../msgenes2/msgenes/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../msgenes2/msgenes/app/assets/stylesheets/home.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-388">
-          <caret line="23" column="17" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../msgenes2/msgenes/app/views/home/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -566,13 +558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../INDIGO/app/assets/stylesheets/application.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="148" selection-start-line="148" selection-end-line="148" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../INDIGO/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -585,11 +570,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../summit_api/app/helpers/api/v1/subjects_helper.rb">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../INDIGO/db/schema.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-692" />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../INDIGO/app/controllers/chart_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
@@ -626,73 +606,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../INDIGO/app/controllers/dataview_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../INDIGO/app/assets/stylesheets/chart.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../INDIGO/app/assets/stylesheets/dataview.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../INDIGO/app/views/dataview/superindex.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="167" column="31" lean-forward="true" selection-start-line="167" selection-start-column="31" selection-end-line="167" selection-end-column="31" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../INDIGO/app/assets/javascripts/dataview.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="56" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../INDIGO/app/datatables/hla_superindex_datatable.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../INDIGO/app/datatables/sample_superindex_datatable.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" selection-start-line="22" selection-end-line="22" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../INDIGO/app/assets/javascripts/chart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="390" column="20" lean-forward="true" selection-start-line="390" selection-start-column="20" selection-end-line="390" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../INDIGO/app/views/layouts/_header.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="46" column="47" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -703,13 +620,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../INDIGO/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="61" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -717,20 +627,110 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/mailers/biorepository_notification_mailer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="108" selection-start-line="7" selection-start-column="108" selection-end-line="7" selection-end-column="108" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/_form_modal.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
           <folding>
             <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../INDIGO/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="61" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../INDIGO/app/datatables/kir_wip_datatable.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../INDIGO/app/assets/stylesheets/application.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-558">
+          <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../INDIGO/app/assets/javascripts/chart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="564">
+          <caret line="264" column="39" selection-start-line="264" selection-start-column="39" selection-end-line="264" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../INDIGO/app/views/layouts/_header.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="46" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../INDIGO/app/assets/stylesheets/dataview.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../INDIGO/app/datatables/sample_superindex_datatable.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="46" column="417" selection-start-line="46" selection-start-column="417" selection-end-line="46" selection-end-column="417" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../INDIGO/app/views/dataview/superindex.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="174" column="75" selection-start-line="174" selection-start-column="75" selection-end-line="174" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../INDIGO/db/schema.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="132" selection-start-line="132" selection-end-line="154" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../INDIGO/app/datatables/hla_superindex_datatable.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="815">
+          <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../INDIGO/app/datatables/kir_superindex_datatable.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="55" column="31" selection-start-line="55" selection-start-column="31" selection-end-line="55" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../INDIGO/app/controllers/dataview_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1028">
+          <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../INDIGO/app/assets/javascripts/dataview.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="916">
+          <caret line="214" column="5" selection-start-line="214" selection-start-column="5" selection-end-line="214" selection-end-column="5" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/mailers/biorepository_notification_mailer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="108" selection-start-line="6" selection-start-column="108" selection-end-line="6" selection-end-column="108" />
         </state>
       </provider>
     </entry>
