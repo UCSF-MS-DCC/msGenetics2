@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../INDIGO" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../bioscreen_api/msbioscreen.API" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../msgenes2/msgenes" vcs="Git" />
   </component>
 </project>
