@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get '/about', to: 'home#about', as: 'about'
   get '/research', to: 'home#research', as: 'research'
   post '/home/accept'
+  get '*path', to: 'error#error_404', via: :all, as: 'error'
 end

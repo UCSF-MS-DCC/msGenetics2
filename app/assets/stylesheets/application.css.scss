@@ -113,3 +113,14 @@ nav-nav-link-active {
   margin-right: auto;
   display:block;
 }
+.not-found {
+  min-width:100%;
+  min-height: 350px;
+  background-image: image_url("not_found.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top:150px;
+  margin-bottom:40vh;
+  border-top:1px solid #273773;
+  border-bottom:1px solid #273773;
+}
