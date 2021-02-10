@@ -5,10 +5,6 @@ class HomeController < ApplicationController
 
   end
 
-  def index2
-
-  end
-
   def about
 
   end
@@ -26,10 +22,18 @@ class HomeController < ApplicationController
   end
 
   def accept
+    response.headers["Set-Cookie"] = "my=cookie; path=/; expires=#{1.year.from_now}; SameSite=Secure;"
+    unless verify_recaptcha?(params[:recaptcha_token], 'inquiry')
+      flash.now[:error] = "reCAPTCHA Authorization Failed. Please try again later."
+      return render 'home/index'
+    end
     @samples_request = Customer.new(accept_request_params)
     if @samples_request.save
-      BiorepositoryNotificationMailer.with(customer: @samples_request).samples_request_notification.deliver_now
+      if Rails.env == 'production'
+        BiorepositoryNotificationMailer.with(customer: @samples_request).samples_request_notification.deliver_now
+      end
     end
+    redirect_to root_path
   end
 
   def biorepository
@@ -110,3 +114,5 @@ class HomeController < ApplicationController
       params.permit(:firstname, :lastname, :email, :institution, :studygroup, :studygroupunrelated, :studyname, :studydescription, :irb, :sampletype, :comments)
     end
 end
+
+
