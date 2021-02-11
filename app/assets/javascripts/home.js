@@ -1,5 +1,7 @@
 $(document).on("turbolinks:load", function(){
 
+
+
     if (window.location.pathname === "/biorepository") {
         $('#infoModal').modal('show');
         seenModal = true;
@@ -19,6 +21,8 @@ $(document).on("turbolinks:load", function(){
     });
 
     if (window.location.pathname === "/dashboard") {
+        // reCaptcha
+        
         $.get("/home/biorepo_data.json", function(data) {
             function addUnderScores(str) {
                 if (str.split(" ").length > 1) {

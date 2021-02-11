@@ -4,9 +4,10 @@
     <title>UCSF MS Genetics Project</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= yield :recaptcha_js %>
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= yield :recaptcha_js %>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Catamaran:400,300,700' rel='stylesheet' type='text/css'>
     <!-- Global site tag (gtag.js) - Google Analytics -->
