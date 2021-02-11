@@ -22,12 +22,13 @@ class HomeController < ApplicationController
   end
 
   def accept
+    @samples_request = Customer.new(accept_request_params)
     response.headers["Set-Cookie"] = "my=cookie; path=/; expires=#{1.year.from_now}; SameSite=Secure;"
     unless verify_recaptcha?(params[:recaptcha_token], 'inquiry')
       flash.now[:error] = "reCAPTCHA Authorization Failed. Please try again later."
       return render 'home/index'
     end
-    @samples_request = Customer.new(accept_request_params)
+
     if @samples_request.save
       if Rails.env == 'production'
         BiorepositoryNotificationMailer.with(customer: @samples_request).samples_request_notification.deliver_now

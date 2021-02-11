@@ -4,7 +4,7 @@
     <title>UCSF MS Genetics Project</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= yield :recaptcha_js %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -19,7 +19,7 @@
         gtag('config', 'UA-128939674-1');
 
     </script>
-    <%= yield :recaptcha_js %>
+
   </head>
 
   <body>

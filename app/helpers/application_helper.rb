@@ -15,6 +15,7 @@ module ApplicationHelper
         <script>
           grecaptcha.ready(function() {
             grecaptcha.execute('#{RECAPTCHA_SITE_KEY}', {action: '#{action}'}).then(function(token) {
+                console.log("INSIDE GRECAPTCHA EXECUTE","SITE_KEY","#{RECAPTCHA_SITE_KEY}","ACTION","#{action}", "TOKEN",token)
               document.getElementById("#{id}").value = token;
             });
           });
