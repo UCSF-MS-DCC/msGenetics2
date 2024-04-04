@@ -19,7 +19,7 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'd3-rails'
 gem 'active_model_serializers'
-gem 'pg', '1.0.0', group: :production
+gem 'pg', group: :production
 gem 'rails_12factor', group: :production
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -59,7 +59,7 @@ group :development do
   gem 'capistrano-rvm'
   gem 'capistrano-rails'
   gem 'capistrano-passenger'
-  gem 'capistrano3-puma'
+  gem 'capistrano3-puma', '4.0.0'
 end
 
 group :test do
