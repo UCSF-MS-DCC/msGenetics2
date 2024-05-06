@@ -5,7 +5,7 @@ lock "~> 3.18.1"
 server '169.230.177.100', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'https://github.com/UCSF-MS-DCC/msGenetics2'
-set :application,     'ucsf_ms_genetics'
+set :application,     'msgenetics'
 set :user,            'deployment'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
