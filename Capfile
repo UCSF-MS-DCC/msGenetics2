@@ -14,7 +14,8 @@ require "capistrano/deploy"
 # or
 require "capistrano/scm/git"
 install_plugin Capistrano::SCM::Git
-
+set :rvm_type, :user
+set :rvm_ruby_version, '3.0.4'
 # Include tasks from other gems included in your Gemfile
 #
 # For documentation on these, see for example:
@@ -36,7 +37,7 @@ require "capistrano/rails/migrations"
 require "capistrano/puma"
 
 install_plugin Capistrano::Puma
-install_plugin Capistrano::Puma::Systemd
+install_plugin Capistrano::Puma::Daemon
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
