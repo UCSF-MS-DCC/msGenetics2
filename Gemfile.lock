@@ -128,9 +128,9 @@ GEM
     d3-rails (7.8.5)
       railties (>= 3.1)
     date (3.3.4)
-    dotenv (3.1.1)
-    dotenv-rails (3.1.1)
-      dotenv (= 3.1.1)
+    dotenv (3.1.2)
+    dotenv-rails (3.1.2)
+      dotenv (= 3.1.2)
       railties (>= 6.1)
     erubi (1.12.0)
     execjs (2.9.1)
@@ -139,7 +139,7 @@ GEM
     ffi (1.16.3)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    i18n (1.14.4)
+    i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     io-like (0.3.1)
     jbuilder (2.12.0)
@@ -168,7 +168,7 @@ GEM
     minitest (5.22.3)
     msgpack (1.7.2)
     mutex_m (0.2.0)
-    net-imap (0.4.10)
+    net-imap (0.4.11)
       date
       net-protocol
     net-pop (0.1.2)
@@ -182,7 +182,7 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     net-ssh (7.2.3)
-    nio4r (2.7.1)
+    nio4r (2.7.3)
     nokogiri (1.16.4-aarch64-linux)
       racc (~> 1.4)
     nokogiri (1.16.4-arm-linux)
@@ -198,7 +198,7 @@ GEM
     pg (1.5.6)
     popper_js (1.16.1)
     public_suffix (5.0.5)
-    puma (4.3.12)
+    puma (5.6.8)
       nio4r (~> 2.0)
     racc (1.7.3)
     rack (2.2.9)
@@ -351,7 +351,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 RUBY VERSION
-   ruby 3.0.4p208
+   ruby 3.0.6p216
 
 BUNDLED WITH
-   2.5.9
+   2.5.10
