@@ -1,0 +1,46 @@
+version: "3.8"
+networks:
+  network:
+services:
+  web:
+    networks:
+      - network
+    build:
+      dockerfile: Dockerfile
+      args:
+        - MSGENETICS_DB_USER=${MSGENETICS_DB_USER}
+        - MSGENETICS_DB_PASS=${MSGENETICS_DB_PASS}
+        - MSGENETICS_DB=${MSGENETICS_DB}
+    command: bundle exec rails s -p 4444 -b '0.0.0.0'
+    container_name: msgenetics_web
+    environment:
+      RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
+      RAILS_LOG_TO_STDOUT: true
+      RAILS_SERVE_STATIC_FILES: true
+      RAILS_ENV: production
+      POSTGRES_USER: ${MSGENETICS_DB_USER}
+      POSTGRES_PASSWORD: ${MSGENETICS_DB_PASS}
+      POSTGRES_DB: ${MSGENETICS_DB}
+    ports:
+      - "4444:4444"
+    depends_on:
+      - db
+  db:
+    networks:
+      - network
+    image: postgres:15
+    ports:
+      - 5432:5432
+    container_name: msgenetics_db
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: ${MSGENETICS_DB_PASS}
+      POSTGRES_USER: ${MSGENETICS_DB_USER}
+      POSTGRES_DB: ${MSGENETICS_DB}
+      POSTGRES_HOST: ${POSTGRES_HOST}
+    volumes:
+      - .db:/usr/local/var/postgresql@15
+
+volumes:
+  db-data:
+
